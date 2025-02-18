@@ -81,6 +81,39 @@ public class ProfileController {
         }
     }
 
+    @FXML
+    private void onUpdateProfileClicked() {
+        // Collect data from the input fields
+        String firstname = firstname_input.getText().isEmpty() ? user.getName() : firstname_input.getText();
+        String lastname = lastname_input.getText().isEmpty() ? user.getSurname() : lastname_input.getText();
+        String email = email_input.getText().isEmpty() ? user.getEmail() : email_input.getText();
+        int age = age_input.getText().isEmpty() ? user.getAge() : Integer.parseInt(age_input.getText());
+        String address = address_input.getText().isEmpty() ? user.getAdresse() : address_input.getText();
+        String phone = phone_input.getText().isEmpty() ? user.getNumTel() : phone_input.getText();
+
+        // Update the user object
+        user.setName(firstname);
+        user.setSurname(lastname);
+        user.setEmail(email);
+        user.setAge(age);
+        user.setAdresse(address);
+        user.setNumTel(phone);
+
+        // Call the modifyUser method from UserController
+        UserController userController = new UserController();
+        userController.modifyUser(user);
+
+        // Show a success message
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Profile Updated");
+        alert.setHeaderText(null);
+        alert.setContentText("Your profile has been updated successfully!");
+        alert.showAndWait();
+
+        // Refresh the profile view
+        initialize();
+    }
+
     // Delete the user
     private void deleteUser() {
         UserController.removeUser(user.getId());
@@ -92,6 +125,11 @@ public class ProfileController {
     private void logoutUser(){
         UserController.logout();
         loadScene("/tn/esprit/atlas/views/signup-view.fxml");
+    }
+
+    @FXML
+    private void handleGoToDashboard(){
+        loadScene("/tn/esprit/atlas/views/main-view.fxml");
     }
 
     public void loadScene(String fxml) {
