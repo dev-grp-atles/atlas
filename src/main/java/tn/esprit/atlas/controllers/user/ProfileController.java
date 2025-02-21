@@ -1,4 +1,4 @@
-package tn.esprit.atlas.controllers;
+package tn.esprit.atlas.controllers.user;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -118,13 +118,13 @@ public class ProfileController {
     private void deleteUser() {
         UserController.removeUser(user.getId());
         System.out.println("User deleted: " + user.getName() + " " + user.getSurname());
-        loadScene("/tn/esprit/atlas/views/signup-view.fxml");
+        loadScene("/tn/esprit/atlas/views/user/signup-view.fxml");
     }
 
     @FXML
     private void logoutUser(){
         UserController.logout();
-        loadScene("/tn/esprit/atlas/views/signup-view.fxml");
+        loadScene("/tn/esprit/atlas/views/user/signup-view.fxml");
     }
 
     @FXML

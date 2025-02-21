@@ -12,7 +12,7 @@ public class AtlasApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Load the main interface
-        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/signup-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/signup-view.fxml"));
         Scene scene = new Scene(root);
 
         scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/style.css").toExternalForm());

@@ -1,4 +1,4 @@
-package tn.esprit.atlas.controllers;
+package tn.esprit.atlas.controllers.user;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +14,6 @@ import tn.esprit.atlas.utils.UserSession;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignupController {
@@ -95,7 +94,7 @@ public class SignupController {
                         clearForm();
 
                         // Load the profile view
-                        loadScene("/tn/esprit/atlas/views/profile-view.fxml");
+                        loadScene("/tn/esprit/atlas/views/home-view.fxml");
                     } catch (SQLIntegrityConstraintViolationException e) {
                         showAlert(AlertType.ERROR, "Error", "Email Already Exists", "The email address is already registered. Please use a different email.");
                     } catch (Exception e) {
@@ -147,12 +146,12 @@ public class SignupController {
 
     @FXML
     private void handleGoToSignIn(MouseEvent event) throws IOException {
-        loadScene("/tn/esprit/atlas/views/signin-view.fxml");
+        loadScene("/tn/esprit/atlas/views/user/signin-view.fxml");
     }
 
     @FXML
     private void handleGoBack() throws IOException {
-        loadScene("/tn/esprit/atlas/views/signin-view.fxml");
+        loadScene("/tn/esprit/atlas/views/user/signin-view.fxml");
     }
 
     private void loadScene(String fxmlPath) throws IOException {

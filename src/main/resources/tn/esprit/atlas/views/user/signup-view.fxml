@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.SignupController">
    <children>
       <HBox prefHeight="788.0" prefWidth="1542.0">
          <children>
@@ -26,7 +26,7 @@
                   <Region prefHeight="802.0" prefWidth="799.0" style="-fx-background-color: white; -fx-background-radius: 10 0 0 10;" />
                   <ImageView fitHeight="802.0" fitWidth="799.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/images/signin_background.jpg" />
+                        <Image url="@../../assets/images/signin_background.jpg" />
                      </image>
                   </ImageView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0264ab81" height="801.0" stroke="BLACK" strokeType="INSIDE" styleClass="overlay" width="800.0" />
@@ -81,7 +81,7 @@
                            <children>
                               <ImageView fitHeight="76.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/ATLAS_LOGO.png" />
+                                    <Image url="@../../assets/ATLAS_LOGO.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -131,7 +131,7 @@
                                                    <children>
                                                       <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/id-card_icon.png" />
+                                                            <Image url="@../../assets/icons/id-card_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -145,7 +145,7 @@
                                                    <children>
                                                       <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/age-group_icon.png" />
+                                                            <Image url="@../../assets/icons/age-group_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -159,7 +159,7 @@
                                                    <children>
                                                       <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/home_icon.png" />
+                                                            <Image url="@../../assets/icons/home_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -173,7 +173,7 @@
                                                    <children>
                                                       <ImageView fitHeight="52.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/Password_icon.png" />
+                                                            <Image url="@../../assets/icons/Password_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -191,7 +191,7 @@
                                                    <children>
                                                       <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/id-card_icon.png" />
+                                                            <Image url="@../../assets/icons/id-card_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -205,7 +205,7 @@
                                                    <children>
                                                       <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/Email_icon.png" />
+                                                            <Image url="@../../assets/icons/Email_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -219,7 +219,7 @@
                                                    <children>
                                                       <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/phone-call_icon.png" />
+                                                            <Image url="@../../assets/icons/phone-call_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -233,7 +233,7 @@
                                                    <children>
                                                       <ImageView fitHeight="52.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../assets/icons/Password_icon.png" />
+                                                            <Image url="@../../assets/icons/Password_icon.png" />
                                                          </image>
                                                       </ImageView>
                                                    </children>
@@ -258,7 +258,7 @@
                            <children>
                               <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/upload_icon.png" />
+                                    <Image url="@../../assets/icons/upload_icon.png" />
                                  </image>
                               </ImageView>
                            </children>

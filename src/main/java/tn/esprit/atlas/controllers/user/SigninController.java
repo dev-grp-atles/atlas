@@ -1,4 +1,4 @@
-package tn.esprit.atlas.controllers;
+package tn.esprit.atlas.controllers.user;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +37,7 @@ public class SigninController {
 
     @FXML
     private void handleGoToSignUp(MouseEvent event) throws IOException {
-        loadScene("/tn/esprit/atlas/views/signup-view.fxml");
+        loadScene("/tn/esprit/atlas/views/user/signup-view.fxml");
     }
 
     private void loadScene(String fxmlPath) throws IOException {
@@ -72,7 +72,7 @@ public class SigninController {
             UserSession.setUser(user); // Set the user session
             showAlert("Success", "Sign-in successful!");
             try {
-                loadScene("/tn/esprit/atlas/views/profile-view.fxml");
+                loadScene("/tn/esprit/atlas/views/home-view.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }

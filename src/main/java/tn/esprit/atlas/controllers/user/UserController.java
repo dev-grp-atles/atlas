@@ -1,4 +1,4 @@
-package tn.esprit.atlas.controllers;
+package tn.esprit.atlas.controllers.user;
 
 import tn.esprit.atlas.entities.User;
 import tn.esprit.atlas.services.UserService;
@@ -16,10 +16,9 @@ public class UserController {
         userService.addUser(user);
     }
 
-    // ➤ List All Users
-    public void listUsers() {
-        List<User> users = UserService.getAllUsers();
-        users.forEach(user -> System.out.println(user.getName() + " - " + user.getEmail()));
+    // ➤ List All Users and Return the List
+    public List<User> listUsers() {
+        return UserService.getAllUsers(); // Return the list of users
     }
 
     // ➤ Modify User

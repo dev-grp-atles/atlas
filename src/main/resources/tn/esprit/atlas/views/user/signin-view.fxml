@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.SigninController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.SigninController">
    <children>
       <HBox prefHeight="788.0" prefWidth="1542.0">
          <children>
@@ -27,7 +27,7 @@
                            <children>
                               <ImageView fitHeight="76.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/ATLAS_LOGO.png" />
+                                    <Image url="@../../assets/ATLAS_LOGO.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -68,7 +68,7 @@
                                  <children>
                                     <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../assets/icons/Email_icon.png" />
+                                          <Image url="@../../assets/icons/Email_icon.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -82,7 +82,7 @@
                                  <children>
                                     <ImageView fitHeight="52.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../assets/icons/Password_icon.png" />
+                                          <Image url="@../../assets/icons/Password_icon.png" />
                                        </image>
                                     </ImageView>
                                  </children>
@@ -133,7 +133,7 @@
                <children>
                   <ImageView fitHeight="802.0" fitWidth="799.0" pickOnBounds="true" preserveRatio="true" styleClass="signin-image">
                      <image>
-                        <Image url="@../assets/images/signin_background.jpg" />
+                        <Image url="@../../assets/images/signin_background.jpg" />
                      </image>
                   </ImageView>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0264ab81" height="801.0" stroke="BLACK" strokeType="INSIDE" width="800.0" styleClass="overlay" />
