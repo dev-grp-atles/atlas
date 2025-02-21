@@ -173,308 +173,317 @@
          <children>
             <HBox prefHeight="42.0" prefWidth="1030.0" spacing="10.0">
                <children>
-                  <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
+                  <VBox spacing="10.0">
                      <children>
-                        <HBox>
+                        <HBox spacing="10.0">
                            <children>
-                              <VBox>
+                              <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
                                  <children>
-                                    <Label styleClass="widget-title" text="Users" />
-                                    <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All registered users" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="usersicon">
-                                 <children>
-                                    <StackPane>
+                                    <HBox>
                                        <children>
-                                          <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/icons/users_icon.png" />
-                                             </image>
-                                          </ImageView>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="widget-title" text="Users" />
+                                                <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All registered users" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="usersicon">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/users_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </StackPane>
+                                    </HBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="userscount">
+                                       <children>
+                                          <Label fx:id="users_count" text="0" textFill="#0162ab">
+                                             <font>
+                                                <Font name="Arial Bold" size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Users" textFill="#0162ab">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </VBox>
                                  </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="widget-title" text="Flights" />
+                                                <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All flights" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="flightsicon">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/flights_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="flightscount">
+                                       <children>
+                                          <Label fx:id="users_count1" text="0" textFill="#ff612c">
+                                             <font>
+                                                <Font name="Arial Bold" size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Flights" textFill="#ff612c">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="widget-title" text="Airlines" />
+                                                <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All airlines" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="airlinesicon">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/airlines_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="airlinescount">
+                                       <children>
+                                          <Label fx:id="users_count11" text="0" textFill="#02ab8a">
+                                             <font>
+                                                <Font name="Arial Bold" size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Airlines" textFill="#02ab8a">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </VBox>
                            </children>
                         </HBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="userscount">
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Label fx:id="users_count" text="0" textFill="#0162ab">
-                                 <font>
-                                    <Font name="Arial Bold" size="60.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Users" textFill="#0162ab">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </VBox>
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
-                     <children>
-                        <HBox>
-                           <children>
-                              <VBox>
+                              <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
                                  <children>
-                                    <Label styleClass="widget-title" text="Flights" />
-                                    <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All flights" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="flightsicon">
-                                 <children>
-                                    <StackPane>
+                                    <HBox>
                                        <children>
-                                          <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/icons/flights_icon.png" />
-                                             </image>
-                                          </ImageView>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="widget-title" text="Reservations" />
+                                                <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All reservations" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="reservationsicon">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/reservation_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </StackPane>
+                                    </HBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="reservationscount">
+                                       <children>
+                                          <Label fx:id="users_count111" text="0" textFill="#ab02a6">
+                                             <font>
+                                                <Font name="Arial Bold" size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Reservations" textFill="#ab02a6">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </VBox>
                                  </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="widget-title" text="Hotels" />
+                                                <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All hotels" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="hotelsicon">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/hotels_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="hotelscount">
+                                       <children>
+                                          <Label fx:id="users_count1111" text="0" textFill="#9cab02">
+                                             <font>
+                                                <Font name="Arial Bold" size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Hotels" textFill="#9cab02">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="widget-title" text="Offres" />
+                                                <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All offres" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="offersicon">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/offers_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="offerscount">
+                                       <children>
+                                          <Label fx:id="users_count11111" text="0" textFill="#1e03ab">
+                                             <font>
+                                                <Font name="Arial Bold" size="60.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Offers" textFill="#1e03ab">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
                               </VBox>
                            </children>
                         </HBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="flightscount">
-                           <children>
-                              <Label fx:id="users_count1" text="0" textFill="#ff612c">
-                                 <font>
-                                    <Font name="Arial Bold" size="60.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Flights" textFill="#ff612c">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </VBox>
                      </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
-                     <children>
-                        <HBox>
-                           <children>
-                              <VBox>
-                                 <children>
-                                    <Label styleClass="widget-title" text="Airlines" />
-                                    <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All airlines" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="airlinesicon">
-                                 <children>
-                                    <StackPane>
-                                       <children>
-                                          <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/icons/airlines_icon.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="airlinescount">
-                           <children>
-                              <Label fx:id="users_count11" text="0" textFill="#02ab8a">
-                                 <font>
-                                    <Font name="Arial Bold" size="60.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Airlines" textFill="#02ab8a">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </VBox>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
-                     <children>
-                        <HBox>
-                           <children>
-                              <VBox>
-                                 <children>
-                                    <Label styleClass="widget-title" text="Reservations" />
-                                    <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All reservations" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="reservationsicon">
-                                 <children>
-                                    <StackPane>
-                                       <children>
-                                          <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/icons/reservation_icon.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="reservationscount">
-                           <children>
-                              <Label fx:id="users_count111" text="0" textFill="#ab02a6">
-                                 <font>
-                                    <Font name="Arial Bold" size="60.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Reservations" textFill="#ab02a6">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </VBox>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
-                     <children>
-                        <HBox>
-                           <children>
-                              <VBox>
-                                 <children>
-                                    <Label styleClass="widget-title" text="Hotels" />
-                                    <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All hotels" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="hotelsicon">
-                                 <children>
-                                    <StackPane>
-                                       <children>
-                                          <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/icons/hotels_icon.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="hotelscount">
-                           <children>
-                              <Label fx:id="users_count1111" text="0" textFill="#9cab02">
-                                 <font>
-                                    <Font name="Arial Bold" size="60.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Hotels" textFill="#9cab02">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </VBox>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="159.0" prefWidth="188.0" styleClass="widget">
-                     <children>
-                        <HBox>
-                           <children>
-                              <VBox>
-                                 <children>
-                                    <Label styleClass="widget-title" text="Offres" />
-                                    <Label prefHeight="18.0" prefWidth="268.0" styleClass="widget-subtitle" text="All offres" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="53.0" prefWidth="42.0" styleClass="offersicon">
-                                 <children>
-                                    <StackPane>
-                                       <children>
-                                          <ImageView fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../assets/icons/offers_icon.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </StackPane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="167.0" styleClass="offerscount">
-                           <children>
-                              <Label fx:id="users_count11111" text="0" textFill="#1e03ab">
-                                 <font>
-                                    <Font name="Arial Bold" size="60.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Offers" textFill="#1e03ab">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                        </VBox>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
                   </VBox>
                </children>
             </HBox>
