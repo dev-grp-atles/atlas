@@ -28,6 +28,26 @@ CREATE TABLE Utilisateur (
     -- Admin-specific fields
     adminPrivileges TEXT
 );
+-- Create the AirLine table if it does not exist
+CREATE TABLE IF NOT EXISTS AirLine (
+    airline_id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255),
+    pays VARCHAR(255),
+    logo VARCHAR(255)
+    );
+
+-- Créer la table Vol (Vol)
+CREATE TABLE IF NOT EXISTS Vol (
+    vol_id INT PRIMARY KEY AUTO_INCREMENT,
+    departure VARCHAR(255) NOT NULL,
+    destination VARCHAR(255) NOT NULL,
+    departureDate DATE NOT NULL,
+    returnDate DATE NOT NULL,
+    availableSeats INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    airline_id INT, -- Clé étrangère pointant vers Airline
+    FOREIGN KEY (airline_id) REFERENCES Airline(airline_id)
+    );
 CREATE TABLE Reservation (
     id INT PRIMARY KEY AUTO_INCREMENT,
     prenom VARCHAR(50) NOT NULL,
@@ -46,12 +66,12 @@ CREATE TABLE Reservation (
     montantTotal DECIMAL(10, 2) NOT NULL
 );
 CREATE TABLE Forfait (
-    packageld INT AUTO_INCREMENT PRIMARY KEY, 
-    name VARCHAR(255) NOT NULL,               
-    description TEXT,                        
-    price DOUBLE NOT NULL,                  
-    duration INT NOT NULL,                    
-    destinations TEXT,                         
-    availableSeats INT NOT NULL,              
-    packageImage VARCHAR(255)                
+    packageld INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DOUBLE NOT NULL,
+    duration INT NOT NULL,
+    destinations TEXT,
+    availableSeats INT NOT NULL,
+    packageImage VARCHAR(255)
 );
