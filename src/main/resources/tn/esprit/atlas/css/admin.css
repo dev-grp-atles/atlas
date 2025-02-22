@@ -120,27 +120,45 @@
     -fx-padding: 5px;
     -fx-background-radius: 5px;
 }
-/* Dropdown Menu */
-.dropdown-menu {
-    -fx-background-color: #ffffff; /* Background color */
-    -fx-background-radius: 5px; /* Rounded corners */
-    -fx-border-radius: 5px; /* Rounded corners for border */
-    -fx-border-color: #cccccc; /* Border color */
-    -fx-border-width: 1px; /* Border width */
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0); /* Shadow */
-    -fx-padding: 10px; /* Padding inside the menu */
-    -fx-spacing: 5px; /* Spacing between items */
+.airlines-airlinescount{
+    -fx-background-color: rgba(2, 171, 138, 0.35);
+    -fx-padding: 15px;
+    -fx-background-radius: 5px;
+}
+.airlinescount Label{
+    -fx-font-weight: 15px;
+}
+/* Style for the VBox container */
+#airlinesContainer {
+    -fx-background-color: white;
 }
 
-/* Dropdown Menu Items */
-.dropdown-item {
-    -fx-text-fill: #0162AB; /* Text color */
-    -fx-font-size: 14px; /* Font size */
-    -fx-padding: 5px 10px; /* Padding for each item */
-    -fx-background-radius: 3px; /* Rounded corners for items */
+/* Style for the header GridPane */
+#headerGrid {
+    -fx-background-color: #f2f2f2;
 }
 
-.dropdown-item:hover {
-    -fx-background-color: #f0f0f0; /* Background color on hover */
-    -fx-cursor: hand; /* Change cursor to hand on hover */
+/* Style for the ListView */
+.list-view {
+    -fx-background-color: white;
+}
+
+/* Style for each cell in the ListView */
+.list-cell {
+    -fx-padding: 10px;
+    -fx-background-color: white;
+}
+.list-cell:hover{
+    -fx-background-color: rgba(239, 239, 239, 0.35);
+}
+
+/* Style for the GridPane inside each cell */
+.grid-pane {
+    -fx-padding: 5px;
+}
+
+/* Style for the labels inside the GridPane */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
 }
