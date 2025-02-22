@@ -120,3 +120,27 @@
     -fx-padding: 5px;
     -fx-background-radius: 5px;
 }
+/* Dropdown Menu */
+.dropdown-menu {
+    -fx-background-color: #ffffff; /* Background color */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-border-radius: 5px; /* Rounded corners for border */
+    -fx-border-color: #cccccc; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0); /* Shadow */
+    -fx-padding: 10px; /* Padding inside the menu */
+    -fx-spacing: 5px; /* Spacing between items */
+}
+
+/* Dropdown Menu Items */
+.dropdown-item {
+    -fx-text-fill: #0162AB; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 5px 10px; /* Padding for each item */
+    -fx-background-radius: 3px; /* Rounded corners for items */
+}
+
+.dropdown-item:hover {
+    -fx-background-color: #f0f0f0; /* Background color on hover */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
