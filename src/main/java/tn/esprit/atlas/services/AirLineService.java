@@ -16,7 +16,7 @@ public class AirLineService implements Iservice<AirLine> {
     }
 
     @Override
-    public void ajouter(AirLine airLine) {
+    public void addAirline(AirLine airLine) {
         String req = "INSERT INTO airline (nom, pays, logo) VALUES (?, ?, ?)";
 
         try {
@@ -31,7 +31,7 @@ public class AirLineService implements Iservice<AirLine> {
     }
 
     @Override
-    public void modifier(AirLine airLine) {
+    public void updateAirline(AirLine airLine) {
         String req = "UPDATE airline SET nom = ?, pays = ?, logo = ? WHERE airline_id = ?";  // Utilisation de 'airline_id'
 
         try {
@@ -47,7 +47,7 @@ public class AirLineService implements Iservice<AirLine> {
     }
 
     @Override
-    public void supprimer(AirLine airLine) {
+    public void deleteAirline(AirLine airLine) {
         String req = "DELETE FROM airline WHERE airline_id = ?";  // Utilisation de 'airline_id'
 
         try {

@@ -6,6 +6,7 @@ module tn.esprit.atlas.main {
     requires jbcrypt;
 
     exports tn.esprit.atlas.main;
+    opens tn.esprit.atlas.entities to javafx.base;
     opens tn.esprit.atlas.main to javafx.fxml;
     exports tn.esprit.atlas.controllers.admin;
     opens tn.esprit.atlas.controllers.admin to javafx.fxml;

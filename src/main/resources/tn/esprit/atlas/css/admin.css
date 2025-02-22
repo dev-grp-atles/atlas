@@ -28,7 +28,6 @@
 }
 .sidenav-button Label{
     -fx-text-fill: #333333;
-    -fx-font-weight: bold;
 }
 .sidenav-button-active{
     -fx-background-color: rgba(1, 98, 171, 0.35);
@@ -37,7 +36,6 @@
 }
 .sidenav-button-active Label{
     -fx-text-fill: #0162AB;
-    -fx-font-weight: bold;
 }
 .main{
     -fx-background-color: white;
@@ -119,4 +117,46 @@
     -fx-background-color: rgba(30, 3, 171, 0.35);
     -fx-padding: 5px;
     -fx-background-radius: 5px;
+}
+.airlines-airlinescount{
+    -fx-background-color: rgba(2, 171, 138, 0.35);
+    -fx-padding: 15px;
+    -fx-background-radius: 5px;
+}
+.airlinescount Label{
+    -fx-font-weight: 15px;
+}
+/* Style for the VBox container */
+#airlinesContainer {
+    -fx-background-color: white;
+}
+
+/* Style for the header GridPane */
+#headerGrid {
+    -fx-background-color: #f2f2f2;
+}
+
+/* Style for the ListView */
+.list-view {
+    -fx-background-color: white;
+}
+
+/* Style for each cell in the ListView */
+.list-cell {
+    -fx-padding: 10px;
+    -fx-background-color: white;
+}
+.list-cell:hover{
+    -fx-background-color: rgba(239, 239, 239, 0.35);
+}
+
+/* Style for the GridPane inside each cell */
+.grid-pane {
+    -fx-padding: 5px;
+}
+
+/* Style for the labels inside the GridPane */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
 }
