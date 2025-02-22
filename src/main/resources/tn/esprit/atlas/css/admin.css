@@ -44,7 +44,7 @@
     -fx-background-radius: 10px;
 }
 .widget{
-    -fx-background-color: #f2f3f5;
+    -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-cursor: hand;
 }

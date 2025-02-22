@@ -18,6 +18,8 @@ public class HomeController {
     @FXML
     private Button dashboard_button;
 
+
+
     private User user = UserSession.getUser();
 
     @FXML
@@ -32,6 +34,7 @@ public class HomeController {
     private void handleGoToDashboard(){
         loadScene("/tn/esprit/atlas/views/admin/admindashboard-view.fxml");
     }
+
 
     public void loadScene(String fxml) {
         try {
