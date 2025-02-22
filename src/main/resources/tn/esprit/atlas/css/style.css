@@ -81,3 +81,73 @@
     -fx-cursor: hand;
     -fx-animated: true;
 }
+
+/* Style général pour le TableView */
+.custom-table-view {
+    -fx-background-color: #f4f4f4; /* Couleur de fond */
+    -fx-border-color: transparent; /* Couleur de la bordure */
+    -fx-border-width: 0; /* Supprime la bordure */
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 9px;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 10px;
+    -fx-padding: 5px;
+}
+.list-view .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #333;
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.list-view .list-cell:even {
+    -fx-background-color: #f0f8ff; /* Light blue */
+}
+.list-view .list-cell:odd {
+    -fx-background-color: #ffffff; /* White */
+}
+.list-view .list-cell:hover {
+    -fx-background-color: #d0e9ff;
+}
+.list-view .list-cell:selected {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: #005999;
+    -fx-border-width: 2px;
+}
+.addairline-button{
+    -fx-background-color: #0162AB;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 20 15 20 15;
+}
+.addairline-input{
+    -fx-background-color:  #E9E9E9;
+    -fx-background-radius: 10px;
+    -fx-border-color: none;
+}
+.profile-input:hover{
+    -fx-background-color: #e4e4e4;
+    -fx-background-radius: 10px;
+    -fx-border-color: none;
+}
+.addvol-input{
+    -fx-background-color:  #E9E9E9;
+    -fx-background-radius: 10px;
+    -fx-border-color: none;
+}
+.addvol-input .text-field {
+    -fx-background-color: #E9E9E9;
+    -fx-background-radius: 10px;
+}
+
+
+
+
+
