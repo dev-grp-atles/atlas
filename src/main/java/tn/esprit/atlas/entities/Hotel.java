@@ -21,8 +21,9 @@ public class Hotel {
     // Constructor
     public Hotel() {}
 
-    public Hotel(int id, String name, String address, float rating, String imageUrl, int availableRooms, double pricePerNight, List<String> facilities, String checkInTime, String checkOutTime, String contactNumber, String city, double latitude, double longitude) {
-        this.id = id;
+    public Hotel(String name, String address, float rating, String imageUrl, int availableRooms,
+                 double pricePerNight, List<String> facilities, String checkInTime, String checkOutTime,
+                 String contactNumber, String city, double latitude, double longitude) {
         this.name = name;
         this.address = address;
         this.rating = rating;

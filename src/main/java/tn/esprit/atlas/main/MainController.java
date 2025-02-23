@@ -1,15 +1,14 @@
 package tn.esprit.atlas.main;
 
-import javafx.scene.control.TextArea;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import tn.esprit.atlas.controllers.ViewHotelsController;
 import tn.esprit.atlas.services.HotelService;
 import tn.esprit.atlas.entities.Hotel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
@@ -19,10 +18,19 @@ import javafx.scene.Node;
 import java.io.File;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
+    public TableColumn hotelAvailableRoomsColumn;
+    public TableColumn hotelPricePerNightColumn;
+    public TableColumn hotelFacilitiesColumn;
+    public TableColumn hotelCheckInTimeColumn;
+    public TableColumn hotelCheckOutTimeColumn;
+    public TableColumn hotelContactNumberColumn;
+    public TableView hotelTableView;
     @FXML
     private Button switchToSignInButton;
     @FXML
@@ -72,7 +80,7 @@ public class MainController {
     @FXML
     private TextField hotelRentField;
     @FXML
-    private TextArea hotelFacilitiesField; // Change from TextField to TextArea
+    private TextArea hotelFacilitiesField;
     @FXML
     private TextField checkInField;
     @FXML
@@ -85,6 +93,33 @@ public class MainController {
     private TextField hotelLatitudeField;
     @FXML
     private TextField hotelLongitudeField;
+
+    @FXML
+    private TableView<Hotel> hotelTable;
+
+    @FXML
+    private TableColumn<Hotel, String> hotelNameColumn;
+
+    @FXML
+    private TableColumn<Hotel, String> hotelAddressColumn;
+
+    @FXML
+    private TableColumn<Hotel, Float> hotelRatingColumn;
+
+    @FXML
+    private TableColumn<Hotel, String> hotelCityColumn;
+
+    @FXML
+    private TableColumn<Hotel, Double> hotelPriceColumn;
+
+    @FXML
+    private TableColumn<Hotel, String> hotelImageColumn;
+
+    @FXML
+    private TextField searchField;
+
+    @FXML
+    private Button viewDetailsButton;
 
     private HotelService hotelService = new HotelService();
 
@@ -219,9 +254,28 @@ public class MainController {
     }
 
     @FXML
-    private void handleViewHotels() {
-        System.out.println("Viewing hotels...");
+    private void handleViewHotels(ActionEvent event) {
+        // Fetch the list of hotels from your service or database
+        List<Hotel> hotels = hotelService.getAll(); // Assuming you have a method to fetch all hotels
+
+        // Switch to the view-hotels-view.fxml and pass the hotels list
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/hotel/view-hotels-view.fxml"));
+            Parent hotelsRoot = loader.load();
+            ViewHotelsController controller = loader.getController();
+            controller.setHotelDetails(hotels);  // Pass the list of hotels to the controller
+
+            Scene hotelsScene = new Scene(hotelsRoot);
+            Stage currentStage = (Stage) viewHotelsButton.getScene().getWindow();
+            currentStage.setScene(hotelsScene);
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
+
 
     // Review Management Methods
     @FXML
@@ -256,5 +310,27 @@ public class MainController {
             imageView.setImage(image);
             hotelImageField.setText(uploadedImageFile.toURI().toString());
         }
+    }
+
+    @FXML
+    private void handleSearch(ActionEvent actionEvent) {
+        String query = searchField.getText();
+        List<Hotel> searchResults = hotelService.search(query);
+        hotelTable.getItems().setAll(searchResults);
+    }
+
+    @FXML
+    private void handleViewDetails(ActionEvent actionEvent) {
+        Hotel selectedHotel = hotelTable.getSelectionModel().getSelectedItem();
+        if (selectedHotel != null) {
+            System.out.println("Hotel details: " + selectedHotel);
+        } else {
+            showAlert("Selection Error", "Please select a hotel to view details.", AlertType.WARNING);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

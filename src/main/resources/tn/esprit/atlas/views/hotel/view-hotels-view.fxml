@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.ViewHotelsController">
+    <GridPane fx:id="hotelGrid" vgap="20" hgap="20" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="20" />
+</AnchorPane>

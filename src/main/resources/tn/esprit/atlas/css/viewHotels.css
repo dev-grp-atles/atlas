@@ -1,0 +1,18 @@
+.vbox {
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 15;
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+.vbox:hover {
+    -fx-background-color: #e1e1e1;
+}
+
+.imageView {
+    -fx-fit-width: 150px;
+    -fx-fit-height: 150px;
+    -fx-preserve-ratio: true;
+}
