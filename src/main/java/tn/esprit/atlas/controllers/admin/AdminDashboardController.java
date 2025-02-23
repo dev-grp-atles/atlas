@@ -181,7 +181,7 @@ public class AdminDashboardController {
 
     private void loadAirlines() {
         airlineList.clear(); // Clear existing data
-        airlineList.addAll(airLineService.getall()); // Fetch data from the service
+        airlineList.addAll(airLineService.getAll()); // Fetch data from the service
         airlineListView.setItems(airlineList); // Set data to the ListView
     }
 
@@ -282,7 +282,7 @@ public class AdminDashboardController {
         airLine.setLogo(logoPath);
 
         // Add the airline to the database
-        airLineService.addAirline(airLine);
+        airLineService.add(airLine);
         System.out.println("Airline added successfully!");
 
         // Clear fields after adding
@@ -322,7 +322,7 @@ public class AdminDashboardController {
         airLine.setLogo(logoPath);
 
         // Update the airline in the database
-        airLineService.updateAirline(airLine);
+        airLineService.update(airLine);
         System.out.println("Airline updated successfully!");
 
         // Clear fields after updating
@@ -348,7 +348,7 @@ public class AdminDashboardController {
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             // Delete the airline from the database
-            airLineService.deleteAirline(airLine);
+            airLineService.delete(airLine);
             System.out.println("Airline deleted successfully!");
 
             // Refresh the ListView
