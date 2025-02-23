@@ -5,12 +5,23 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane prefHeight="292.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.main.MainController">
-   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-      <children>
-          <Button fx:id="switchToSignInButton" onAction="#switchToSignIn" text="Go to Sign In" />
-          <Button fx:id="switchToReservationButton" onAction="#switchToReservation" text="Go to Reservation" />
-          <Button fx:id="switchToVolsButton" onAction="#switchToVols" text="Go to Vols" />
-          <Button fx:id="switchToAirlinesButton" onAction="#switchToAirlines" text="Go to Airlines" />
-      </children>
-   </HBox>
+
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="button-container">
+        <children>
+            <Button fx:id="switchToSignInButton" onAction="#switchToSignIn" text="Go to Sign In" styleClass="button"/>
+            <Button fx:id="switchToReservationButton" onAction="#switchToReservation" text="Go to Reservation" styleClass="button"/>
+            <Button fx:id="switchToVolsButton" onAction="#switchToVols" text="Go to Vols" styleClass="button"/>
+            <Button fx:id="switchToAirlinesButton" onAction="#switchToAirlines" text="Go to Airlines" styleClass="button"/>
+            <!-- Hotel Management Buttons -->
+            <Button fx:id="addHotelButton" onAction="#handleAddHotel" text="Add Hotel" styleClass="button"/>
+            <Button fx:id="updateHotelButton" onAction="#handleUpdateHotel" text="Update Hotel" styleClass="button"/>
+            <Button fx:id="deleteHotelButton" onAction="#handleDeleteHotel" text="Delete Hotel" styleClass="button"/>
+            <Button fx:id="viewHotelsButton" onAction="#handleViewHotels" text="View Hotels" styleClass="button"/>
+            <!-- Review Management Buttons -->
+            <Button fx:id="addReviewButton" onAction="#handleAddReview" text="Add Review" styleClass="button"/>
+            <Button fx:id="updateReviewButton" onAction="#handleUpdateReview" text="Update Review" styleClass="button"/>
+            <Button fx:id="deleteReviewButton" onAction="#handleDeleteReview" text="Delete Review" styleClass="button"/>
+            <Button fx:id="viewReviewsButton" onAction="#handleViewReviews" text="View Reviews" styleClass="button"/>
+        </children>
+    </HBox>
 </StackPane>

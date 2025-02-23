@@ -1,0 +1,138 @@
+/* Background and Form Styling */
+.form-container {
+    -fx-alignment: top-left; /* Move everything to the left */
+    -fx-spacing: 15;
+    -fx-padding: 30 0 30 30; /* Adjust left padding */
+    -fx-background-color: #F8F9FA;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+/* Two-column container */
+.two-column-container {
+    -fx-spacing: 20; /* Space between columns */
+}
+
+/* Column styling */
+.column {
+    -fx-spacing: 15; /* Space between fields in the column */
+}
+
+/* Input Fields Container */
+.input-container {
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+
+/* Text Fields */
+.text-field {
+    -fx-pref-width: 300px; /* Adjusted width for two columns */
+    -fx-pref-height: 45px;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-border-color: #DDD;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+/* Title */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0056B3;
+}
+
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+}
+
+/* Left Icon Box */
+.icon-box {
+    -fx-min-width: 55px;  /* Increase the box size slightly */
+    -fx-min-height: 55px;
+    -fx-max-width: 55px;
+    -fx-max-height: 55px;
+    -fx-background-color: #0056B3;
+    -fx-background-radius: 10;
+    -fx-alignment: center;
+    -fx-padding: 25;  /* Adjust padding */
+}
+
+/* Icons */
+.icon {
+    -fx-fit-width: 18px;  /* Adjust the fit width */
+    -fx-fit-height: 18px; /* Adjust the fit height */
+    -fx-preserve-ratio: true;  /* Keep the icon's aspect ratio */
+}
+
+/* Button Styling */
+.button {
+    -fx-pref-width: 300;
+    -fx-pref-height: 50;
+    -fx-background-color: #0056B3;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+/* Button Hover */
+.button:hover {
+    -fx-background-color: #003E80;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition: 0.3s;
+}
+
+.text-area {
+    -fx-pref-width: 300px; /* Adjusted width for two columns */
+    -fx-pref-height: 80px;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-border-color: #DDD;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+/* Hotel Name Icon */
+#hotelNameIcon {
+    -fx-image: url("../assets/icons/hotel-solid.png"); /* Hotel name icon */
+}
+
+/* Hotel Address Icon */
+#hotelAddressIcon {
+    -fx-image: url("../assets/icons/location-dot-solid.png"); /* Address icon */
+}
+
+/* Hotel Rating Icon */
+#hotelRatingIcon {
+    -fx-image: url("../assets/icons/star-solid.png"); /* Rating icon */
+}
+
+/* ImageView Styling */
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+    -fx-border-color: #DDD;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* Upload Button Styling */
+.upload-button {
+    -fx-pref-width: 120;
+    -fx-pref-height: 40;
+    -fx-background-color: #0056B3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+
+.upload-button:hover {
+    -fx-background-color: #003E80;
+}

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Priority?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="tn.esprit.atlas.main.MainController"
+      styleClass="form-container"
+      stylesheets="@../css/addHotel.css">
+
+    <!-- Title and Subtitle -->
+    <Label text="Add a New Hotel" styleClass="title"/>
+    <Label text="Fill in the details below to register a new hotel." styleClass="subtitle"/>
+
+    <!-- Two-column layout -->
+    <HBox styleClass="two-column-container"  HBox.hgrow="ALWAYS">
+        <!-- Left Column -->
+        <VBox styleClass="column" HBox.hgrow="ALWAYS">
+            <!-- Hotel Name Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="hotelNameIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelNameField" promptText="Hotel Name" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Hotel Address Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="hotelAddressIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelAddressField" promptText="Hotel Address" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Hotel Rating Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="hotelRatingIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelRatingField" promptText="Rating (1-5)" styleClass="text-field"/>
+            </HBox>
+
+
+
+            <!-- Available Rooms Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="hotelRoomsIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelRoomsField" promptText="Available Rooms" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Rent Price Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="hotelRentIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelRentField" promptText="Price per Night ($)" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Image URL Field -->
+            <HBox styleClass="input-container">
+                <TextField fx:id="hotelImageField" promptText="Image URL" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Upload Image Button and ImageView -->
+            <HBox styleClass="input-container" alignment="CENTER_LEFT" spacing="10">
+                <Button text="Upload Image" onAction="#handleUploadImage" styleClass="button"/>
+                <ImageView fx:id="imageView" fitWidth="150" fitHeight="150" preserveRatio="true" />
+            </HBox>
+        </VBox>
+
+
+
+
+        <!-- Right Column -->
+        <VBox styleClass="column" HBox.hgrow="ALWAYS">
+            <!-- Facilities Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="hotelFacilitiesIcon"/>
+                </StackPane>
+                <TextArea fx:id="hotelFacilitiesField" promptText="Facilities (e.g., Pool, Gym, WiFi)" styleClass="text-area"/>
+            </HBox>
+
+            <!-- Check-in Time Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="checkInIcon"/>
+                </StackPane>
+                <TextField fx:id="checkInField" promptText="Check-in Time (HH:MM)" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Check-out Time Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="checkOutIcon"/>
+                </StackPane>
+                <TextField fx:id="checkOutField" promptText="Check-out Time (HH:MM)" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Contact Number Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="contactIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelContactField" promptText="Contact Number" styleClass="text-field"/>
+            </HBox>
+
+            <!-- City Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="cityIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelCityField" promptText="City" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Latitude Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="latitudeIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelLatitudeField" promptText="Latitude" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Longitude Field -->
+            <HBox styleClass="input-container">
+                <StackPane styleClass="icon-box">
+                    <ImageView styleClass="icon" fx:id="longitudeIcon"/>
+                </StackPane>
+                <TextField fx:id="hotelLongitudeField" promptText="Longitude" styleClass="text-field"/>
+            </HBox>
+
+            <!-- Submit Button -->
+            <Button fx:id="addHotelButton" onAction="#handleSubmitHotelForm" text="Add Hotel" styleClass="button"/>
+        </VBox>
+
+    </HBox>
+
+
+</VBox>
