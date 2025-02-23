@@ -201,7 +201,7 @@ public class MainController {
     // Hotel Management Methods
     @FXML
     private void handleAddHotel() throws IOException {
-        Parent addHotelRoot = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/add-hotel-view.fxml"));
+        Parent addHotelRoot = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/hotel/add-hotel-view.fxml"));
         Scene addHotelScene = new Scene(addHotelRoot);
         Stage currentStage = (Stage) addHotelButton.getScene().getWindow();
         currentStage.setScene(addHotelScene);

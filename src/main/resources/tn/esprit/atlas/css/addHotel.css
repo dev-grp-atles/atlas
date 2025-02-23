@@ -1,21 +1,94 @@
-/* Background and Form Styling */
-.form-container {
-    -fx-alignment: top-left; /* Move everything to the left */
-    -fx-spacing: 15;
-    -fx-padding: 30 0 30 30; /* Adjust left padding */
+/* Navbar Styling */
+.navbar {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 10 20;
+    -fx-spacing: 20;
+    -fx-alignment: center-left;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+    -fx-margin-bottom: 20px;  /* Add margin to the bottom */
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
     -fx-background-color: #F8F9FA;
     -fx-background-radius: 15;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+    -fx-margin-right: 20px; /* Add margin to the right */
+}
+
+.sidebar-button {
+    -fx-pref-width: 160;
+    -fx-pref-height: 40;
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-font-weight: bolder;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #ecebeb;
+}
+
+.sidebar-button Label {
+    -fx-text-fill: #333333;
+    -fx-font-weight: bolder;
+}
+
+
+/* ScrollPane Styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Form Container Styling */
+.form-container {
+    -fx-alignment: top-left;
+    -fx-spacing: 20;
+    -fx-padding: 30;
+    -fx-background-color: #F8F9FA;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+    -fx-margin-left: 20px; /* Add margin to the left */
+    -fx-margin-right: 20px; /* Add margin to the right */
 }
 
 /* Two-column container */
 .two-column-container {
-    -fx-spacing: 20; /* Space between columns */
+    -fx-spacing: 30;
+    -fx-margin-top: 20px;  /* Optional, for top spacing */
 }
 
 /* Column styling */
 .column {
-    -fx-spacing: 15; /* Space between fields in the column */
+    -fx-spacing: 20;
+    -fx-margin-bottom: 20px; /* Optional, for bottom spacing */
+}
+
+/* General adjustments */
+.region {
+    -fx-padding: 10px;
 }
 
 /* Input Fields Container */
@@ -26,9 +99,9 @@
 
 /* Text Fields */
 .text-field {
-    -fx-pref-width: 300px; /* Adjusted width for two columns */
+    -fx-pref-width: 300px;
     -fx-pref-height: 45px;
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: white;
     -fx-background-radius: 10;
     -fx-border-color: #DDD;
     -fx-border-radius: 10;
@@ -50,27 +123,27 @@
 
 /* Left Icon Box */
 .icon-box {
-    -fx-min-width: 55px;  /* Increase the box size slightly */
-    -fx-min-height: 55px;
-    -fx-max-width: 55px;
-    -fx-max-height: 55px;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
     -fx-background-color: #0056B3;
     -fx-background-radius: 10;
     -fx-alignment: center;
-    -fx-padding: 25;  /* Adjust padding */
+    -fx-padding: 10;
 }
 
 /* Icons */
 .icon {
-    -fx-fit-width: 18px;  /* Adjust the fit width */
-    -fx-fit-height: 18px; /* Adjust the fit height */
-    -fx-preserve-ratio: true;  /* Keep the icon's aspect ratio */
+    -fx-fit-width: 20px;
+    -fx-fit-height: 20px;
+    -fx-preserve-ratio: true;
 }
 
 /* Button Styling */
-.button {
-    -fx-pref-width: 300;
-    -fx-pref-height: 50;
+.buttonUpload {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 50px;
     -fx-background-color: #0056B3;
     -fx-text-fill: white;
     -fx-font-size: 16px;
@@ -80,8 +153,26 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
 }
 
-/* Button Hover */
-.button:hover {
+.buttonUpload:hover {
+    -fx-background-color: #003E80;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition: 0.3s;
+}
+
+.buttonAddHotel {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 50px;
+    -fx-background-color: #0056B3;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+.buttonAddHotel:hover {
     -fx-background-color: #003E80;
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
@@ -89,15 +180,46 @@
 }
 
 .text-area {
-    -fx-pref-width: 300px; /* Adjusted width for two columns */
-    -fx-pref-height: 80px;
-    -fx-background-color: #FFFFFF;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 100px;
+    -fx-background-color: white;
     -fx-background-radius: 10;
     -fx-border-color: #DDD;
     -fx-border-radius: 10;
     -fx-padding: 10;
     -fx-font-size: 14px;
 }
+
+/* ImageView Styling */
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+    -fx-border-color: #DDD;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.sidenav-button {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 50px;
+    -fx-background-color:  #f2f3f5;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+.sidenav-button:hover{
+    -fx-background-color: #ecebeb;
+}
+
+.sidenav-button Label{
+    -fx-text-fill: #333333;
+    -fx-font-weight: bolder;
+}
+
+
 /* Hotel Name Icon */
 #hotelNameIcon {
     -fx-image: url("../assets/icons/hotel-solid.png"); /* Hotel name icon */
@@ -113,26 +235,39 @@
     -fx-image: url("../assets/icons/star-solid.png"); /* Rating icon */
 }
 
-/* ImageView Styling */
-.image-view {
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
-    -fx-border-color: #DDD;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
+#hotelRoomsIcon {
+    -fx-image: url("../assets/icons/bed-solid.png"); /* hotelRoomsIcon */
 }
 
-/* Upload Button Styling */
-.upload-button {
-    -fx-pref-width: 120;
-    -fx-pref-height: 40;
-    -fx-background-color: #0056B3;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 0;
-    -fx-cursor: hand;
+#hotelRentIcon {
+    -fx-image: url("../assets/icons/price.png"); /* hotelRentIcon  */
 }
 
-.upload-button:hover {
-    -fx-background-color: #003E80;
+#hotelFacilitiesIcon{
+    -fx-image: url("../assets/icons/spa-solid.png"); /* hotelFacilitiesIcon  */
+}
+
+#checkInIcon {
+    -fx-image: url("../assets/icons/calendar-check-solid.png"); /* checkInIcon  */
+}
+
+
+#checkOutIcon {
+    -fx-image: url("../assets/icons/calendar-check-solid.png"); /* checkOutIcon  */
+}
+
+#contactIcon {
+    -fx-image: url("../assets/icons/phone-solid.png"); /* contactIcon  */
+}
+
+#cityIcon {
+    -fx-image: url("../assets/icons/city-solid.png"); /* cityIcon  */
+}
+
+#longitudeIcon {
+    -fx-image: url("../assets/icons/location-crosshairs-solid.png"); /* longitudeIcon  */
+}
+
+#latitudeIcon {
+    -fx-image: url("../assets/icons/location-crosshairs-solid.png"); /* latitudeIcon  */
 }
