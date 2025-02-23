@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.DetailsVoyageController">
+
+    <!-- Conteneur principal -->
+    <VBox layoutX="50" layoutY="50" spacing="20">
+        <!-- Titre de l'offre -->
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Séjour Istanbul À L'hôtel Barin Laleli 3* Voyages organisés" />
+
+        <!-- Section Réserver -->
+        <HBox alignment="CENTER_LEFT" spacing="400.0">
+            <Label style="-fx-font-size: 16px; -fx-text-fill: #34495e;" text="Istanbul, Turquie" />
+            <Button style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" text="RÉSERVER" />
+        </HBox>
+
+        <!-- Section Partager -->
+        <HBox alignment="CENTER_LEFT" spacing="10" />
+
+        <!-- Section Vols + Transferts + Hôtel -->
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Vols + Transferts + Hôtel" />
+
+        <!-- Section Détails du voyage -->
+        <VBox spacing="10">
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Détails du voyage" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="Départ en groupe à l'hôtel Barin Laleli 3* (ou similaire)" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="07 Jours / 06 Nuits" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="Via Turkish Airlines / Tunisair" />
+        </VBox>
+
+        <!-- Section Forfait de base -->
+        <VBox spacing="10">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Le forfait de base comprend :" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="- Le billet d’avion Tunis / Istanbul / Tunis via Turkish Airlines ou Tunisair (billets non remboursables, non modifiables)." />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="- Le Transfert Aéroport / Hôtel / Aéroport." />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="- 06 nuits à l’hôtel Barin Laleli 3* (ou similaire) en logement et petit déjeuner." />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="- Mise à la Disposition Bus durant les transferts." />
+        </VBox>
+
+        <!-- Section Tarif des excursions -->
+        <VBox spacing="10">
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Tarif des excursions en extra : 445 DT" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="NB. : L’ordre des excursions peut varier selon certaines conditions" />
+        </VBox>
+    </VBox>
+
+</AnchorPane>
