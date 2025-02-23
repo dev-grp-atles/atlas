@@ -1,19 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb88c1e0-2cef-494f-8615-9161ab9d57b7" name="Changes" comment="added the ability to modify user">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/addoffers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/addoffers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/offers-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/offers-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/offers/offerslist-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/offers/offerslist-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;imemplayz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dev-grp-atles/atlas.git&quot;,
+    &quot;accountId&quot;: &quot;7c499bb0-8fb6-4304-aae7-c56dd4dc1ef8&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2sjRiAdW0OEiugJbj9pfyx3crSQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtlasApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.tn.esprit.atlas.main.AtlasApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "imem",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/ayach/IdeaProjects/Atlas/src/main/java/tn/esprit/atlas",
+    "last_opened_file_path": "C:/Users/ayach/IdeaProjects/Atlas",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ayach\IdeaProjects\Atlas\src\main\resources\tn\esprit\atlas\views" />
+      <recent name="C:\Users\ayach\IdeaProjects\Atlas\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ayach\IdeaProjects\Atlas\src\main\resources\tn\esprit\atlas\views\user" />
+      <recent name="C:\Users\ayach\IdeaProjects\Atlas\src\main\resources\tn\esprit\atlas" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="atlas" />
+    <configuration name="tn.esprit.atlas.main.AtlasApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tn.esprit.atlas.main.AtlasApplication" />
+      <module name="Atlas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tn.esprit.atlas.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="atlas" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.tn.esprit.atlas.main.AtlasApplication" />
+        <item itemvalue="Application.tn.esprit.atlas.main.AtlasApplication" />
+        <item itemvalue="Application.tn.esprit.atlas.main.AtlasApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb88c1e0-2cef-494f-8615-9161ab9d57b7" name="Changes" comment="" />
+      <created>1738967124831</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738967124831</updated>
+      <workItem from="1738967125867" duration="4848000" />
+      <workItem from="1739025049330" duration="6295000" />
+      <workItem from="1739107159385" duration="20344000" />
+      <workItem from="1739481331322" duration="15686000" />
+      <workItem from="1739546454471" duration="48283000" />
+      <workItem from="1739817191966" duration="4570000" />
+      <workItem from="1739837322263" duration="2313000" />
+      <workItem from="1739877225079" duration="5744000" />
+      <workItem from="1740064669735" duration="16129000" />
+      <workItem from="1740096319381" duration="2079000" />
+      <workItem from="1740135836724" duration="7560000" />
+      <workItem from="1740151432713" duration="3090000" />
+      <workItem from="1740258897322" duration="4152000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1738970146699</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738970146700</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1738970236479</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738970236479</updated>
+    </task>
+    <task id="LOCAL-00003" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1738970276236</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738970276236</updated>
+    </task>
+    <task id="LOCAL-00004" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1738971185593</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738971185593</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added database connection">
+      <option name="closed" value="true" />
+      <created>1739117457101</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739117457101</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added database connection">
+      <option name="closed" value="true" />
+      <created>1739193305431</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739193305431</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added user CRUD">
+      <option name="closed" value="true" />
+      <created>1739212901068</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739212901068</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added Signin interface">
+      <option name="closed" value="true" />
+      <created>1739536773372</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739536773372</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated MainController">
+      <option name="closed" value="true" />
+      <created>1739622681983</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739622681984</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added signup functionality and form control for user creation">
+      <option name="closed" value="true" />
+      <created>1739718993619</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1739718993619</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added profile interface, added user session using singleton">
+      <option name="closed" value="true" />
+      <created>1739803228589</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739803228589</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Switched the main interface to signup-view.fxml">
+      <option name="closed" value="true" />
+      <created>1739803481531</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739803481531</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added the ability to modify user">
+      <option name="closed" value="true" />
+      <created>1739838334602</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739838334602</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Added database connection" />
+    <MESSAGE value="Added user CRUD" />
+    <MESSAGE value="Added Signin interface" />
+    <MESSAGE value="Updated MainController" />
+    <MESSAGE value="Added signup functionality and form control for user creation" />
+    <MESSAGE value="Added profile interface, added user session using singleton" />
+    <MESSAGE value="Switched the main interface to signup-view.fxml" />
+    <MESSAGE value="updated styling" />
+    <MESSAGE value="added the ability to modify user" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the ability to modify user" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
