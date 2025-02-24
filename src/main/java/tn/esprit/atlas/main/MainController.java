@@ -256,23 +256,25 @@ public class MainController implements Initializable {
     @FXML
     private void handleViewHotels(ActionEvent event) {
         // Fetch the list of hotels from your service or database
-        List<Hotel> hotels = hotelService.getAll(); // Assuming you have a method to fetch all hotels
+        List<Hotel> hotels = hotelService.getAll(); // Assuming this fetches all hotels
 
         // Switch to the view-hotels-view.fxml and pass the hotels list
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/hotel/view-hotels-view.fxml"));
             Parent hotelsRoot = loader.load();
+
             ViewHotelsController controller = loader.getController();
-            controller.setHotelDetails(hotels);  // Pass the list of hotels to the controller
+            controller.setHotels(hotels);  // Use the correct method name
 
             Scene hotelsScene = new Scene(hotelsRoot);
-            Stage currentStage = (Stage) viewHotelsButton.getScene().getWindow();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Ensuring proper stage retrieval
             currentStage.setScene(hotelsScene);
             currentStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
 

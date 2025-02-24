@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="299e4dd7-0f72-441e-93f9-d0e7037aef1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/ViewHotelsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/viewHotels.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/hotel/view-hotels-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/ViewHotelsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/ViewHotelsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/AtlasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/AtlasApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/HotelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/viewHotels.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/viewHotels.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/hotel/view-hotels-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/hotel/view-hotels-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +28,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2tUWX7uT1vnVjFWTgAlXFlblddU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AtlasApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "sliim",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Lenovo/OneDrive/Desktop/Hotel_Management_System",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -41,7 +55,49 @@
       <recent name="C:\Users\Lenovo\Documents\Esprit Projects\Second REPO\atlas\src\main\resources\tn\esprit\atlas\views\hotel" />
     </key>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="299e4dd7-0f72-441e-93f9-d0e7037aef1e" name="Changes" comment="" />
+      <created>1740407179626</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740407179626</updated>
+      <workItem from="1740407182956" duration="12649000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/ViewHotelsController.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

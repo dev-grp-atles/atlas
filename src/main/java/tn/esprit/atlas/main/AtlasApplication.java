@@ -6,24 +6,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 public class AtlasApplication extends Application {
 
+    private Stage primaryStage;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Load the main interface
-        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/signup-view.fxml"));
-        Scene scene = new Scene(root);
+        this.primaryStage = primaryStage;
 
-        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/style.css").toExternalForm());
-
-        // Bind scene dimensions to stage dimensions
-        scene.widthProperty().addListener((obs, oldVal, newVal) -> {
-            root.prefWidth((double) newVal);
-        });
-        scene.heightProperty().addListener((obs, oldVal, newVal) -> {
-            root.prefHeight((double) newVal);
-        });
+        // Load the main signup interface
+        loadMainView();
 
         // Load the application icon
         Image icon = new Image(getClass().getResourceAsStream("/tn/esprit/atlas/assets/ATLAS_LOGO.png"));
@@ -31,11 +25,25 @@ public class AtlasApplication extends Application {
 
         // Set the stage to maximized (full screen)
         primaryStage.setMaximized(true);
-
-        // Set the scene to the stage
-        primaryStage.setScene(scene);
         primaryStage.setTitle("Atlas Application");
+
         primaryStage.show();
+    }
+
+    private void loadMainView() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/signup-view.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/style.css").toExternalForm());
+
+        primaryStage.setScene(scene);
+    }
+
+    public void loadViewHotels() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/hotel/view-hotels-view.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/viewHotels.css").toExternalForm());
+
+        primaryStage.setScene(scene);
     }
 
     public static void main(String[] args) {
