@@ -13,7 +13,7 @@ public class DatabaseConnection {
     public static DatabaseConnection instance;
     public DatabaseConnection(){
 
-        String Url = "jdbc:mysql://localhost:3306/atlas";
+        String Url = "jdbc:mysql://localhost/atlas";
         String Username="root";
         String Password="";
 
