@@ -75,3 +75,31 @@ CREATE TABLE Forfait (
     availableSeats INT NOT NULL,
     packageImage VARCHAR(255)
 );
+
+-- Create the categorie table
+CREATE TABLE categorie (
+                           categorie_id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique ID for the category
+                           name VARCHAR(255) NOT NULL                   -- Name of the category
+);
+
+-- Create the forum table with a foreign key relationship to categorie
+CREATE TABLE forum (
+                       post_id INT AUTO_INCREMENT PRIMARY KEY,    -- Unique ID for the post
+                       title VARCHAR(255) NOT NULL,                -- Title of the post
+                       content TEXT NOT NULL,                      -- Content of the post
+                       createdAt DATE NOT NULL,                    -- Creation date of the post
+                       updatedAt DATE NOT NULL,                    -- Last updated date of the post
+                       viewcount INT DEFAULT 0,                    -- View count of the post
+                       categorie_id INT,                           -- Foreign key referencing categorie
+                       FOREIGN KEY (categorie_id) REFERENCES categorie(categorie_id)  -- Foreign key relationship
+);
+
+-- Create the commentaire table with a foreign key relationship to forum
+CREATE TABLE commentaire (
+                             comment_id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique ID for the comment
+                             content TEXT NOT NULL,                      -- Content of the comment
+                             createdAt DATE NOT NULL,                    -- Creation date of the comment
+                             updatedAt DATE NOT NULL,                    -- Last updated date of the comment
+                             post_id INT,                                -- Foreign key referencing forum
+                             FOREIGN KEY (post_id) REFERENCES forum(post_id)  -- Foreign key relationship
+);
