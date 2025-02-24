@@ -19,6 +19,7 @@ import java.io.File;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -123,29 +124,100 @@ public class MainController implements Initializable {
 
     private HotelService hotelService = new HotelService();
 
-    // Hotel form submission handler
+    // Hotel form submission handler with validation
     @FXML
     private void handleSubmitHotelForm() {
         try {
-            // Retrieve values from the form fields
-            String name = hotelNameField.getText();
-            String address = hotelAddressField.getText();
+            // Validate all fields first
+            List<String> validationErrors = validateHotelForm();
+
+            if (!validationErrors.isEmpty()) {
+                showAlert("Validation Error", String.join("\n", validationErrors), AlertType.ERROR);
+                return;
+            }
+
+            // Proceed if validation passes
+            String name = hotelNameField.getText().trim();
+            String address = hotelAddressField.getText().trim();
             Hotel hotel = getHotel(name, address);
 
-            // Add hotel using HotelService
             hotelService.add(hotel);
-
-            // Show success message
             showAlert("Hotel Added", "Hotel added successfully!", AlertType.INFORMATION);
-
-            // Clear the form fields after submission (optional)
             clearFormFields();
-        } catch (NumberFormatException e) {
-            showAlert("Input Error", "Please enter valid numbers for rating, available rooms, price, latitude, and longitude.", AlertType.ERROR);
         } catch (Exception e) {
-            showAlert("Error", "Failed to add hotel. Please try again.", AlertType.ERROR);
+            showAlert("Error", "Failed to add hotel: " + e.getMessage(), AlertType.ERROR);
             e.printStackTrace();
         }
+    }
+
+    private List<String> validateHotelForm() {
+        List<String> errors = new ArrayList<>();
+
+        // Required Fields Validation
+        if (hotelNameField.getText().trim().isEmpty()) errors.add("Hotel name is required");
+        if (hotelAddressField.getText().trim().isEmpty()) errors.add("Address is required");
+        if (hotelCityField.getText().trim().isEmpty()) errors.add("City is required");
+
+        // Numeric Field Validation
+        validateNumberField(hotelRatingField.getText().trim(), "Rating", 0, 5, errors);
+        validateNumberField(hotelRoomsField.getText().trim(), "Available Rooms", 1, Integer.MAX_VALUE, errors);
+        validateNumberField(hotelRentField.getText().trim(), "Price per night", 0.1, Double.MAX_VALUE, errors);
+        validateNumberField(hotelLatitudeField.getText().trim(), "Latitude", -90, 90, errors);
+        validateNumberField(hotelLongitudeField.getText().trim(), "Longitude", -180, 180, errors);
+
+        // Time Format Validation
+        if (!isValidTimeFormat(checkInField.getText().trim())) {
+            errors.add("Check-in time should be in HH:mm format");
+        }
+        if (!isValidTimeFormat(checkOutField.getText().trim())) {
+            errors.add("Check-out time should be in HH:mm format");
+        }
+
+        // Contact Number Validation
+        if (!hotelContactField.getText().trim().matches("^\\+?[0-9\\s-]{6,}$")) {
+            errors.add("Invalid contact number format");
+        }
+
+        //Image URL Validation
+        String imageUrl = hotelImageField.getText().trim();
+        if (imageUrl.isEmpty()) {
+            errors.add("Image URL is required");
+        } else if (!isValidImageUrl2(imageUrl)) {
+            errors.add("Invalid image URL. Supported formats: .jpg, .jpeg, .png, .gif, .bmp");
+        }
+
+        return errors;
+    }
+
+    private boolean isValidImageUrl2(String url) {
+        // Match web URLs and local file paths with image extensions
+        return url.matches("(?i)^(https?|ftp|file)://.*\\.(png|jpg|jpeg|gif|bmp)$") ||
+                url.matches("(?i)^[A-Za-z]:[\\\\/].*\\\\.(png|jpg|jpeg|gif|bmp)$") ||
+                url.matches("(?i)^.*\\.(png|jpg|jpeg|gif|bmp)$");
+    }
+
+    private void validateNumberField(String value, String fieldName, double min, double max, List<String> errors) {
+        if (value.isEmpty()) {
+            errors.add(fieldName + " is required");
+            return;
+        }
+
+        try {
+            double num = Double.parseDouble(value);
+            if (num < min || num > max) {
+                errors.add(fieldName + " must be between " + min + " and " + max);
+            }
+        } catch (NumberFormatException e) {
+            errors.add("Invalid " + fieldName + " format");
+        }
+    }
+
+    private boolean isValidTimeFormat(String time) {
+        return time.matches("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$");
+    }
+
+    private boolean isValidImageUrl(String url) {
+        return url.matches("^(https?|ftp)://.*\\.(png|jpg|jpeg|gif|bmp)$");
     }
 
     private Hotel getHotel(String name, String address) {

@@ -94,12 +94,18 @@
         <!-- Main Content -->
         <VBox styleClass="main-content" spacing="20">
             <!-- Header -->
-            <HBox styleClass="content-header" spacing="20">
+            <HBox styleClass="content-header" spacing="20" alignment="CENTER_LEFT">
                 <VBox spacing="4">
                     <Label text="Where are you heading?" styleClass="content-title"/>
                     <Label fx:id="headerLabel" styleClass="content-subtitle"/>
                 </VBox>
-                <Button text="Sort by: Top picks" styleClass="sort-button"/>
+                <!-- Replace the TextField with this HBox structure -->
+                <HBox  fx:id="searchContainer"   styleClass="search-container" alignment="CENTER_LEFT">
+                    <ImageView fitWidth="20" fitHeight="20" styleClass="search-icon">
+                        <Image url="@../../assets/icons/searchIcon.png" />
+                    </ImageView>
+                    <TextField fx:id="searchField" promptText="Search by hotel name..." styleClass="search-bar" />
+                </HBox>
             </HBox>
 
             <!-- Hotel List -->

@@ -361,3 +361,46 @@
 .filter-container {
     -fx-padding: 0 5px;
 }
+
+
+/* =============== Search Container =============== */
+.search-container {
+    -fx-spacing: 10px;
+    -fx-padding: 8px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1.5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 6, 0, 0, 2);
+}
+
+.search-container:hover {
+    -fx-border-color: #94a3b8;
+}
+
+/* Replace the pseudo-class with a custom style class */
+.search-container.search-focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(three-pass-box, rgba(59,130,246,0.15), 8, 0, 0, 3);
+}
+
+/* Search Icon */
+.search-icon {
+    -fx-opacity: 0.6;
+}
+
+/* Search Text Field */
+.search-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-text-fill: #334155;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #94a3b8;
+    -fx-pref-width: 400px;
+}
+
+.search-bar:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

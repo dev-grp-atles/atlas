@@ -16,6 +16,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import tn.esprit.atlas.entities.Hotel;
 import tn.esprit.atlas.services.HotelService;
+import javafx.beans.binding.Bindings;
+import java.util.stream.Collectors;
+
 
 import java.io.IOException;
 import java.util.*;
@@ -24,6 +27,8 @@ public class ViewHotelsController {
 
     @FXML private GridPane hotelsGrid;
     @FXML private Label headerLabel;
+
+    @FXML private TextField searchField;
 
     // Filter components
     @FXML private CheckBox fiveStar;
@@ -36,6 +41,9 @@ public class ViewHotelsController {
     @FXML private TextField minPriceField;
     @FXML private TextField maxPriceField;
     @FXML private TextField minRoomsField;
+    @FXML
+    private HBox searchContainer;
+
 
     private List<Hotel> hotels;
     private final HotelService hotelService = new HotelService();
@@ -45,6 +53,26 @@ public class ViewHotelsController {
         setupInputValidation();
         refreshHotelData();
         hotelsGrid.setFocusTraversable(false);
+        searchField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal) {
+                searchContainer.getStyleClass().add("search-focused");
+            } else {
+                searchContainer.getStyleClass().remove("search-focused");
+            }
+        });
+    }
+
+    private void filterHotelsByName(String searchText) {
+        if (searchText == null || searchText.isEmpty()) {
+            displayHotels();
+            return;
+        }
+
+        List<Hotel> filtered = hotels.stream()
+                .filter(h -> h.getName().toLowerCase().contains(searchText.toLowerCase()))
+                .collect(Collectors.toList());
+
+        setHotels(filtered);
     }
 
     private void setupInputValidation() {
