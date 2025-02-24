@@ -2,16 +2,21 @@ package tn.esprit.atlas.controllers;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import tn.esprit.atlas.entities.Hotel;
+import tn.esprit.atlas.services.HotelService;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ViewHotelsController {
 
@@ -21,6 +26,15 @@ public class ViewHotelsController {
     private Label headerLabel;
 
     private List<Hotel> hotels;
+    private HotelService hotelService = new HotelService(); // Initialize HotelService
+
+    public void initialize() {
+        // Disable focus traversal for the grid and its children
+        hotelsGrid.setFocusTraversable(false);
+        for (javafx.scene.Node node : hotelsGrid.getChildren()) {
+            node.setFocusTraversable(false);
+        }
+    }
 
     public void setHotels(List<Hotel> hotels) {
         this.hotels = hotels;
@@ -72,12 +86,19 @@ public class ViewHotelsController {
 
         headerBox.getChildren().addAll(titleLabel, ratingLabel);
 
-        // Image Section
+        // Image Section with Clipping for Rounded Corners
         ImageView imageView = new ImageView();
         if (hotel.getImageUrl() != null) {
             imageView.setImage(new Image(hotel.getImageUrl()));
         }
-        imageView.getStyleClass().add("hotel-image");
+        imageView.setFitWidth(300);
+        imageView.setFitHeight(180);
+
+        // Clipping Rectangle for rounded corners
+        Rectangle clip = new Rectangle(300, 180);
+        clip.setArcWidth(16); // Adjust for smoother rounding
+        clip.setArcHeight(16);
+        imageView.setClip(clip);
 
         // Location Section
         Label locationLabel = new Label(hotel.getAddress());
@@ -99,8 +120,11 @@ public class ViewHotelsController {
         HBox actionBox = new HBox();
         actionBox.getStyleClass().add("action-icons");
 
-        Button editButton = createIconButton("/tn/esprit/atlas/assets/icons/edit-icon.png");
-        Button deleteButton = createIconButton("/tn/esprit/atlas/assets/icons/delete-icon.png");
+        Button editButton = createIconButton("/tn/esprit/atlas/assets/icons/editIcon.png");
+        Button deleteButton = createIconButton("/tn/esprit/atlas/assets/icons/deleteIcon.png");
+
+        // Add event handler for delete button
+        deleteButton.setOnAction(event -> handleDeleteHotel(hotel));
 
         actionBox.getChildren().addAll(editButton, deleteButton);
 
@@ -136,6 +160,21 @@ public class ViewHotelsController {
     }
 
     private void handleDeleteHotel(Hotel hotel) {
-        System.out.println("Deleting hotel: " + hotel.getName());
+        // Show confirmation dialog
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Hotel");
+        alert.setHeaderText("Are you sure you want to delete this hotel?");
+        alert.setContentText("This action cannot be undone.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // User confirmed deletion
+            hotelService.delete(hotel); // Call the delete method from HotelService
+            System.out.println("Hotel deleted: " + hotel.getName());
+
+            // Refresh the hotel list after deletion
+            hotels.remove(hotel); // Remove from the local list
+            displayHotels(); // Refresh the UI
+        }
     }
 }
