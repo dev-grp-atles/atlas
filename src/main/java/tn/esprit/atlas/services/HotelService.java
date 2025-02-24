@@ -7,13 +7,34 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HotelService implements IService<Hotel> {
 
-    private Connection connection;
+    private static final Logger LOGGER = Logger.getLogger(HotelService.class.getName());
+    private final Connection connection;
 
     public HotelService() {
         connection = DatabaseConnection.getInstance().getCnx();
+    }
+
+    // Helper method to set common parameters for add/update
+    private void setCommonParameters(PreparedStatement stmt, Hotel hotel) throws SQLException {
+        stmt.setString(1, hotel.getName());
+        stmt.setString(2, hotel.getAddress());
+        stmt.setFloat(3, hotel.getRating());
+        stmt.setString(4, hotel.getImageUrl());
+        stmt.setInt(5, hotel.getAvailableRooms());
+        stmt.setDouble(6, hotel.getPricePerNight());
+        stmt.setString(7, String.join(",", hotel.getFacilities()));
+        stmt.setString(8, hotel.getCheckInTime());
+        stmt.setString(9, hotel.getCheckOutTime());
+        stmt.setString(10, hotel.getContactNumber());
+        stmt.setString(11, hotel.getCity());
+        stmt.setDouble(12, hotel.getLatitude());
+        stmt.setDouble(13, hotel.getLongitude());
     }
 
     @Override
@@ -21,23 +42,11 @@ public class HotelService implements IService<Hotel> {
         String query = "INSERT INTO Hotel (name, address, rating, image_url, available_rooms, hotel_rent, facilities, check_in_time, check_out_time, contact_number, city, latitude, longitude) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, hotel.getName());
-            stmt.setString(2, hotel.getAddress());
-            stmt.setFloat(3, hotel.getRating());
-            stmt.setString(4, hotel.getImageUrl());
-            stmt.setInt(5, hotel.getAvailableRooms());
-            stmt.setDouble(6, hotel.getAvailableRooms());
-            stmt.setString(7, String.join(",", hotel.getFacilities())); // Convert list to string
-            stmt.setString(8, hotel.getCheckInTime());
-            stmt.setString(9, hotel.getCheckOutTime());
-            stmt.setString(10, hotel.getContactNumber());
-            stmt.setString(11, hotel.getCity());
-            stmt.setDouble(12, hotel.getLatitude());
-            stmt.setDouble(13, hotel.getLongitude());
+            setCommonParameters(stmt, hotel);
             stmt.executeUpdate();
-            System.out.println("Hotel added successfully!");
+            LOGGER.info("Hotel added successfully!");
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error adding hotel", e);
         }
     }
 
@@ -46,24 +55,13 @@ public class HotelService implements IService<Hotel> {
         String query = "UPDATE Hotel SET name = ?, address = ?, rating = ?, image_url = ?, available_rooms = ?, hotel_rent = ?, facilities = ?, check_in_time = ?, check_out_time = ?, contact_number = ?, city = ?, latitude = ?, longitude = ? " +
                 "WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, hotel.getName());
-            stmt.setString(2, hotel.getAddress());
-            stmt.setFloat(3, hotel.getRating());
-            stmt.setString(4, hotel.getImageUrl());
-            stmt.setInt(5, hotel.getAvailableRooms());
-            stmt.setDouble(6, hotel.getAvailableRooms());
-            stmt.setString(7, String.join(",", hotel.getFacilities())); // Convert list to string
-            stmt.setString(8, hotel.getCheckInTime());
-            stmt.setString(9, hotel.getCheckOutTime());
-            stmt.setString(10, hotel.getContactNumber());
-            stmt.setString(11, hotel.getCity());
-            stmt.setDouble(12, hotel.getLatitude());
-            stmt.setDouble(13, hotel.getLongitude());
+            setCommonParameters(stmt, hotel);
             stmt.setInt(14, hotel.getId());
-            stmt.executeUpdate();
-            System.out.println("Hotel updated successfully!");
+
+            int rowsUpdated = stmt.executeUpdate();
+            LOGGER.info(() -> rowsUpdated + " row(s) updated");
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error updating hotel", e);
         }
     }
 
@@ -73,117 +71,141 @@ public class HotelService implements IService<Hotel> {
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, hotel.getId());
             stmt.executeUpdate();
-            System.out.println("Hotel deleted successfully!");
+            LOGGER.info("Hotel deleted successfully!");
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error deleting hotel", e);
         }
+    }
+
+    // Helper method to create Hotel objects from ResultSet
+    private Hotel mapResultSetToHotel(ResultSet rs) throws SQLException {
+        Hotel hotel = new Hotel();
+        hotel.setId(rs.getInt("id"));
+        hotel.setName(rs.getString("name"));
+        hotel.setAddress(rs.getString("address"));
+        hotel.setRating(rs.getFloat("rating"));
+        hotel.setImageUrl(rs.getString("image_url"));
+        hotel.setAvailableRooms(rs.getInt("available_rooms"));
+        hotel.setPricePerNight(rs.getDouble("hotel_rent"));
+
+        String facilitiesString = rs.getString("facilities");
+        hotel.setFacilities(facilitiesString != null && !facilitiesString.isEmpty()
+                ? Arrays.asList(facilitiesString.split(",\\s*"))
+                : new ArrayList<>());
+
+        hotel.setCheckInTime(rs.getString("check_in_time"));
+        hotel.setCheckOutTime(rs.getString("check_out_time"));
+        hotel.setContactNumber(rs.getString("contact_number"));
+        hotel.setCity(rs.getString("city"));
+        hotel.setLatitude(rs.getDouble("latitude"));
+        hotel.setLongitude(rs.getDouble("longitude"));
+        return hotel;
     }
 
     @Override
     public List<Hotel> getAll() {
         List<Hotel> hotels = new ArrayList<>();
-        // Update the query to select all the necessary columns, excluding id
-        String query = "SELECT name, address, rating, image_url, available_rooms, hotel_rent, facilities, check_in_time, check_out_time, contact_number, city, latitude, longitude FROM Hotel";
+        String query = "SELECT id, name, address, rating, image_url, available_rooms, hotel_rent, facilities, " +
+                "check_in_time, check_out_time, contact_number, city, latitude, longitude FROM Hotel";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
-
             while (rs.next()) {
-                Hotel hotel = new Hotel();
-
-                // Set all the attributes of the hotel object
-                hotel.setName(rs.getString("name"));
-                hotel.setAddress(rs.getString("address"));
-                hotel.setRating(rs.getFloat("rating"));
-                hotel.setImageUrl(rs.getString("image_url"));
-                hotel.setAvailableRooms(rs.getInt("available_rooms"));
-                hotel.setPricePerNight(rs.getDouble("hotel_rent"));  // Using hotel_rent instead of price_per_night
-                String facilitiesString = rs.getString("facilities");
-                if (facilitiesString != null && !facilitiesString.isEmpty()) {
-                    List<String> facilitiesList = Arrays.asList(facilitiesString.split(",\\s*"));
-                    hotel.setFacilities(facilitiesList);
-                } else {
-                    hotel.setFacilities(new ArrayList<>());  // If no facilities, set an empty list
-                }
-                hotel.setCheckInTime(rs.getString("check_in_time"));
-                hotel.setCheckOutTime(rs.getString("check_out_time"));
-                hotel.setContactNumber(rs.getString("contact_number"));
-                hotel.setCity(rs.getString("city"));
-                hotel.setLatitude(rs.getDouble("latitude"));
-                hotel.setLongitude(rs.getDouble("longitude"));
-
-                hotels.add(hotel);  // Add the Hotel object to the list
+                hotels.add(mapResultSetToHotel(rs));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error retrieving hotels", e);
+        }
+        return hotels;
+    }
+
+    public List<Hotel> search(String query) {
+        List<Hotel> result = new ArrayList<>();
+        if (query == null || query.trim().isEmpty()) {
+            return result;
         }
 
-        return hotels;  // Return the list of Hotel objects
+        String searchQuery = "SELECT * FROM Hotel WHERE LOWER(name) LIKE LOWER(?) OR LOWER(address) LIKE LOWER(?) OR LOWER(city) LIKE LOWER(?)";
+        try (PreparedStatement stmt = connection.prepareStatement(searchQuery)) {
+            String searchTerm = "%" + query.trim() + "%";
+            for (int i = 1; i <= 3; i++) {
+                stmt.setString(i, searchTerm);
+            }
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    result.add(mapResultSetToHotel(rs));
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error searching hotels", e);
+        }
+        return result;
     }
 
 
+    public List<Hotel> advancedSearch(Map<String, Object> filters) {
+        List<Hotel> result = new ArrayList<>();
+        try {
+            StringBuilder query = new StringBuilder("SELECT * FROM Hotel WHERE 1=1");
+            List<Object> parameters = new ArrayList<>();
 
+            // Star Rating
+            if (filters.containsKey("minRating")) {
+                query.append(" AND rating >= ?");
+                parameters.add((Float) filters.get("minRating"));
+            }
+
+            // Price Range
+            if (filters.containsKey("maxPrice")) {
+                query.append(" AND hotel_rent <= ?");
+                parameters.add((Double) filters.get("maxPrice"));
+            }
+
+            // Facilities
+            if (filters.containsKey("facilities")) {
+                @SuppressWarnings("unchecked")
+                List<String> facilities = (List<String>) filters.get("facilities");
+                for (String facility : facilities) {
+                    query.append(" AND facilities LIKE ?");
+                    parameters.add("%" + facility + "%");
+                }
+            }
+
+            // Property Type (assuming you have a 'type' column)
+            if (filters.containsKey("propertyType")) {
+                query.append(" AND type = ?");
+                parameters.add((String) filters.get("propertyType"));
+            }
+
+            // Available Rooms
+            if (filters.containsKey("minRooms")) {
+                query.append(" AND available_rooms >= ?");
+                parameters.add((Integer) filters.get("minRooms"));
+            }
+
+            try (PreparedStatement stmt = connection.prepareStatement(query.toString())) {
+                for (int i = 0; i < parameters.size(); i++) {
+                    stmt.setObject(i + 1, parameters.get(i));
+                }
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        result.add(mapResultSetToHotel(rs));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error in advanced search", e);
+        }
+        return result;
+    }
 
 
 
     @Override
     public Hotel getOne() {
-        // Example to get a specific hotel by ID (modify as needed)
+        // Implement single hotel retrieval logic
         return null;
     }
-
-    public List<Hotel> search(String query) {
-        // Initialize an empty list to hold the search results
-        List<Hotel> result = new ArrayList<>();
-
-        // Check if the query is not null or empty
-        if (query == null || query.trim().isEmpty()) {
-            return result; // Return an empty list if the query is null or empty
-        }
-
-        // SQL query to search for hotels by name, address, or city
-        String searchQuery = "SELECT * FROM Hotel WHERE name LIKE ? OR address LIKE ? OR city LIKE ?";
-
-        try (PreparedStatement stmt = connection.prepareStatement(searchQuery)) {
-            // Use the query parameter to find matches (case-insensitive search)
-            String searchTerm = "%" + query.trim() + "%";
-            stmt.setString(1, searchTerm);
-            stmt.setString(2, searchTerm);
-            stmt.setString(3, searchTerm);
-
-            // Execute the query and process the results
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    // Handle null values for facilities column
-                    List<String> facilities = rs.getString("facilities") != null
-                            ? List.of(rs.getString("facilities").split(","))
-                            : new ArrayList<>();
-
-                    // Create a Hotel object and add it to the result list
-                    Hotel hotel = new Hotel(
-                            rs.getString("name"),
-                            rs.getString("address"),
-                            rs.getFloat("rating"),
-                            rs.getString("image_url"),
-                            rs.getInt("available_rooms"),
-                            rs.getDouble("hotel_rent"),
-                            facilities, // Pass the list as a parameter
-                            rs.getString("check_in_time"),
-                            rs.getString("check_out_time"),
-                            rs.getString("contact_number"),
-                            rs.getString("city"),
-                            rs.getDouble("latitude"),
-                            rs.getDouble("longitude")
-                    );
-                    result.add(hotel); // Add the found hotel to the result list
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception
-        }
-
-        return result; // Return the list of matching hotels
-    }
-
-
 }

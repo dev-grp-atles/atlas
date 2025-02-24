@@ -2,7 +2,7 @@ package tn.esprit.atlas.main;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import tn.esprit.atlas.controllers.ViewHotelsController;
+import tn.esprit.atlas.controllers.hotel.ViewHotelsController;
 import tn.esprit.atlas.services.HotelService;
 import tn.esprit.atlas.entities.Hotel;
 import javafx.fxml.FXML;

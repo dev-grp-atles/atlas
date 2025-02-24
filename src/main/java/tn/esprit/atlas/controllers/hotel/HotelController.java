@@ -1,4 +1,4 @@
-package tn.esprit.atlas.controllers;
+package tn.esprit.atlas.controllers.hotel;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,19 +11,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ReviewController {
+public class HotelController {
     @FXML
-    private Button addReviewButton;
+    private Button addHotelButton;
     @FXML
-    private Button updateReviewButton;
+    private Button updateHotelButton;
     @FXML
-    private Button deleteReviewButton;
+    private Button deleteHotelButton;
     @FXML
     private Button goBackButton;
     @FXML
-    private TextField reviewTextField;
+    private TextField hotelNameField;
     @FXML
-    private TextField ratingField;
+    private TextField hotelLocationField;
 
     @FXML
     private void handleGoBack() throws IOException {
@@ -34,19 +34,19 @@ public class ReviewController {
     }
 
     @FXML
-    private void addReview(ActionEvent event) {
-        String reviewText = reviewTextField.getText();
-        String rating = ratingField.getText();
-        // Add logic to save review to database
+    private void addHotel(ActionEvent event) {
+        String name = hotelNameField.getText();
+        String location = hotelLocationField.getText();
+        // Add logic to save hotel to database
     }
 
     @FXML
-    private void updateReview(ActionEvent event) {
-        // Add logic to update review details
+    private void updateHotel(ActionEvent event) {
+        // Add logic to update hotel details
     }
 
     @FXML
-    private void deleteReview(ActionEvent event) {
-        // Add logic to delete review
+    private void deleteHotel(ActionEvent event) {
+        // Add logic to delete hotel
     }
 }
