@@ -7,13 +7,17 @@ import javafx.event.ActionEvent;
 import tn.esprit.atlas.entities.Post;
 import tn.esprit.atlas.entities.Comment;
 import tn.esprit.atlas.services.CommentService;
-
+import tn.esprit.atlas.services.PostService;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class PostTreeCell extends TreeCell<Post> {
     private VBox contentBox;
+    private VBox  newPostForm;
     private HBox titleBox;
     private Label titleLabel;
     private Button expandButton;
@@ -28,14 +32,21 @@ public class PostTreeCell extends TreeCell<Post> {
     private VBox commentBox = new VBox();
     private boolean commentsVisible = false;
 
+    // New form elements for adding posts
+    private TextField newPostTitleField;
+    private TextArea newPostContentArea;
+    private Button postButton;
+
     public PostTreeCell() {
         // Initialize elements
         titleBox = new HBox(10);
+        newPostForm = new VBox(10);
         titleLabel = new Label();
         expandButton = new Button("Expand");
         collapseButton = new Button("Collapse");
         showCommentsButton = new Button("Show Comments");
         collapseCommentsButton = new Button("Collapse Comments");
+
 
         contentBox = new VBox(5);
         fullContentBox = new VBox(10);
@@ -43,16 +54,45 @@ public class PostTreeCell extends TreeCell<Post> {
         commentTextField = new TextField();
         replyButton = new Button("Reply");
 
+        // New form for adding posts
+        newPostTitleField = new TextField();
+        newPostTitleField.setPromptText("Enter post title");
+
+        newPostContentArea = new TextArea();
+        newPostContentArea.setPromptText("Enter post content");
+
+        postButton = new Button("Post");
+
+
+
         // Button actions
         expandButton.setOnAction(this::onExpandButtonClicked);
         collapseButton.setOnAction(this::onCollapseButtonClicked);
         showCommentsButton.setOnAction(this::onShowCommentsClicked);
         collapseCommentsButton.setOnAction(this::onCollapseCommentsClicked);
         replyButton.setOnAction(this::onReplyButtonClicked);
+        postButton.setOnAction(this::onPostButtonClicked);
 
         // Set layout and add to contentBox
+
         titleBox.getChildren().addAll(titleLabel, expandButton, collapseButton, showCommentsButton, collapseCommentsButton);
+
+
         contentBox.getChildren().addAll(titleBox);
+
+
+
+        newPostForm.getChildren().addAll(newPostTitleField, newPostContentArea, postButton);
+
+
+        /*
+        contentBox.getChildren().add(newPostForm);  // Place the new post form at the top
+        setGraphic(contentBox);
+         */
+        contentBox.getChildren().clear();
+        contentBox.getChildren().add(newPostForm);  // Place the new post form at the top
+        contentBox.getChildren().add(titleBox);
+
         setGraphic(contentBox);
     }
 
@@ -187,6 +227,33 @@ public class PostTreeCell extends TreeCell<Post> {
             } else {
                 System.out.println("Comment cannot be empty");
             }
+        }
+    }
+
+    private void onPostButtonClicked(ActionEvent event) {
+        String postTitle = newPostTitleField.getText().trim();
+        String postContent = newPostContentArea.getText().trim();
+
+        if (!postTitle.isEmpty() && !postContent.isEmpty()) {
+            // Create a new Post object and set its values
+            Post post = new Post();
+            post.setTitle(postTitle);
+            post.setFullContent(postContent);
+            post.setCreatedAt(Date.valueOf(LocalDate.now()));  // Set the current date
+            post.setUpdatedAt(Date.valueOf(LocalDate.now()));  // Set the current date
+
+            // Call the PostService to save the new post
+            PostService postService = new PostService();
+            postService.addPost(post);
+
+            // Clear the form fields
+            newPostTitleField.clear();
+            newPostContentArea.clear();
+
+            System.out.println("New post added successfully!");
+
+        } else {
+            System.out.println("Both title and content are required to post.");
         }
     }
 

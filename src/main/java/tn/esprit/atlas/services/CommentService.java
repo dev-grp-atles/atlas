@@ -17,7 +17,7 @@ public class CommentService {
 
     // ➤ Add Comment
     public void addComment(Comment comment) throws SQLException {
-        String sql = "INSERT INTO commentaire (content, post_id) VALUES (?, ?)";
+        String sql = "INSERT INTO commentaire (content, post_id, created_at, updated_at) VALUES (?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, comment.getContent());
             statement.setInt(2, comment.getPostId());

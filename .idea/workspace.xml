@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d1941d1-2f7f-495a-b098-919b0105609c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/PostTreeCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/PostTreeCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/CommentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,22 +33,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AtlasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Raeed&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Etdu/Documents/EspritProkects/atlas&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtlasApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Raeed",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Etdu/Documents/EspritProkects/atlas",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="atlas" />
@@ -82,7 +83,8 @@
       <workItem from="1740317248445" duration="12602000" />
       <workItem from="1740391998929" duration="1361000" />
       <workItem from="1740394850676" duration="7170000" />
-      <workItem from="1740412387272" duration="9861000" />
+      <workItem from="1740412387272" duration="13232000" />
+      <workItem from="1740431140362" duration="2013000" />
     </task>
     <servers />
   </component>
