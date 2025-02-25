@@ -42,7 +42,7 @@
 }
 .profile-fullname{
     -fx-font-size: 30px;
-    -fx-font-weight: 20px;
+    -fx-font-weight: bold;
     -fx-text-fill: #333333;
 }
 .profile-email, .profile-phone, .profile-address {
@@ -60,7 +60,7 @@
 }
 .profile-label{
     -fx-font-size: 15px;
-    -fx-font-weight: 10px;
+    -fx-font-weight: bold;
 }
 .profile-input{
     -fx-background-color: #f2f3f5;

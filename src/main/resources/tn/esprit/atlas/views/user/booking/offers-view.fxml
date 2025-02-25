@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.atlas.controllers.user.booking.OffersController"
+            hbarPolicy="NEVER" vbarPolicy="NEVER" fitToWidth="true"
+            style="-fx-background-color: transparent;"
+            stylesheets="@../../../assets/css/booking.css"> <!-- Link the CSS file -->
+    <content>
+        <GridPane fx:id="offersGrid" hgap="20" vgap="20" style="-fx-padding: 10px;">
+            <!-- Offers will be dynamically added here -->
+        </GridPane>
+    </content>
+</ScrollPane>

@@ -16,7 +16,7 @@ public class FlightService {
         cnx = DatabaseConnection.getInstance().getCnx();
     }
 
-    public void add(Flight flight) {
+    public void addFlight(Flight flight) {
         String req = "INSERT INTO Vol (departure, destination, departureDate, returnDate, availableSeats, price, airline_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -35,7 +35,7 @@ public class FlightService {
     }
 
 
-    public void update(Flight flight) {
+    public void updateFlight(Flight flight) {
         String req = "UPDATE Vol SET departure = ?, destination = ?, departureDate = ?, returnDate = ?, availableSeats = ?, price = ?, airline_id = ? WHERE vol_id = ?";
 
         try {
@@ -55,7 +55,7 @@ public class FlightService {
     }
 
 
-    public void delete(Flight flight) {
+    public void deleteFlight(Flight flight) {
         String req = "DELETE FROM Vol WHERE vol_id = ?";
 
         try {

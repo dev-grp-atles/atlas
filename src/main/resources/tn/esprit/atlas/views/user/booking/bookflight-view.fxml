@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.text.Font?>
+<VBox prefHeight="552.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.booking.BookFlightController">
+    <children>
+        <VBox>
+            <children>
+                <Label style="-fx-font-size: 15;" text="Book Flight View" />
+                <Label style="-fx-font-size: 15;" text="Choose an airline">
+                    <font>
+                        <Font size="8.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <!-- Container for Airlines -->
+        <FlowPane fx:id="airlinesContainer" prefHeight="400.0" prefWidth="800.0" hgap="20.0" vgap="20.0">
+            <padding>
+                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+            </padding>
+        </FlowPane>
+    </children>
+</VBox>

@@ -22,7 +22,7 @@ public class MainController {
     @FXML
     private void switchToSignIn() throws IOException {
         // Load the sign-in view
-        Parent signInRoot = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/signin-view.fxml"));
+        Parent signInRoot = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/auth/signin-view.fxml"));
 
         // Get the current scene
         Scene currentScene = switchToSignInButton.getScene();

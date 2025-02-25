@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS atlas;
 USE atlas;
 
 -- Create the Utilisateur table with roles for Voyageur, SupportClient, and Admin
-CREATE TABLE Utilisateur (
+CREATE TABLE IF NOT EXISTS Utilisateur (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50),
     surname VARCHAR(50),
@@ -48,24 +48,24 @@ CREATE TABLE IF NOT EXISTS Vol (
     airline_id INT, -- Clé étrangère pointant vers Airline
     FOREIGN KEY (airline_id) REFERENCES Airline(airline_id)
     );
-CREATE TABLE Reservation (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    prenom VARCHAR(50) NOT NULL,
+CREATE TABLE IF NOT EXISTS Reservation (
+                                           id INT PRIMARY KEY AUTO_INCREMENT,
+                                           prenom VARCHAR(50) NOT NULL,
     nom VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     telephone VARCHAR(20) NOT NULL,
-    typeChambre VARCHAR(20) NOT NULL,
+    typeChambre ENUM('single', 'double', 'suite') NOT NULL,
     nombrePersonnes INT NOT NULL,
     dateArrivee DATE NOT NULL,
     dateDepart DATE NOT NULL,
     nombreNuits INT NOT NULL,
     petitDejeuner BOOLEAN NOT NULL,
     litSupplementaire BOOLEAN NOT NULL,
-    vueSpecifique VARCHAR(20),
+    vueSpecifique ENUM('mer', 'piscine'),
     commentaire TEXT,
     montantTotal DECIMAL(10, 2) NOT NULL
-);
-CREATE TABLE Forfait (
+    );
+CREATE TABLE IF NOT EXISTS Forfait (
     packageld INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -75,3 +75,21 @@ CREATE TABLE Forfait (
     availableSeats INT NOT NULL,
     packageImage VARCHAR(255)
 );
+
+-- Create the FlightReservation table
+CREATE TABLE IF NOT EXISTS FlightReservation (
+                                                 reservation_id INT PRIMARY KEY AUTO_INCREMENT, -- Unique ID for the reservation
+                                                 user_id INT NOT NULL, -- Foreign key to link to the Utilisateur table (Voyageur)
+                                                 vol_id INT NOT NULL, -- Foreign key to link to the Vol table
+                                                 passenger_name VARCHAR(100) NOT NULL, -- Name of the passenger
+    passenger_email VARCHAR(100) NOT NULL, -- Email of the passenger
+    passenger_phone VARCHAR(20) NOT NULL, -- Phone number of the passenger
+    reservation_date DATETIME NOT NULL, -- Date and time of the reservation
+    number_of_passengers INT NOT NULL, -- Number of passengers
+    total_price DECIMAL(10, 2) NOT NULL, -- Total price of the reservation
+    payment_status ENUM('Pending', 'Paid', 'Cancelled') NOT NULL DEFAULT 'Pending', -- Payment status
+    reservation_status ENUM('Confirmed', 'Pending', 'Cancelled') NOT NULL DEFAULT 'Pending', -- Reservation status
+    special_requests TEXT, -- Any special requests from the passenger
+    FOREIGN KEY (user_id) REFERENCES Utilisateur(id), -- Link to the Utilisateur table
+    FOREIGN KEY (vol_id) REFERENCES Vol(vol_id) -- Link to the Vol table
+    );

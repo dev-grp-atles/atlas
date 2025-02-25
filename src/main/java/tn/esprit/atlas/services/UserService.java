@@ -20,13 +20,14 @@ public class UserService {
         String query = "INSERT INTO Utilisateur (name, surname, age, email, password, adresse, role, profileImage, num_telph, voyageurPreferences, destinations_preferrees, budget) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            // Hash the password before storing it
             String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
 
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getSurname());
             preparedStatement.setInt(3, user.getAge());
             preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(5, hashedPassword);
+            preparedStatement.setString(5, hashedPassword); // Store the hashed password
             preparedStatement.setString(6, user.getAdresse());
             preparedStatement.setString(7, user.getRole());
             preparedStatement.setString(8, user.getProfileImage());
@@ -83,11 +84,14 @@ public class UserService {
         String query = "UPDATE Utilisateur SET name = ?, surname = ?, age = ?, email = ?, password = ?, adresse = ?, role = ?, profileImage = ?, num_telph = ?, voyageurPreferences = ?, destinations_preferrees = ?, budget = ? WHERE id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            // Hash the password before updating it
+            String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getSurname());
             preparedStatement.setInt(3, user.getAge());
             preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(5, user.getPassword());
+            preparedStatement.setString(5, hashedPassword); // Store the hashed password
             preparedStatement.setString(6, user.getAdresse());
             preparedStatement.setString(7, user.getRole());
             preparedStatement.setString(8, user.getProfileImage());

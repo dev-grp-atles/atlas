@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox prefHeight="526.0" prefWidth="1115.0" style="-fx-background-color: white; -fx-background-radius: 10;" stylesheets="@../../../css/admin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.admin.airline.AddAirlineController">
+    <children>
+        <HBox prefHeight="43.0" prefWidth="863.0">
+            <children>
+                <VBox prefHeight="40.0" prefWidth="425.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Airlines form" wrappingWidth="182.98906707763672">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Text>
+                        <Text fill="#635d5d" strokeType="OUTSIDE" strokeWidth="0.0" text="add new airline to the database" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <VBox prefHeight="489.0" prefWidth="1212.0" spacing="10.0">
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+            <children>
+                <VBox spacing="10.0">
+                    <children>
+                        <TextField fx:id="addairline_nameField" prefHeight="62.0" prefWidth="1067.0" promptText="Name" style="-fx-background-color: #f2f3f5;" />
+                        <TextField fx:id="addairline_countryField" prefHeight="59.0" prefWidth="1067.0" promptText="Country" style="-fx-background-color: #f2f3f5;" />
+                    </children>
+                </VBox>
+                <HBox prefHeight="203.0" prefWidth="1212.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Button fx:id="addairline_selectLogoButton" mnemonicParsing="false" onAction="#handleUpload" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #0162AB;" text="Select Logo" textFill="WHITE" />
+                        <ImageView fx:id="logoImageView" fitHeight="180.0" fitWidth="994.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+                <Button fx:id="handleaddairline_button" mnemonicParsing="false" onAction="#handleAddAirline" prefHeight="58.0" prefWidth="1222.0" text="Add airline" textFill="WHITE" />
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
