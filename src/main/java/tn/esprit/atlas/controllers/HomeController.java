@@ -1,4 +1,5 @@
 package tn.esprit.atlas.controllers;
+//package tn.esprit.atlas.controllers.user;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,10 +36,16 @@ public class HomeController {
         loadScene("/tn/esprit/atlas/views/admin/admindashboard-view.fxml");
     }
 
+    //private void handleGoToForum() {loadScene("tn/esprit/atlas/views/community/forum_view.fxml");}
+
 
     public void loadScene(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            if (loader.getLocation() == null) {
+                System.out.println("Error: FXML location not found: " + fxml);
+                return;  // Return early if location is null
+            }
             Parent root = loader.load();
             Stage stage = (Stage) title_username.getScene().getWindow(); // Or any other component's scene reference
             Scene scene = new Scene(root);
@@ -48,4 +55,7 @@ public class HomeController {
             e.printStackTrace(); // Handle any potential IOExceptions
         }
     }
+
+
+
 }

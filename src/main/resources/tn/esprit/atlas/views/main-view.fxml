@@ -11,6 +11,7 @@
           <Button fx:id="switchToReservationButton" onAction="#switchToReservation" text="Go to Reservation" />
           <Button fx:id="switchToVolsButton" onAction="#switchToVols" text="Go to Vols" />
           <Button fx:id="switchToAirlinesButton" onAction="#switchToAirlines" text="Go to Airlines" />
+          <Button fx:id="switchToForumButton" onAction="#switchToForum" text="Go to Forum" />
       </children>
    </HBox>
 </StackPane>

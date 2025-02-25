@@ -19,6 +19,7 @@ public class MainController {
     @FXML
     private Button switchToAirlinesButton;
 
+
     @FXML
     private void switchToSignIn() throws IOException {
         // Load the sign-in view
@@ -26,6 +27,8 @@ public class MainController {
 
         // Get the current scene
         Scene currentScene = switchToSignInButton.getScene();
+
+        System.out.println("the Sign in was clicked");
 
         // Set the new root to the existing scene
         currentScene.setRoot(signInRoot);
@@ -38,6 +41,9 @@ public class MainController {
 
         // Get the current scene
         Scene currentScene = switchToReservationButton.getScene();
+
+        System.out.println("the resezrvation was clicked");
+
 
         // Set the new root to the existing scene
         currentScene.setRoot(reservationRoot);
@@ -66,4 +72,24 @@ public class MainController {
         // Set the new root to the existing scene
         currentScene.setRoot(airlinesRoot);
     }
+
+    @FXML
+    private Button switchToForumButton; // Add this line
+
+    @FXML
+    private void switchToForum() throws IOException {
+        // Load the forum view
+        Parent forumRoot = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/community/forum_view.fxml"));
+
+        // Get the current scene
+        Scene currentScene = switchToForumButton.getScene();
+
+        System.out.println("The Forum button was clicked");
+
+        // Set the new root to the existing scene
+        currentScene.setRoot(forumRoot);
+    }
+
+    //src/main/resources/tn/esprit/atlas/views/community/forum_view.fxml
+    //src/main/resources/tn/esprit/atlas/views/community/forum_view.fxml
 }

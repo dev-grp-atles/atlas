@@ -13,7 +13,7 @@ public class DatabaseConnection {
     public static DatabaseConnection instance;
     public DatabaseConnection(){
 
-        String Url="jdbc:mysql://localhost/atlas";
+        String Url = "jdbc:mysql://localhost/atlas";
         String Username="root";
         String Password="";
 
@@ -21,6 +21,7 @@ public class DatabaseConnection {
             cnx= DriverManager.getConnection(Url,Username,Password);
             System.out.println("Connextion etablie");
         } catch (SQLException e) {
+            System.out.println("Connextion n'est pas etablie");
             throw new RuntimeException(e);
         }
     }
