@@ -17,7 +17,7 @@ public class CategoryService {
 
     // ➤ Add Category
     public void addCategory(Category category) throws SQLIntegrityConstraintViolationException {
-        String query = "INSERT INTO categories (name) VALUES (?)";
+        String query = "INSERT INTO category (name) VALUES (?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, category.getName());
 
@@ -35,14 +35,14 @@ public class CategoryService {
     // ➤ Get All Categories
     public List<Category> getAllCategories() {
         List<Category> categories = new ArrayList<>();
-        String query = "SELECT * FROM categories";
+        String query = "SELECT * FROM category";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
                 Category category = new Category(
-                        resultSet.getInt("id"),
+                        resultSet.getInt("category_id"),
                         resultSet.getString("name")
                 );
                 categories.add(category);
@@ -55,7 +55,7 @@ public class CategoryService {
 
     // ➤ Update Category
     public void updateCategory(Category category) {
-        String query = "UPDATE categories SET name = ? WHERE id = ?";
+        String query = "UPDATE category SET name = ? WHERE category_id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, category.getName());
@@ -70,7 +70,7 @@ public class CategoryService {
 
     // ➤ Delete Category
     public void deleteCategory(int categoryId) {
-        String query = "DELETE FROM categories WHERE id = ?";
+        String query = "DELETE FROM category WHERE category_id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, categoryId);
@@ -83,14 +83,14 @@ public class CategoryService {
 
     // ➤ Find Category by ID
     public Category findCategoryById(int categoryId) {
-        String query = "SELECT * FROM categories WHERE id = ?";
+        String query = "SELECT * FROM category WHERE category_id = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, categoryId);
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     return new Category(
-                            resultSet.getInt("id"),
+                            resultSet.getInt("category_id"),
                             resultSet.getString("name")
                     );
                 }

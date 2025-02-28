@@ -1,9 +1,16 @@
 package tn.esprit.atlas.controllers.user;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeCell;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import tn.esprit.atlas.entities.Post;
 import tn.esprit.atlas.entities.Comment;
@@ -13,6 +20,7 @@ import tn.esprit.atlas.services.CommentService;
 import tn.esprit.atlas.services.CategoryService;
 import tn.esprit.atlas.PostTreeCell;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ForumController {
@@ -77,5 +85,28 @@ public class ForumController {
     }
 
      */
+
+
+    @FXML
+    private Button addPostButton; // The "Add Post" button
+
+    // Handle the action of the "Add Post" button
+    @FXML
+    private void handleAddPostButtonAction(ActionEvent event) {
+        try {
+            // Load the AddPostForm.fxml into the current scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/community/AddPostForm.fxml"));
+            Parent addPostForm = loader.load();
+
+            // Get the current scene and set the root as the loaded form
+            // Assuming the current stage and scene are available
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            currentScene.setRoot(addPostForm); // Change the root of the current scene to the new form
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
