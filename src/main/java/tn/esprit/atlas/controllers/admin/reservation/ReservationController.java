@@ -3,11 +3,14 @@ package tn.esprit.atlas.controllers.admin.reservation;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import tn.esprit.atlas.controllers.admin.AdminDashboardController;
 import tn.esprit.atlas.entities.Reservation;
 import tn.esprit.atlas.services.ReservationService;
+import tn.esprit.atlas.utils.EmailService;
+import tn.esprit.atlas.utils.PdfGenerator;
+
+import java.io.File;
 
 public class ReservationController {
 
@@ -16,6 +19,9 @@ public class ReservationController {
 
     @FXML
     private Button delete_button;
+
+    @FXML
+    private Button confirm_button; // Add this line
 
     private ReservationService reservationService = new ReservationService();
     private AdminDashboardController dashboardController;
@@ -68,8 +74,10 @@ public class ReservationController {
         reservationListView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 delete_button.setVisible(true);
+                confirm_button.setVisible(true); // Show the confirm button
             } else {
                 delete_button.setVisible(false);
+                confirm_button.setVisible(false); // Hide the confirm button
             }
         });
     }
@@ -107,6 +115,37 @@ public class ReservationController {
                 showAlert("Success", "Reservation deleted successfully.");
             }
         });
+    }
+
+    // Handle the confirm button action
+    @FXML
+    private void handleConfirmReservation() {
+        Reservation selectedReservation = reservationListView.getSelectionModel().getSelectedItem();
+
+        if (selectedReservation == null) {
+            showAlert("Error", "Please select a reservation to confirm.");
+            return;
+        }
+
+        try {
+            // Generate the PDF
+            File pdfFile = PdfGenerator.generateReservationPdf(selectedReservation);
+
+            // Send the email with the PDF attachment
+            String subject = "Reservation Confirmation";
+            String body = "Dear " + selectedReservation.getPrenom() + ",\n\n"
+                    + "Your reservation has been confirmed. Please find the details attached.\n\n"
+                    + "Thank you for choosing our service!\n\n"
+                    + "Best regards,\n"
+                    + "Atlas Team";
+
+            EmailService.sendEmailWithAttachment(selectedReservation.getEmail(), subject, body, pdfFile);
+
+            showAlert("Success", "Reservation confirmed and email sent successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to send confirmation email: " + e.getMessage());
+        }
     }
 
     // Show an alert dialog

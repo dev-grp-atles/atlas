@@ -47,4 +47,9 @@ public class UserController {
         UserSession.clearSession();
         System.out.println("User logged out successfully!");
     }
+
+    // ➤ Reset Password
+    public boolean resetPassword(String email) {
+        return userService.resetPassword(email);
+    }
 }

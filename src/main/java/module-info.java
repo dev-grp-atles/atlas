@@ -4,6 +4,9 @@ module tn.esprit.atlas.main {
     requires java.sql;
     requires mysql.connector.j;
     requires jbcrypt;
+    requires com.google.protobuf;
+    requires java.mail; // For JavaMail API
+    requires org.apache.pdfbox; // Add PDFBox module
 
     // Export main package
     exports tn.esprit.atlas.main;
@@ -50,7 +53,10 @@ module tn.esprit.atlas.main {
     exports tn.esprit.atlas.controllers.user.auth to javafx.fxml;
     opens tn.esprit.atlas.controllers.user.auth to javafx.fxml;
 
-    // Add this line to export and open the user.booking package
+    // Exports and opens for user.booking controllers
     exports tn.esprit.atlas.controllers.user.booking to javafx.fxml;
     opens tn.esprit.atlas.controllers.user.booking to javafx.fxml;
+
+    // Open utils package for JavaMail reflection
+    opens tn.esprit.atlas.utils to java.mail;
 }

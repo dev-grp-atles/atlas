@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -29,6 +30,9 @@ public class SigninController {
 
     @FXML
     private TextField passwordField;
+
+    @FXML
+    private Label forgotPasswordLabel;
 
     private UserController userController = new UserController(); // Instance of UserController
 
@@ -96,6 +100,14 @@ public class SigninController {
 
     private boolean isValidEmail(String email) {
         return email != null && EMAIL_PATTERN.matcher(email).matches();
+    }
+
+    @FXML
+    private void handleForgotPassword(MouseEvent event) throws IOException {
+        // Load the forgot password view
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/auth/forgotpassword-view.fxml"));
+        Stage stage = (Stage) forgotPasswordLabel.getScene().getWindow();
+        stage.getScene().setRoot(root);
     }
 
     private void showAlert(String title, String message) {

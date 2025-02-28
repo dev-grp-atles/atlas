@@ -2,6 +2,7 @@ package tn.esprit.atlas.services;
 
 import tn.esprit.atlas.entities.User;
 import tn.esprit.atlas.main.DatabaseConnection;
+import tn.esprit.atlas.utils.EmailService; // Import EmailService
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -183,5 +184,46 @@ public class UserService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    // ➤ Reset Password
+    public boolean resetPassword(String email) {
+        String query = "SELECT * FROM Utilisateur WHERE email = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                // Generate a new temporary password
+                String newPassword = generateTemporaryPassword();
+                String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+
+                // Update the user's password in the database
+                String updateQuery = "UPDATE Utilisateur SET password = ? WHERE email = ?";
+                try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
+                    updateStatement.setString(1, hashedPassword);
+                    updateStatement.setString(2, email);
+                    updateStatement.executeUpdate();
+                }
+
+                // Send the new password to the user's email
+                String subject = "Password Reset Request";
+                String body = "Your new temporary password is: " + newPassword + "\n\nPlease change your password after logging in.";
+                EmailService.sendEmail(email, subject, body); // Call the EmailService to send the email
+
+                return true;
+            } else {
+                return false; // No user found with this email
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // ➤ Generate a Temporary Password
+    private String generateTemporaryPassword() {
+        // Generate a random temporary password (you can customize this logic)
+        return "TempPassword123!"; // Replace with a secure random password generator
     }
 }

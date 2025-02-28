@@ -5,89 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb88c1e0-2cef-494f-8615-9161ab9d57b7" name="Changes" comment="added the ability to modify user">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/airline/AddAirlineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/airline/AirlineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/airline/UpdateAirlineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/flight/AddFlightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/flight/FlightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/flight/UpdateFlightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/offer/AddOfferController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/offer/OfferController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/offer/UpdateOfferController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/reservation/ReservationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/user/AdminUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/user/UpdateUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/BookFlightController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/BookingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/FlightReservationFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/FlightsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/OfferDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/OffersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/ReservationFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/FlightReservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Offer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Reservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/FlightReservationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/OfferService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/ReservationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/assets/css/booking.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/booking.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/Offer/addoffer-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/Offer/updateoffer-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/airline/addairline-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/airline/airlines-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/airline/updateairline-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/flight/addflight-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/flight/flights-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/flight/updateflight-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/overview.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/reservation/reservations-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/user/updateuser-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/user/users-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/aiguide-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/bookflight-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/bookhotel-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/flights-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/offerdetails-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/offers-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/reservation-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/booking/reservationform-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/community-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/overview-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/tripplanner-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/auth/ForgotPasswordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/utils/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/utils/PdfGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/auth/forgotpassword-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseStructure.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseStructure.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newfile.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/raidtest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Atlas.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/ReservationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/DetailsVoyageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/AddOffersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/OverviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/AdminDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/AdminDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/ModifyOffersController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/OffersViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/auth/SigninController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/auth/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/AtlasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/AtlasApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/FlightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/reservation/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/reservation/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/auth/SigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/auth/SigninController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/addoffers.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/admindashboard-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/admindashboard-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/modifyoffers.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/offers-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/Offer/offers-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/home-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/offers/detailsoffers-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/offers/offerslist-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/signin-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/auth/signin-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/signup-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/auth/signup-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/reservation/reservations-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/admin/reservation/reservations-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/auth/signin-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/user/auth/signin-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +96,7 @@
     &quot;git-widget-placeholder&quot;: &quot;imem&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/ayach/IdeaProjects/Atlas/src/main/java/tn/esprit/atlas&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ayach/IdeaProjects/Atlas/src/main/java/tn/esprit/atlas/controllers/admin/airline&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ayach/IdeaProjects/Atlas/src/main/java/tn/esprit/atlas/utils&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -182,6 +113,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ayach\IdeaProjects\Atlas\src\main\java\tn\esprit\atlas\utils" />
       <recent name="C:\Users\ayach\IdeaProjects\Atlas\src\main\java\tn\esprit\atlas\controllers\admin\airline" />
       <recent name="C:\Users\ayach\IdeaProjects\Atlas\src\main\resources\tn\esprit\atlas\views" />
       <recent name="C:\Users\ayach\IdeaProjects\Atlas\assets" />
@@ -246,7 +178,10 @@
       <workItem from="1740151432713" duration="3090000" />
       <workItem from="1740258897322" duration="79682000" />
       <workItem from="1740449481537" duration="6301000" />
-      <workItem from="1740484486058" duration="4130000" />
+      <workItem from="1740484486058" duration="5867000" />
+      <workItem from="1740559361238" duration="350000" />
+      <workItem from="1740678499846" duration="4870000" />
+      <workItem from="1740758398074" duration="12207000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -385,16 +320,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/airline/AddAirlineController.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/admin/reservation/ReservationController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/booking/OffersController.java</url>
           <line>186</line>

@@ -102,7 +102,8 @@
                                         <ListView fx:id="reservationListView" prefHeight="214.0" prefWidth="1202.0" VBox.vgrow="ALWAYS" />
                                         <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="430.0" spacing="10.0">
                                             <children>
-                                                <Button fx:id="delete_button" mnemonicParsing="false" onAction="#handleDeleteReservation" prefHeight="90.0" prefWidth="144.0" style="-fx-background-color: #DC143C;" text="Delete" textFill="WHITE" />
+                                                <Button fx:id="delete_button" mnemonicParsing="false" onAction="#handleConfirmReservation" prefHeight="90.0" prefWidth="144.0" style="-fx-background-color: #7FFFD4;" text="Confirm" textFill="WHITE"  />
+                                    <Button fx:id="delete_button1" mnemonicParsing="false" onAction="#handleDeleteReservation" prefHeight="90.0" prefWidth="144.0" style="-fx-background-color: #DC143C;" text="Delete" textFill="WHITE" />
                                             </children>
                                  <VBox.margin>
                                     <Insets top="10.0" />
