@@ -4,6 +4,7 @@ package tn.esprit.atlas.controllers.user;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -56,27 +57,27 @@ public class AddPostFormController {
             // Get the category ID based on the category name
             int categoryId = getCategoryIdByName(categoryName, categoryService);
 
+            // If the category doesn't exist, add it
             if (categoryId == -1) {
                 System.out.println("Category not found. Would you like to add it?");
 
                 // Optionally, prompt the user to add the category
                 if (askUserToAddCategory()) {
-                    // Add the new category
+                    // Add the new category and get the category_id directly
                     Category newCategory = new Category();
                     newCategory.setName(categoryName);
-                    categoryService.addCategory(newCategory);
+                    categoryId = categoryService.addCategoryAndGetId(newCategory);  // New method to add category and retrieve ID
 
-                    // Get the category ID again after adding it
-                    categoryId = newCategory.getId();
+                    // Set the valid categoryId in the post
+                    newPost.setCategoryId(categoryId);
                     System.out.println("✅ New Category Added: " + categoryName);
                 } else {
                     // Exit method if category is not added
                     return;
                 }
+            } else {
+                newPost.setCategoryId(categoryId);  // Set the category ID if it was found
             }
-
-            // Set the valid categoryId
-            newPost.setCategoryId(categoryId);
 
             // Create an instance of PostService
             PostService postService = new PostService();
@@ -121,19 +122,40 @@ public class AddPostFormController {
 
 
 
-    // Handles "Go to Forum" button click
     @FXML
     private void handleGoToForumAction(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/community/forum_view.fxml"));
             Parent forumRoot = loader.load();
-            Stage currentStage = (Stage) titleField.getScene().getWindow();
-            currentStage.setScene(new Scene(forumRoot));  // Set new scene on the same stage
+
+            // Instead of creating a new scene, set the root of the current scene
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            currentScene.setRoot(forumRoot);  // This will keep the same stage and scene context
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error loading forum view: " + e.getMessage());
         }
     }
+
+/*
+    public void setPostDetails(Post post) {
+        titleField.setText(post.getTitle());
+        contentArea.setText(post.getFullContent());
+
+        // Assuming the category ID is available and you have a method to fetch the category name by ID
+        CategoryService categoryService = new CategoryService();
+        Category category = categoryService.findCategoryById(post.getCategoryId());  // Fetch the full category object
+
+        if (category != null) {
+            String categoryName = category.getName();  // Get the category name from the Category object
+            category_Field.setText(categoryName);  // Populate the field with the category name
+        } else {
+            // Handle the case where the category was not found
+            category_Field.setText("Category not found");
+        }
+    }
+*/
+
 
 
 }

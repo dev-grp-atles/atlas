@@ -1,18 +1,24 @@
 package tn.esprit.atlas;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+import tn.esprit.atlas.controllers.user.AddPostFormController;
+import tn.esprit.atlas.controllers.user.EditPostFormController;
 import tn.esprit.atlas.entities.Post;
 import tn.esprit.atlas.entities.Comment;
 import tn.esprit.atlas.services.CommentService;
 import tn.esprit.atlas.services.PostService;
-import java.sql.Date;
-import java.time.LocalDate;
+
+import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostTreeCell extends TreeCell<Post> {
@@ -23,15 +29,21 @@ public class PostTreeCell extends TreeCell<Post> {
     private Button collapseButton;
     private Button showCommentsButton;
     private Button collapseCommentsButton;
+    private Button deletePostButton;  // The "Delete Post" button
     private VBox fullContentBox;
     private TextArea fullContentArea;
     private TextField commentTextField;
     private Button replyButton;
+
     private ListView<Label> commentListView = new ListView<>();
+    //private ListView<HBox> commentListView = new ListView<>();
+
     private VBox commentBox = new VBox();
     private boolean commentsVisible = false;
+    private Button editPostButton;
 
 
+    private PostService postService = new PostService(); // Service for post operations
 
     public PostTreeCell() {
         // Initialize elements
@@ -41,7 +53,8 @@ public class PostTreeCell extends TreeCell<Post> {
         collapseButton = new Button("Collapse");
         showCommentsButton = new Button("Show Comments");
         collapseCommentsButton = new Button("Collapse Comments");
-
+        deletePostButton = new Button("Delete Post");
+        editPostButton = new Button("Edit Post");
 
         contentBox = new VBox(5);
         fullContentBox = new VBox(10);
@@ -49,34 +62,17 @@ public class PostTreeCell extends TreeCell<Post> {
         commentTextField = new TextField();
         replyButton = new Button("Reply");
 
-
-
         // Button actions
         expandButton.setOnAction(this::onExpandButtonClicked);
         collapseButton.setOnAction(this::onCollapseButtonClicked);
         showCommentsButton.setOnAction(this::onShowCommentsClicked);
         collapseCommentsButton.setOnAction(this::onCollapseCommentsClicked);
         replyButton.setOnAction(this::onReplyButtonClicked);
-
+        deletePostButton.setOnAction(this::onDeletePostClicked);  // Delete post action
+        editPostButton.setOnAction(this::onEditPostClicked);
 
         // Set layout and add to contentBox
-
-        titleBox.getChildren().addAll(titleLabel, expandButton, collapseButton, showCommentsButton, collapseCommentsButton);
-
-
-        contentBox.getChildren().addAll(titleBox);
-
-
-
-
-
-
-        /*
-        contentBox.getChildren().add(newPostForm);  // Place the new post form at the top
-        setGraphic(contentBox);
-         */
-        contentBox.getChildren().clear();
-        // Place the new post form at the top
+        titleBox.getChildren().addAll(titleLabel, expandButton, collapseButton, showCommentsButton, collapseCommentsButton, deletePostButton,editPostButton);
         contentBox.getChildren().add(titleBox);
 
         setGraphic(contentBox);
@@ -118,9 +114,16 @@ public class PostTreeCell extends TreeCell<Post> {
         setGraphic(contentBox);
     }
 
+
+
+
+
+
+
+
+
     // Action for showing comments
     private void onShowCommentsClicked(ActionEvent event) {
-        System.out.println("showCommentsClicked");
         TreeItem<Post> treeItem = getTreeItem();
         if (treeItem != null) {
             Post post = treeItem.getValue();
@@ -139,8 +142,6 @@ public class PostTreeCell extends TreeCell<Post> {
             // Clear the commentBox and add necessary UI components
             commentBox.getChildren().clear();
             commentBox.getChildren().add(commentListView);  // Show ListView of comments
-
-            // Optional: Add a text field and a reply button for adding new comments (if needed)
             commentBox.getChildren().add(commentTextField);  // Add comment text field
             commentBox.getChildren().add(replyButton);       // Add reply button
 
@@ -154,25 +155,14 @@ public class PostTreeCell extends TreeCell<Post> {
         }
     }
 
-    // Action for collapsing comments
-    private void onCollapseCommentsClicked(ActionEvent event) {
-        commentBox.getChildren().clear(); // Hide the comment section
-        commentsVisible = false; // Track the collapse state (optional, to manage further interactions)
-    }
+
 
     private void onReplyButtonClicked(ActionEvent event) {
-        System.out.println("onReplyButtonClicked");
         TreeItem<Post> treeItem = getTreeItem();
-
-        System.out.println("TreeItem: " + getTreeItem());
 
         if (treeItem != null) {
             Post post = treeItem.getValue();
             String commentContent = commentTextField.getText().trim();
-
-
-            System.out.println(commentContent);
-
 
             if (!commentContent.isEmpty()) {
                 // Assuming you have a CommentService that can add the comment to the database
@@ -186,7 +176,6 @@ public class PostTreeCell extends TreeCell<Post> {
 
                     // Add the comment to the database
                     commentService.addComment(comment);
-                    System.out.println("Comment added to the database!");
 
                     // Clear the comment text field
                     commentTextField.clear();
@@ -208,13 +197,84 @@ public class PostTreeCell extends TreeCell<Post> {
 
                 } catch (SQLException e) {
                     System.out.println("Error occurred while adding comment: " + e.getMessage());
-                    e.printStackTrace();
                 }
-            } else {
-                System.out.println("Comment cannot be empty");
             }
         }
     }
+
+
+    // Action for collapsing comments
+    private void onCollapseCommentsClicked(ActionEvent event) {
+        commentBox.getChildren().clear(); // Hide the comment section
+        commentsVisible = false; // Track the collapse state (optional, to manage further interactions)
+    }
+
+
+
+    private void onDeletePostClicked(ActionEvent event) {
+        TreeItem<Post> treeItem = getTreeItem();
+        if (treeItem != null) {
+            Post post = treeItem.getValue();
+
+            // Show confirmation dialog before deletion
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete Post");
+            alert.setHeaderText("Are you sure you want to delete this post?");
+            alert.setContentText(post.getTitle());
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    // Delete all comments associated with this post
+                    List<Comment> comments = new CommentService().getAllCommentsByPostId(post.getId());
+                    for (Comment comment : comments) {
+                        new CommentService().deleteComment(comment.getId()); // Delete each comment
+                    }
+
+                    // Delete the post from the database
+                    postService.deletePost(post.getId()); // Assuming postService.deletePost() method exists
+
+                    // Remove the post from the TreeView
+                    getTreeItem().getParent().getChildren().remove(getTreeItem());
+                    System.out.println("Post and its comments deleted successfully.");
+                }
+            });
+        }
+    }
+
+
+    private void onEditPostClicked(ActionEvent event) {
+        try {
+            // Load the EditPostForm FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/community/EditPostForm.fxml"));
+            Parent editPostRoot = loader.load();
+
+            // Get the post from the TreeItem
+            TreeItem<Post> treeItem = getTreeItem();
+            Post post = treeItem.getValue();
+
+            // Get the controller of the EditPostForm
+            EditPostFormController controller = loader.getController();
+
+            // Pre-populate the form with the current post's details
+            controller.setPostDetails(post);
+
+            // Instead of creating a new scene, set the root of the current scene
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            Stage currentStage = (Stage) currentScene.getWindow();
+
+            // Set the new root to the EditPostForm without changing the entire scene.
+            // In this way, the UI remains the same, but the content changes.
+            currentStage.getScene().setRoot(editPostRoot);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading edit post form: " + e.getMessage());
+        }
+    }
+
+
+
+
 
 
 

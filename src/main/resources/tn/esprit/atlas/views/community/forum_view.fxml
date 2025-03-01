@@ -3,18 +3,22 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.ForumController">
 
     <children>
-        <!-- VBox to hold the button and TreeView -->
-        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+        <!-- VBox to hold the label and button, centered -->
+        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10" alignment="CENTER">
+
+            <!-- Welcome Label -->
+            <Label text="Welcome to the Forum!" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
 
             <!-- Add Post Button -->
             <Button text="Add Post" onAction="#handleAddPostButtonAction" />
 
-            <!-- TreeView for displaying posts -->
-            <TreeView fx:id="treeview" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+            <!-- TreeView for displaying posts, set VBox grow to take remaining space -->
+            <TreeView fx:id="treeview" VBox.vgrow="ALWAYS"/>
         </VBox>
     </children>
 </AnchorPane>

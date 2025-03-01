@@ -100,4 +100,31 @@ public class CategoryService {
         }
         return null;
     }
+
+
+
+
+    // ➤ Add Category and Get the Generated Category ID
+    public int addCategoryAndGetId(Category category) throws SQLIntegrityConstraintViolationException {
+        String query = "INSERT INTO category (name) VALUES (?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, category.getName());
+
+            // Execute the update
+            preparedStatement.executeUpdate();
+
+            // Retrieve the generated category ID
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                return generatedKeys.getInt(1);  // Return the generated category_id
+            }
+        } catch (SQLIntegrityConstraintViolationException e) {
+            // Re-throw the exception to handle it in the controller
+            throw e;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to add category to the database.", e);
+        }
+        return -1;  // Return -1 if no category_id is generated
+    }
 }
