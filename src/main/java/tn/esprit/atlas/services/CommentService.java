@@ -59,22 +59,25 @@ public class CommentService {
         return comments;
     }
 
-    // ➤ Update Comment
-    public void updateComment(Comment comment) {
-        String query = "UPDATE commentaire SET content = ?, createdAt = ?, post_id = ? WHERE comment_id = ?";  // Correct column name
+    public void updateComment(Comment comment) throws SQLException {
+        String sql = "UPDATE commentaire SET content = ?, updated_at = CURRENT_TIMESTAMP WHERE comment_id = ?";
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, comment.getContent());
-            preparedStatement.setTimestamp(2, new Timestamp(comment.getCreatedAt().getTime()));
-            preparedStatement.setInt(3, comment.getPostId());
-            preparedStatement.setInt(4, comment.getId());
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, comment.getContent()); // Update the content
+            statement.setInt(2, comment.getId()); // Use the comment's ID
 
-            preparedStatement.executeUpdate();
-            System.out.println("✅ Comment updated successfully!");
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Comment successfully updated.");
+            } else {
+                System.out.println("Failed to update comment.");
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Error occurred while updating comment: " + e.getMessage());
+            throw e;
         }
     }
+
 
     // ➤ Delete Comment
     public void deleteComment(int commentId) {

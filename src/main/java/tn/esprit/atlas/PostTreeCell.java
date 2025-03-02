@@ -35,8 +35,8 @@ public class PostTreeCell extends TreeCell<Post> {
     private TextField commentTextField;
     private Button replyButton;
 
-    private ListView<Label> commentListView = new ListView<>();
-    //private ListView<HBox> commentListView = new ListView<>();
+    //private ListView<Label> commentListView = new ListView<>();
+    private ListView<HBox> commentListView = new ListView<>();
 
     private VBox commentBox = new VBox();
     private boolean commentsVisible = false;
@@ -121,7 +121,6 @@ public class PostTreeCell extends TreeCell<Post> {
 
 
 
-
     // Action for showing comments
     private void onShowCommentsClicked(ActionEvent event) {
         TreeItem<Post> treeItem = getTreeItem();
@@ -134,9 +133,24 @@ public class PostTreeCell extends TreeCell<Post> {
             // Clear existing items
             commentListView.getItems().clear();
 
-            // Add each comment as a Label
+            // Add each comment as an HBox (with a Label, Edit and Delete buttons)
             for (Comment comment : comments) {
-                commentListView.getItems().add(new Label(comment.getContent()));  // Display each comment as a label
+                HBox commentHBox = new HBox(10); // Create an HBox with spacing between elements
+                Label commentLabel = new Label(comment.getContent());
+                Button editButton = new Button("Edit");
+                Button deleteButton = new Button("Delete");
+
+                // Action to populate the commentTextField for editing
+                editButton.setOnAction(editEvent -> onEditCommentClicked(comment));
+
+                // Action for deleting comment
+                deleteButton.setOnAction(deleteEvent -> onDeleteCommentClicked(comment));
+
+                // Add the Label, Edit, and Delete buttons to the HBox
+                commentHBox.getChildren().addAll(commentLabel, editButton, deleteButton);
+
+                // Add the HBox to the ListView
+                commentListView.getItems().add(commentHBox);
             }
 
             // Clear the commentBox and add necessary UI components
@@ -155,6 +169,53 @@ public class PostTreeCell extends TreeCell<Post> {
         }
     }
 
+    // Flag to check if we're in edit mode
+    private boolean isEditingComment = false;
+
+    // The comment object that is being edited
+    private Comment editingComment = null;
+
+    private Comment currentCommentToEdit;
+
+    // Handle the edit button click
+    private void onEditCommentClicked(Comment comment) {
+        // Populate the commentTextField with the content of the comment being edited
+        commentTextField.setText(comment.getContent());
+
+        // Change the action of the replyButton to "Update" instead of "Reply"
+        replyButton.setText("Update");
+
+        // Add a flag to indicate that we are in edit mode
+        isEditingComment = true;
+        editingComment = comment;  // Store the comment being edited
+    }
+
+
+
+
+
+
+    // Method to handle comment deletion
+    private void onDeleteCommentClicked(Comment comment) {
+        // Create a CommentService instance to handle the database interaction
+        CommentService commentService = new CommentService();
+
+        // Delete the comment from the database
+        commentService.deleteComment(comment.getId());
+
+        // Remove the corresponding HBox from the ListView
+        for (HBox hbox : commentListView.getItems()) {
+            // Get the Label from the HBox (assuming the first child is the Label)
+            Label label = (Label) hbox.getChildren().get(0);
+
+            // Check if the content matches the comment that should be deleted
+            if (label.getText().equals(comment.getContent())) {
+                commentListView.getItems().remove(hbox);  // Remove the HBox from the ListView
+                break;
+            }
+        }
+    }
+
 
 
     private void onReplyButtonClicked(ActionEvent event) {
@@ -165,42 +226,80 @@ public class PostTreeCell extends TreeCell<Post> {
             String commentContent = commentTextField.getText().trim();
 
             if (!commentContent.isEmpty()) {
-                // Assuming you have a CommentService that can add the comment to the database
-                CommentService commentService = new CommentService();
-
                 try {
-                    // Create a new Comment entity
-                    Comment comment = new Comment();
-                    comment.setContent(commentContent);
-                    comment.setPostId(post.getId());  // Assuming the Post has an ID
+                    CommentService commentService = new CommentService();
 
-                    // Add the comment to the database
-                    commentService.addComment(comment);
+                    // Check if we're in edit mode
+                    if (isEditingComment) {
+                        if (editingComment == null) {
+                            // If for some reason editingComment is null, print a log message and exit
+                            System.out.println("Error: No comment is being edited.");
+                            return;
+                        }
 
-                    // Clear the comment text field
-                    commentTextField.clear();
+                        // Set the content of the comment to the new content from the text field
+                        editingComment.setContent(commentContent);
+
+                        // Update the comment in the database
+                        commentService.updateComment(editingComment);
+
+                        // After updating, clear the text field and reset the button
+                        commentTextField.clear();
+                        replyButton.setText("Reply");  // Reset the button to "Reply"
+                        isEditingComment = false;  // Reset the edit flag
+                        editingComment = null;  // Clear the comment being edited
+                    } else {
+                        // Add a new comment
+                        Comment comment = new Comment();
+                        comment.setContent(commentContent);
+                        comment.setPostId(post.getId());  // Assuming the Post has an ID
+
+                        // Add the comment to the database
+                        commentService.addComment(comment);
+
+                        // Clear the comment text field after adding the comment
+                        commentTextField.clear();
+                    }
 
                     // Fetch updated list of comments from the CommentService
                     List<Comment> updatedComments = commentService.getAllCommentsByPostId(post.getId());
 
-                    // Update the comment list view with the newly added comment
+                    // Clear the existing items in the commentListView
                     commentListView.getItems().clear();
+
+                    // Loop through the updated list of comments
                     for (Comment c : updatedComments) {
-                        commentListView.getItems().add(new Label(c.getContent())); // Add each comment as a label
+                        // Create an HBox to represent the comment
+                        HBox commentHBox = new HBox();
+                        commentHBox.setSpacing(10); // Space between elements in HBox
+
+                        // Create a Label for the comment content
+                        Label commentLabel = new Label(c.getContent());
+
+                        // Optionally add buttons or other components (e.g., Edit, Delete buttons)
+                        Button editButton = new Button("Edit");
+                        editButton.setOnAction(e -> onEditCommentClicked(c)); // Pass the comment to the edit handler
+
+                        Button deleteButton = new Button("Delete");
+                        deleteButton.setOnAction(e -> onDeleteCommentClicked(c)); // Pass the comment to the delete handler
+
+                        // Add the Label and Buttons to the HBox
+                        commentHBox.getChildren().addAll(commentLabel, editButton, deleteButton);
+
+                        // Add the HBox to the commentListView
+                        commentListView.getItems().add(commentHBox);
                     }
-
-                    // Re-add the commentBox with the updated comment list and the text field
-                    commentBox.getChildren().clear();
-                    commentBox.getChildren().add(commentListView);  // Re-add ListView
-                    commentBox.getChildren().add(commentTextField);  // Re-add text field
-                    commentBox.getChildren().add(replyButton);       // Re-add reply button
-
                 } catch (SQLException e) {
-                    System.out.println("Error occurred while adding comment: " + e.getMessage());
+                    System.out.println("Error occurred while adding/updating comment: " + e.getMessage());
+                    e.printStackTrace();  // Log the stack trace for debugging purposes
                 }
             }
         }
     }
+
+
+
+
 
 
     // Action for collapsing comments
@@ -208,6 +307,16 @@ public class PostTreeCell extends TreeCell<Post> {
         commentBox.getChildren().clear(); // Hide the comment section
         commentsVisible = false; // Track the collapse state (optional, to manage further interactions)
     }
+
+
+
+
+
+
+
+
+
+
 
 
 

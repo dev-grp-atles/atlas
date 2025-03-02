@@ -108,5 +108,23 @@ public class ForumController {
         }
     }
 
+    @FXML
+    private void handleGoToMenuButtonAction(ActionEvent event) {
+        try {
+            System.out.println("this button has been clicked");
+            // Load the main menu view (assuming it's the MainController's root)
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/main-view.fxml"));  // Add leading slash
+
+            Parent mainMenu = loader.load();
+
+            // Get the current scene and set the root to the main menu
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            currentScene.setRoot(mainMenu);  // Change the root of the current scene to the main menu view
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

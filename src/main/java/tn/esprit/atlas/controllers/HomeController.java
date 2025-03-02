@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import tn.esprit.atlas.entities.User;
 import tn.esprit.atlas.utils.UserSession;
@@ -57,5 +58,25 @@ public class HomeController {
     }
 
 
+    /*
+    @FXML
+    private void handleCommunityClick(MouseEvent event) {
+        try {
+            // Load the community forum view FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/community/forum_view.fxml"));
+            Parent root = loader.load();
 
+            // Get the current stage
+            Stage stage = (Stage) ((Label) event.getSource()).getScene().getWindow();
+
+            // Set the new scene with the loaded fxml
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error loading community forum view: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+     */
 }
