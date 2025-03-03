@@ -12,6 +12,7 @@ module tn.esprit.atlas.main {
     exports tn.esprit.atlas.controllers.admin;
     exports tn.esprit.atlas.controllers.user;
     exports tn.esprit.atlas.controllers.hotel;
+    exports tn.esprit.atlas.controllers.review;
     exports tn.esprit.atlas.services;
 
     // Open packages to JavaFX (for FXML loading and reflection)
@@ -21,4 +22,6 @@ module tn.esprit.atlas.main {
     opens tn.esprit.atlas.controllers to javafx.fxml;
     opens tn.esprit.atlas.controllers.user to javafx.fxml;
     opens tn.esprit.atlas.controllers.hotel to javafx.fxml;
+    opens tn.esprit.atlas.controllers.review to javafx.fxml; // Add this line
+    opens tn.esprit.atlas.views.review to javafx.fxml;
 }

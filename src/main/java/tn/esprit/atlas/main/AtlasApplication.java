@@ -46,6 +46,25 @@ public class AtlasApplication extends Application {
         primaryStage.setScene(scene);
     }
 
+
+    public void loadViewHotelsClientSide() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/hotel/view-hotels-clientside-view.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/viewHotelsClientSide.css").toExternalForm());
+
+        primaryStage.setScene(scene);
+    }
+
+    public void loadAddReview() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/review/AddReview-view.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/review.css").toExternalForm());
+
+        primaryStage.setScene(scene);
+    }
+
+
+
     public static void main(String[] args) {
         launch(args);
     }

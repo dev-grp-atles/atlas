@@ -12,8 +12,8 @@
 <?import javafx.scene.image.ImageView?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="tn.esprit.atlas.controllers.hotel.ViewHotelsController"
-            stylesheets="@../../css/viewHotels.css">
+            fx:controller="tn.esprit.atlas.controllers.hotel.ViewHotelsClientSideController"
+            stylesheets="@../../css/viewHotelsClientSide.css">
 
     <HBox spacing="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <!-- Enhanced Sidebar -->
@@ -23,19 +23,19 @@
                 <ImageView fitWidth="140" fitHeight="45" preserveRatio="true">
                     <Image url="@../../assets/ATLAS_LOGO.png" />
                 </ImageView>
-                <VBox spacing="12">
-                    <Label text="Welcome back, Admin" styleClass="welcome-label"/>
-                    <Button text="Add New Hotel" styleClass="add-button" onAction="#handleAddHotel">
-                        <graphic>
-                            <ImageView fitWidth="16" fitHeight="16">
-                                <Image url="@../../assets/icons/plusIcon.png" />
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                </VBox>
-            </VBox>
+                <!--  <VBox spacing="12">
+                      <Label text="Welcome back, Admin" styleClass="welcome-label"/>
+                      <Button text="Add New Hotel" styleClass="add-button" onAction="#handleAddHotel">
+                          <graphic>
+                              <ImageView fitWidth="16" fitHeight="16">
+                                  <Image url="@../../assets/icons/plusIcon.png" />
+                              </ImageView>
+                          </graphic>
+                      </Button>
+                  </VBox>-->
+              </VBox>
 
-            <!-- Navigation Section -->
+              <!-- Navigation Section -->
             <VBox styleClass="nav-section" spacing="8">
                 <Button text="Dashboard" styleClass="nav-button"/>
                 <Button text="Bookings" styleClass="nav-button"/>

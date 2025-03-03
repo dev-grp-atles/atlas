@@ -14,16 +14,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import tn.esprit.atlas.controllers.review.AddReviewController;
 import tn.esprit.atlas.entities.Hotel;
 import tn.esprit.atlas.services.HotelService;
 import javafx.beans.binding.Bindings;
 import java.util.stream.Collectors;
 
-
 import java.io.IOException;
 import java.util.*;
 
-public class ViewHotelsController {
+public class ViewHotelsClientSideController {
 
     @FXML private GridPane hotelsGrid;
     @FXML private Label headerLabel;
@@ -43,7 +43,6 @@ public class ViewHotelsController {
     @FXML private TextField minRoomsField;
     @FXML
     private HBox searchContainer;
-
 
     private List<Hotel> hotels;
     private final HotelService hotelService = new HotelService();
@@ -189,11 +188,16 @@ public class ViewHotelsController {
         // Action Icons
         HBox actionBox = new HBox(10);
         actionBox.getStyleClass().add("action-icons");
-        Button editButton = createIconButton("/tn/esprit/atlas/assets/icons/editIcon.png");
-        Button deleteButton = createIconButton("/tn/esprit/atlas/assets/icons/deleteIcon.png");
-        editButton.setOnAction(_ -> handleEditHotel(hotel));
-        deleteButton.setOnAction(_ -> handleDeleteHotel(hotel));
-        actionBox.getChildren().addAll(editButton, deleteButton);
+
+        // Favorite Button
+        Button favoriteButton = createIconButton("/tn/esprit/atlas/assets/icons/save.png");
+        favoriteButton.setOnAction(_ -> handleFavoriteHotel(hotel));
+
+        // Add Review Button
+        Button addReviewButton = createIconButton("/tn/esprit/atlas/assets/icons/plusIcon.png");
+        addReviewButton.setOnAction(_ -> handleAddReview(hotel));
+
+        actionBox.getChildren().addAll(favoriteButton, addReviewButton);
 
         // Header Section
         HBox headerBox = new HBox(15);
@@ -253,8 +257,8 @@ public class ViewHotelsController {
             ImageView icon = new ImageView(new Image(
                     Objects.requireNonNull(getClass().getResourceAsStream(iconPath))
             ));
-            icon.setFitWidth(20);
-            icon.setFitHeight(20);
+            icon.setFitWidth(22); // Slightly wider to match the height
+            icon.setFitHeight(28); // Increased height for the icon
             button.setGraphic(icon);
         } catch (Exception e) {
             System.err.println("Error loading icon: " + iconPath);
@@ -264,44 +268,31 @@ public class ViewHotelsController {
         return button;
     }
 
-    private void handleEditHotel(Hotel hotel) {
+    private void handleFavoriteHotel(Hotel hotel) {
+        // Implement logic to add the hotel to the client's favorites
+        System.out.println("Hotel added to favorites: " + hotel.getName());
+    }
+
+    private void handleAddReview(Hotel hotel) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/tn/esprit/atlas/views/hotel/update-hotel-view.fxml"
-            ));
+            // Load the AddReview view
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/review/AddReview-view.fxml"));
             Parent root = loader.load();
 
-            UpdateHotelController controller = loader.getController();
+            // Pass the selected hotel to the AddReviewController
+            AddReviewController controller = loader.getController();
             controller.setHotel(hotel);
 
+            // Open the AddReview view in a new window
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Update Hotel");
-
-            stage.setOnHidden(e -> refreshHotelData());
+            stage.setTitle("Add Review for " + hotel.getName());
             stage.show();
 
         } catch (IOException e) {
-            showAlert("Error", "Could not open update window", Alert.AlertType.ERROR);
+            e.printStackTrace(); // Print the full stack trace
+            showAlert("Error", "Could not open Add Review page: " + e.getMessage(), Alert.AlertType.ERROR);
         }
-    }
-
-    private void handleDeleteHotel(Hotel hotel) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete Hotel");
-        alert.setHeaderText("Delete " + hotel.getName() + "?");
-        alert.setContentText("This action cannot be undone.");
-
-        alert.showAndWait().ifPresent(response -> {
-            if (response == ButtonType.OK) {
-                try {
-                    hotelService.delete(hotel);
-                    refreshHotelData();
-                } catch (Exception e) {
-                    showAlert("Error", "Failed to delete hotel", Alert.AlertType.ERROR);
-                }
-            }
-        });
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {
@@ -315,25 +306,5 @@ public class ViewHotelsController {
     public void setHotels(List<Hotel> hotels) {
         this.hotels = hotels;
         displayHotels();
-    }
-
-    @FXML
-    private void handleAddHotel() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/tn/esprit/atlas/views/hotel/add-hotel-view.fxml"
-            ));
-            Parent root = loader.load();
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Add New Hotel");
-            stage.showAndWait();
-
-            refreshHotelData(); // Refresh after closing add window
-
-        } catch (IOException e) {
-            showAlert("Error", "Could not open add hotel window", Alert.AlertType.ERROR);
-        }
     }
 }

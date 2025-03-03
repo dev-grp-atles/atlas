@@ -90,4 +90,8 @@ public class User {
                 ", budget=" + budget +
                 '}';
     }
+
+    public String getUsername() {
+        return this.name + " " + this.surname;
+    }
 }

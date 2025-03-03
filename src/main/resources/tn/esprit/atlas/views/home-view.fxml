@@ -125,7 +125,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="185.0" spacing="10.0" styleClass="sidenav-button">
                      <children>
-                        <Label text="Booking">
+                        <Label text="Booking" onMouseClicked="#handleViewHotels">
                            <font>
                               <Font name="Arial" size="12.0" />
                            </font>
@@ -150,6 +150,18 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="185.0" spacing="10.0" styleClass="sidenav-button">
                      <children>
                         <Label text="AI Guide">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="185.0" spacing="10.0" styleClass="sidenav-button">
+                     <children>
+                        <Label text="Hotel Configuration" onMouseClicked="#handleViewHotelsAdmin">
                            <font>
                               <Font name="Arial" size="12.0" />
                            </font>

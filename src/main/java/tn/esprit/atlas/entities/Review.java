@@ -2,17 +2,19 @@ package tn.esprit.atlas.entities;
 
 public class Review {
     private int id;
+    private String reviewerName;
     private String comment;
     private int rating;
-    private int hotelId; // Foreign key to Hotel
+    private int hotelId;
 
-    // Constructor for just the ID (for deletion purposes)
-    public Review(int id) {
-        this.id = id;
+    // Default constructor
+    public Review() {
     }
 
-    public Review(int id, String comment, int rating, int hotelId) {
+    // Parameterized constructor
+    public Review(int id, String reviewerName, String comment, int rating, int hotelId) {
         this.id = id;
+        this.reviewerName = reviewerName;
         this.comment = comment;
         this.rating = rating;
         this.hotelId = hotelId;
@@ -25,6 +27,14 @@ public class Review {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getReviewerName() {
+        return reviewerName;
+    }
+
+    public void setReviewerName(String reviewerName) {
+        this.reviewerName = reviewerName;
     }
 
     public String getComment() {
@@ -55,6 +65,7 @@ public class Review {
     public String toString() {
         return "Review{" +
                 "id=" + id +
+                ", reviewerName='" + reviewerName + '\'' +
                 ", comment='" + comment + '\'' +
                 ", rating=" + rating +
                 ", hotelId=" + hotelId +
