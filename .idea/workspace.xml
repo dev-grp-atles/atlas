@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d1941d1-2f7f-495a-b098-919b0105609c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/PostTreeCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/PostTreeCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/user/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/community/forum_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/community/forum_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Raeed&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Etdu/Desktop/test/atlas&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Etdu/Desktop/ffff/atlas&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -92,7 +88,9 @@
       <workItem from="1740737984965" duration="9970000" />
       <workItem from="1740813642774" duration="14519000" />
       <workItem from="1740902273608" duration="6641000" />
-      <workItem from="1740913569039" duration="1917000" />
+      <workItem from="1740913569039" duration="1980000" />
+      <workItem from="1740990716181" duration="3470000" />
+      <workItem from="1741035245679" duration="1080000" />
     </task>
     <servers />
   </component>
