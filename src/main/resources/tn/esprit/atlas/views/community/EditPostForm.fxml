@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.EditPostFormController">
+    <TextArea fx:id="contentTextArea" prefHeight="400" prefWidth="600" wrapText="true"/>
+    <Button text="Save Changes" fx:id="saveChangesButton" onAction="#onSaveChangesClicked"/>
+</VBox>

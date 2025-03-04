@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="tn.esprit.atlas.main.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 
-    <Label text="Main Screen"/>
-    <Button text="Go to Sign-In" onAction="#handleGoToSignIn"/>
-</VBox>
+<StackPane prefHeight="292.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.main.MainController">
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <children>
+          <Button fx:id="switchToSignInButton" onAction="#switchToSignIn" text="Go to Sign In" />
+          <Button fx:id="switchToReservationButton" onAction="#switchToReservation" text="Go to Reservation" />
+          <Button fx:id="switchToVolsButton" onAction="#switchToVols" text="Go to Vols" />
+          <Button fx:id="switchToAirlinesButton" onAction="#switchToAirlines" text="Go to Airlines" />
+          <Button fx:id="switchToForumButton" onAction="#switchToForum" text="Go to Forum" />
+      </children>
+   </HBox>
+</StackPane>

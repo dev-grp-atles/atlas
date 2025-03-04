@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1542.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.SignupController">
+   <children>
+      <HBox prefHeight="788.0" prefWidth="1542.0">
+         <children>
+            <StackPane>
+               <children>
+                  <Region prefHeight="802.0" prefWidth="799.0" style="-fx-background-color: white; -fx-background-radius: 10 0 0 10;" />
+                  <ImageView fitHeight="802.0" fitWidth="799.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../assets/images/signin_background.jpg" />
+                     </image>
+                  </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0264ab81" height="801.0" stroke="BLACK" strokeType="INSIDE" styleClass="overlay" width="800.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ATLAS">
+                                 <font>
+                                    <Font name="Bebas Neue Regular" size="47.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </HBox>
+                        <VBox alignment="BOTTOM_LEFT" prefHeight="711.0" prefWidth="800.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Trust us with your journey.">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Collect memories Not money" wrappingWidth="496.1720275878906">
+                                 <font>
+                                    <Font size="62.0" />
+                                 </font>
+                              </Text>
+                              <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="98.0" style="-fx-background-color: #51B6E6; -fx-background-radius: 5;" text="Explore" textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <VBox alignment="TOP_CENTER" prefHeight="788.0" prefWidth="962.0" spacing="10">
+               <children>
+                  <VBox>
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="76.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/ATLAS_LOGO.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="101.0" prefWidth="875.0" spacing="5.0">
+                     <children>
+                        <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold-title" text="WELCOME ABOARD" wrappingWidth="546.9468612670898">
+                           <font>
+                              <Font name="Babas Neue Regular" size="38.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#414141" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's start your journey with us Your next adventure begins with creating an account" wrappingWidth="278.0803527832031">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </VBox>
+                  <VBox>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox prefHeight="292.0" prefWidth="744.0" spacing="10.0">
+                           <children>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
+                                    <Text fill="#0162ab" onMouseClicked="#handleGoToSignIn" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="clickable-text" text="Sign in here" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="364.0" prefWidth="724.0">
+                                 <children>
+                                    <VBox spacing="10.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/id-card_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <TextField fx:id="firstNameField" prefHeight="58.0" prefWidth="250.0" promptText="first name..." style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/age-group_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <TextField fx:id="ageField" prefHeight="58.0" prefWidth="250.0" promptText="age..." style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/home_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <TextField fx:id="addressField" prefHeight="58.0" prefWidth="250.0" promptText="address..." style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="52.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/Password_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <PasswordField fx:id="passwordField" prefHeight="58.0" prefWidth="250.0" promptText="password..." style="-fx-background-color: #E9E9E9; -fx-background-radius: 10; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="10.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/id-card_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <TextField fx:id="lastNameField" prefHeight="58.0" prefWidth="250.0" promptText="last name..." style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/Email_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <TextField fx:id="emailField" prefHeight="58.0" prefWidth="250.0" promptText="email..." style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/phone-call_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <TextField fx:id="phoneField" prefHeight="58.0" prefWidth="250.0" promptText="phone number..." style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="855.0" spacing="10.0">
+                                             <children>
+                                                <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                                                   <children>
+                                                      <ImageView fitHeight="52.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../assets/icons/Password_icon.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </StackPane>
+                                                <PasswordField fx:id="confirmPasswordField" prefHeight="58.0" prefWidth="250.0" promptText="confirm password..." style="-fx-background-color: #E9E9E9; -fx-background-radius: 10; -fx-border-color: none;" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="744.0" spacing="10.0">
+                     <children>
+                        <StackPane prefHeight="58.0" prefWidth="58.0" style="-fx-background-color: #0162AB; -fx-background-radius: 10;">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../assets/icons/upload_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Button fx:id="uploadButton" mnemonicParsing="false" onAction="#handleUpload" prefHeight="54.0" prefWidth="609.0" style="-fx-background-radius: 10; -fx-background-color: #E9E9E9; -fx-border-color: none;" text="Upload File" textFill="#333333" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label fx:id="fileLabel" text="No file selected" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
+                  <VBox prefHeight="74.0" prefWidth="354.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleSignUp" prefHeight="83.0" prefWidth="680.0" style="-fx-background-radius: 10; -fx-background-color: #0162AB;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox alignment="BOTTOM_RIGHT" prefHeight="148.0" prefWidth="744.0">
+                     <children>
+                        <Button fx:id="goBackButton" mnemonicParsing="false" onAction="#handleGoBack" style="-fx-background-color: #0162AB; -fx-background-radius: 5;" text="Go Back" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

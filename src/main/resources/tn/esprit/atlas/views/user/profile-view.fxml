@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1542.0" style="-fx-background-color: #f3f4f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.ProfileController">
+   <children>
+      <VBox layoutX="152.0" layoutY="64.0" prefHeight="798.0" prefWidth="1542.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="133.0" prefWidth="1542.0">
+               <children>
+                  <Pane prefHeight="94.0" prefWidth="1614.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" layoutX="-2.0" prefHeight="94.0" prefWidth="1510.0" spacing="100.0">
+                           <children>
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="10.0">
+                                       <children>
+                                          <ImageView fitHeight="70.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../assets/ATLAS_LOGO.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+                                             <font>
+                                                <Font name="Arial" size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="title_username" text="/ name" textFill="#9f9f9c" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" style="-fx-background-color: #0162AB;" text="Dashboard" textFill="WHITE" onAction="#handleGoToDashboard">
+                                       <padding>
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                       </padding>
+                                    </Button>
+                                    <Button mnemonicParsing="false" style="-fx-background-color: #0162AB;" text="Logout" textFill="WHITE" onAction="#logoutUser">
+                                       <padding>
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                       </padding>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </Pane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="666.0" prefWidth="1542.0" spacing="15.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <VBox prefHeight="626.0" prefWidth="667.0">
+                     <children>
+                        <Pane prefHeight="626.0" prefWidth="197.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                           <children>
+                              <HBox layoutX="-2.0" prefHeight="147.0" prefWidth="475.0">
+                                 <children>
+                                    <ImageView fitHeight="136.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../assets/ATLAS_LOGO.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <VBox layoutY="154.0">
+                                 <children>
+                                    <HBox alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="475.0" spacing="5.0">
+                                       <children>
+                                          <Label fx:id="fullname" styleClass="profile-fullname" text="Full name">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="creation_date" text="Joined lorem ipsum" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="0.0" prefWidth="475.0" spacing="10.0">
+                                       <children>
+                                          <Label fx:id="email" styleClass="profile-email" text="Email">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="phone_number" styleClass="profile-phone" text="Phone number">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="0.0" prefWidth="475.0">
+                                       <children>
+                                          <Label fx:id="address" styleClass="profile-address" text="Adress">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </Pane>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="626.0" prefWidth="1204.0" spacing="15.0">
+                     <children>
+                        <HBox prefHeight="66.0" prefWidth="1138.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="187.0" styleClass="profile-optionsbutton" text="Profile Overfiew" />
+                              <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="187.0" styleClass="profile-optionsbutton" text="Edit Profile" />
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="570.0" prefWidth="1138.0">
+                           <children>
+                              <Pane prefHeight="577.0" prefWidth="1138.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                                 <children>
+                                    <HBox alignment="BOTTOM_LEFT" prefHeight="141.0" prefWidth="1012.0" spacing="15.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../assets/ATLAS_LOGO.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="146.0" text="Upload Picture" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox layoutY="171.0" prefHeight="100.0" prefWidth="1012.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefHeight="132.0" prefWidth="282.0" spacing="5.0">
+                                             <children>
+                                                <Label styleClass="profile-label" text="First Name" />
+                                                <TextField fx:id="firstname_input" prefHeight="58.0" prefWidth="282.0" styleClass="profile-input" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="132.0" prefWidth="282.0" spacing="5.0">
+                                             <children>
+                                                <Label styleClass="profile-label" text="Last Name" />
+                                                <TextField fx:id="lastname_input" prefHeight="58.0" prefWidth="282.0" styleClass="profile-input" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="132.0" prefWidth="282.0" spacing="5.0">
+                                             <children>
+                                                <Label styleClass="profile-label" text="Email" />
+                                                <TextField fx:id="email_input" prefHeight="58.0" prefWidth="282.0" styleClass="profile-input" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="132.0" prefWidth="282.0" spacing="5.0">
+                                             <children>
+                                                <Label styleClass="profile-label" text="Age" />
+                                                <TextField fx:id="age_input" prefHeight="58.0" prefWidth="282.0" styleClass="profile-input" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox layoutY="271.0" prefHeight="100.0" prefWidth="1012.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefHeight="132.0" prefWidth="282.0" spacing="5.0">
+                                             <children>
+                                                <Label styleClass="profile-label" text="Address" />
+                                                <TextField fx:id="address_input" prefHeight="58.0" prefWidth="282.0" styleClass="profile-input" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="132.0" prefWidth="282.0" spacing="5.0">
+                                             <children>
+                                                <Label styleClass="profile-label" text="Phone Number" />
+                                                <TextField fx:id="phone_input" prefHeight="58.0" prefWidth="282.0" styleClass="profile-input" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_RIGHT" layoutY="371.0" prefHeight="178.0" prefWidth="1012.0" spacing="10.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="146.0" styleClass="profile-deletebutton" text="Delete Profile" onAction="#onDeleteProfileClicked" />
+                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="146.0" text="Update Profile" onAction="#onUpdateProfileClicked" />
+                                       </children>
+                                    </HBox>
+                                 </children></Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

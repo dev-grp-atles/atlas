@@ -1,0 +1,49 @@
+.input{
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 5px;
+    -fx-border-color: none;
+}
+
+.navbar{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+
+.sidenav{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+
+}
+
+.sidenav-button{
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+.sidenav-button:hover{
+    -fx-background-color: rgba(1, 98, 171, 0.35);
+}
+.sidenav-button:hover Label{
+    -fx-text-fill: #0162AB;
+}
+.sidenav-button Label{
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+.sidenav-button-active{
+    -fx-background-color: rgba(1, 98, 171, 0.35);
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+.sidenav-button-active Label{
+    -fx-text-fill: #0162AB;
+    -fx-font-weight: bold;
+}
+.main{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+.form{
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 10px;
+}

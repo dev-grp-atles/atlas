@@ -1,0 +1,53 @@
+.input{
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 5px;
+    -fx-border-color: none;
+}
+
+.navbar{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+
+.sidenav{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+
+}
+
+.sidenav-button{
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+.sidenav-button:hover{
+    -fx-background-color: #ecebeb;
+}
+.sidenav-button Label{
+    -fx-text-fill: #333333;
+    -fx-font-weight: bolder;
+}
+.main{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+.widget{
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+}
+.widget:hover{
+    -fx-opacity: 0.8;
+}
+.button{
+    -fx-background-color: #0162AB;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+.button:hover{
+    -fx-opacity: 0.8;
+}
+.widget-title{
+    -fx-font-weight: bold;
+    -fx-font-size: 10px;
+}

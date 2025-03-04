@@ -2,43 +2,43 @@ package tn.esprit.atlas.main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.image.Image;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
+import javafx.stage.Stage;
 
 public class AtlasApplication extends Application {
+
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AtlasApplication.class.getResource("/tn/esprit/atlas/views/main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("ATLAS");
+    public void start(Stage primaryStage) throws Exception {
+        // Load the main interface
+        Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/signup-view.fxml"));
+        Scene scene = new Scene(root);
 
-        InputStream inputStream = getClass().getResourceAsStream("/tn/esprit/atlas/assets/ATLAS_LOGO.png");
-        if (inputStream == null) {
-            System.err.println("Icon file not found! Check the path.");
-        } else {
-            Image icon = new Image(inputStream);
-            stage.getIcons().add(icon);
-        }
+        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/style.css").toExternalForm());
 
-        try {
-            DatabaseConnection.getConnection();
-        } catch (SQLException e) {
-            System.err.println("Failed to connect to the database.");
-        }
+        // Bind scene dimensions to stage dimensions
+        scene.widthProperty().addListener((obs, oldVal, newVal) -> {
+            root.prefWidth((double) newVal);
+        });
+        scene.heightProperty().addListener((obs, oldVal, newVal) -> {
+            root.prefHeight((double) newVal);
+        });
 
-        stage.setScene(scene);
+        // Load the application icon
+        Image icon = new Image(getClass().getResourceAsStream("/tn/esprit/atlas/assets/ATLAS_LOGO.png"));
+        primaryStage.getIcons().add(icon);
 
-        stage.setMaximized(true);
+        // Set the stage to maximized (full screen)
+        primaryStage.setMaximized(true);
 
-        stage.show();
+        // Set the scene to the stage
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Atlas Application");
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
