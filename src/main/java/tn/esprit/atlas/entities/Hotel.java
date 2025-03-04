@@ -17,10 +17,12 @@ public class Hotel {
     private String city; // City where the hotel is located
     private double latitude; // Geographical latitude
     private double longitude; // Geographical longitude
+    private List<Review> reviews;  // List of reviews for the hotel
 
-    // Constructor
+    // Default constructor
     public Hotel() {}
 
+    // Constructor with parameters
     public Hotel(String name, String address, float rating, String imageUrl, int availableRooms,
                  double pricePerNight, List<String> facilities, String checkInTime, String checkOutTime,
                  String contactNumber, String city, double latitude, double longitude) {
@@ -152,6 +154,14 @@ public class Hotel {
         this.longitude = longitude;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -169,6 +179,7 @@ public class Hotel {
                 ", city='" + city + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
+                ", reviews=" + reviews +  // Include reviews in the string representation
                 '}';
     }
 }

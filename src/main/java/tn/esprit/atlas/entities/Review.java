@@ -4,21 +4,23 @@ public class Review {
     private int id;
     private String reviewerName;
     private String comment;
-    private int rating;
+    private float rating;
     private int hotelId;
+    private User user; // Reference to the User entity
 
     // Default constructor
     public Review() {
     }
 
     // Parameterized constructor
-    public Review(int id, String reviewerName, String comment, int rating, int hotelId) {
+    public Review(int id, String comment, float rating, User user, int hotelId) {
         this.id = id;
-        this.reviewerName = reviewerName;
         this.comment = comment;
         this.rating = rating;
+        this.user = user;  // Set the user object directly
         this.hotelId = hotelId;
     }
+
 
     // Getters and Setters
     public int getId() {
@@ -45,13 +47,19 @@ public class Review {
         this.comment = comment;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+
+    public void setRating(float rating) {
         this.rating = rating;
     }
+
+    public User getUser() { return user; } // Getter for User
+    public void setUser(User user) { this.user = user; } // Setter for User
+
+
 
     public int getHotelId() {
         return hotelId;
@@ -60,6 +68,7 @@ public class Review {
     public void setHotelId(int hotelId) {
         this.hotelId = hotelId;
     }
+
 
     @Override
     public String toString() {

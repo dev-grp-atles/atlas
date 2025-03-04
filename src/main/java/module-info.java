@@ -24,4 +24,6 @@ module tn.esprit.atlas.main {
     opens tn.esprit.atlas.controllers.hotel to javafx.fxml;
     opens tn.esprit.atlas.controllers.review to javafx.fxml; // Add this line
     opens tn.esprit.atlas.views.review to javafx.fxml;
+    opens tn.esprit.atlas.views.hotel to javafx.fxml;
+
 }

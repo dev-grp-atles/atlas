@@ -1,0 +1,76 @@
+/* General Styles */
+.root {
+    -fx-background-color: #f0f0f0; /* Light gray background */
+    -fx-font-family: 'Arial';
+}
+
+/* Title Styles */
+.reviews-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e3a8a; /* Dark blue text */
+    -fx-alignment: center;
+    -fx-padding: 20px 0; /* Add padding to the title */
+}
+
+/* Hotel Name Styles */
+.hotel-name {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e3a8a; /* Dark blue text */
+    -fx-alignment: center;
+    -fx-padding: 10px 0; /* Add padding to the hotel name */
+}
+
+/* Review Item Styles */
+.review-item {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-background-radius: 10px; /* Rounded corners */
+    -fx-padding: 25px; /* Increase padding for a spacious look */
+    -fx-spacing: 15px; /* Increase spacing between elements inside the card */
+    -fx-border-color: #e0e0e0; /* Light gray border */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-border-width: 0.5px; /* Make the border thinner */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 10, 0, 0); /* Subtle shadow for depth */
+    -fx-min-width: 600px; /* Set a minimum width for the card */
+    -fx-max-width: 800px; /* Set a maximum width for the card */
+    -fx-pref-width: 700px; /* Set a preferred width for the card */
+}
+
+.review-item:hover {
+    -fx-background-color: #f8f8f8; /* Light gray background on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 15, 15, 0, 0); /* Stronger shadow on hover */
+}
+
+.reviewer-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e3a8a; /* Dark blue text */
+}
+
+.review-comment {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333; /* Dark gray text */
+    -fx-wrap-text: true; /* Ensure text wraps within the card */
+}
+
+.review-rating {
+    -fx-font-size: 16px;
+    -fx-text-fill: #1e3a8a; /* Dark blue text */
+    -fx-font-weight: bold;
+}
+
+/* No Reviews Label */
+.no-reviews-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #333333; /* Dark gray text */
+    -fx-alignment: center;
+    -fx-padding: 20px; /* Add padding for better spacing */
+}
+
+/* Container for Reviews */
+.reviews-container {
+    -fx-spacing: 20px; /* Add space between cards */
+    -fx-padding: 20px; /* Add padding around the container */
+    -fx-alignment: center; /* Center the cards horizontally */
+}

@@ -1,6 +1,7 @@
 package tn.esprit.atlas.services;
 
 import tn.esprit.atlas.entities.Review;
+import tn.esprit.atlas.entities.User;
 import tn.esprit.atlas.main.DatabaseConnection;
 
 import java.sql.*;
@@ -17,12 +18,22 @@ public class ReviewService implements IService<Review> {
 
     @Override
     public void add(Review review) {
-        String query = "INSERT INTO Review (reviewer_name, comment, rating, hotel_id) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO Review (reviewer_name, comment, rating, hotel_id, user_id) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, review.getReviewerName());
             stmt.setString(2, review.getComment());
-            stmt.setInt(3, review.getRating());
+            stmt.setFloat(3, review.getRating());  // Ensure the correct data type
             stmt.setInt(4, review.getHotelId());
+
+            // Check if the User object is properly set
+            if (review.getUser() != null) {
+                stmt.setInt(5, review.getUser().getId());  // Set the user_id for the review
+            } else {
+                System.err.println("User is not set for the review.");
+                // Handle this case as needed, e.g., throw an exception or set a default user_id
+                stmt.setInt(5, 1);  // You can set a default user_id here if necessary
+            }
+
             stmt.executeUpdate();
 
             // Retrieve the auto-generated ID
@@ -40,11 +51,11 @@ public class ReviewService implements IService<Review> {
 
     @Override
     public void update(Review review) {
-        String query = "UPDATE Review SET reviewer_name = ?, comment = ?, rating = ?, hotel_id = ? WHERE id = ?";
+        String query = "UPDATE Review SET comment = ?, rating = ?, user_id = ?, hotel_id = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, review.getReviewerName());
-            stmt.setString(2, review.getComment());
-            stmt.setInt(3, review.getRating());
+            stmt.setString(1, review.getComment());
+            stmt.setFloat(2, review.getRating());  // Changed from setInt to setFloat
+            stmt.setInt(3, review.getUser().getId());
             stmt.setInt(4, review.getHotelId());
             stmt.setInt(5, review.getId());
             int rowsUpdated = stmt.executeUpdate();
@@ -79,15 +90,30 @@ public class ReviewService implements IService<Review> {
     @Override
     public List<Review> getAll() {
         List<Review> reviews = new ArrayList<>();
-        String query = "SELECT * FROM Review";
+        String query = "SELECT r.*, u.* FROM Review r JOIN utilisateur u ON r.user_id = u.id";  // Changed 'User' to 'utilisateur'
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
+                User user = new User(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getInt("age"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("adresse"),
+                        rs.getString("role"),
+                        rs.getString("profileImage"),
+                        rs.getString("num_telph"),
+                        rs.getString("voyageurPreferences"),
+                        rs.getString("destinations_preferrees"),
+                        rs.getDouble("budget")
+                );
                 Review review = new Review(
                         rs.getInt("id"),
-                        rs.getString("reviewer_name"),
                         rs.getString("comment"),
-                        rs.getInt("rating"),
+                        rs.getFloat("rating"),  // Changed from getInt to getFloat
+                        user,
                         rs.getInt("hotel_id")
                 );
                 reviews.add(review);
@@ -100,29 +126,36 @@ public class ReviewService implements IService<Review> {
 
     @Override
     public Review getOne() {
-        // This method is required by the IService interface but is not implemented here.
-        // You can implement it based on your requirements.
         throw new UnsupportedOperationException("getOne() method is not implemented.");
     }
 
-    /**
-     * Get a review by its ID.
-     *
-     * @param id The ID of the review.
-     * @return The review object, or null if not found.
-     */
     public Review getById(int id) {
         Review review = null;
-        String query = "SELECT * FROM Review WHERE id = ?";
+        String query = "SELECT r.*, u.* FROM Review r JOIN utilisateur u ON r.user_id = u.id WHERE r.id = ?";  // Changed 'User' to 'utilisateur'
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    User user = new User(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("surname"),
+                            rs.getInt("age"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getString("adresse"),
+                            rs.getString("role"),
+                            rs.getString("profileImage"),
+                            rs.getString("num_telph"),
+                            rs.getString("voyageurPreferences"),
+                            rs.getString("destinations_preferrees"),
+                            rs.getDouble("budget")
+                    );
                     review = new Review(
                             rs.getInt("id"),
-                            rs.getString("reviewer_name"),
                             rs.getString("comment"),
-                            rs.getInt("rating"),
+                            rs.getFloat("rating"),  // Changed from getInt to getFloat
+                            user,
                             rs.getInt("hotel_id")
                     );
                 }
@@ -133,24 +166,33 @@ public class ReviewService implements IService<Review> {
         return review;
     }
 
-    /**
-     * Get all reviews for a specific hotel.
-     *
-     * @param hotelId The ID of the hotel.
-     * @return A list of reviews for the hotel.
-     */
     public List<Review> getReviewsByHotelId(int hotelId) {
         List<Review> reviews = new ArrayList<>();
-        String query = "SELECT * FROM Review WHERE hotel_id = ?";
+        String query = "SELECT r.*, u.* FROM Review r JOIN utilisateur u ON r.user_id = u.id WHERE r.hotel_id = ?";  // Changed 'User' to 'utilisateur'
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, hotelId);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
+                    User user = new User(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("surname"),
+                            rs.getInt("age"),
+                            rs.getString("email"),
+                            rs.getString("password"),
+                            rs.getString("adresse"),
+                            rs.getString("role"),
+                            rs.getString("profileImage"),
+                            rs.getString("num_telph"),
+                            rs.getString("voyageurPreferences"),
+                            rs.getString("destinations_preferrees"),
+                            rs.getDouble("budget")
+                    );
                     Review review = new Review(
                             rs.getInt("id"),
-                            rs.getString("reviewer_name"),
                             rs.getString("comment"),
-                            rs.getInt("rating"),
+                            rs.getFloat("rating"),  // Changed from getInt to getFloat
+                            user,
                             rs.getInt("hotel_id")
                     );
                     reviews.add(review);

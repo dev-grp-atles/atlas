@@ -202,6 +202,25 @@ public class HotelService implements IService<Hotel> {
     }
 
 
+    public void toggleFavorite(Hotel hotel) {
+        // Here, you can create logic to toggle the favorite status
+        // For simplicity, let's assume there's a column in the database called 'is_favorite'
+        String query = "UPDATE Hotel SET is_favorite = NOT is_favorite WHERE id = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, hotel.getId());
+            int rowsUpdated = stmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                LOGGER.info("Hotel favorite status toggled successfully!");
+            } else {
+                LOGGER.warning("Hotel not found, no changes made.");
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error toggling hotel favorite status", e);
+        }
+    }
+
+
 
     @Override
     public Hotel getOne() {

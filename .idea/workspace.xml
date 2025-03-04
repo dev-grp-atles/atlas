@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="299e4dd7-0f72-441e-93f9-d0e7037aef1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/hotel/ViewHotelsClientSideController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/review/AddReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/review.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/viewHotelsClientSide.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/hotel/view-hotels-clientside-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/review/AddReview-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/hotel/HotelReviewsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/hotel-reviews.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/review/HotelReviews-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/hotel/ViewHotelsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/hotel/ViewHotelsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/hotel/ViewHotelsClientSideController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/controllers/hotel/ViewHotelsClientSideController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/AtlasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/main/AtlasApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/HotelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/atlas/services/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/viewHotels.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/css/viewHotels.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/home-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/hotel/view-hotels-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tn/esprit/atlas/views/hotel/view-hotels-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,7 +88,7 @@
       <workItem from="1740467882437" duration="2460000" />
       <workItem from="1740471046165" duration="9372000" />
       <workItem from="1740558264353" duration="979000" />
-      <workItem from="1741025343627" duration="13600000" />
+      <workItem from="1741025343627" duration="26660000" />
     </task>
     <servers />
   </component>

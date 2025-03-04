@@ -197,7 +197,11 @@ public class ViewHotelsClientSideController {
         Button addReviewButton = createIconButton("/tn/esprit/atlas/assets/icons/plusIcon.png");
         addReviewButton.setOnAction(_ -> handleAddReview(hotel));
 
-        actionBox.getChildren().addAll(favoriteButton, addReviewButton);
+        // View Reviews Button (New Icon)
+        Button viewReviewsButton = createIconButton("/tn/esprit/atlas/assets/icons/star-icon.png"); // Use your review icon
+        viewReviewsButton.setOnAction(_ -> handleViewReviews(hotel));  // This will navigate to the review page
+
+        actionBox.getChildren().addAll(favoriteButton, addReviewButton, viewReviewsButton);  // Add viewReviewsButton to the actionBox
 
         // Header Section
         HBox headerBox = new HBox(15);
@@ -210,7 +214,7 @@ public class ViewHotelsClientSideController {
 
         // Image Section with Clipping
         ImageView imageView = new ImageView();
-        imageView.getStyleClass().add("hotel-image"); // Add CSS class
+        imageView.getStyleClass().add("hotel-image");
 
         try {
             Image image = hotel.getImageUrl() != null && !hotel.getImageUrl().isEmpty()
@@ -230,8 +234,8 @@ public class ViewHotelsClientSideController {
         imageView.setClip(clip);
 
         // Set image dimensions
-        imageView.setFitWidth(380);  // Match CSS dimensions
-        imageView.setFitHeight(200); // Match CSS dimensions
+        imageView.setFitWidth(380);
+        imageView.setFitHeight(200);
         imageView.setPreserveRatio(false);
 
         // Location Section
@@ -248,7 +252,31 @@ public class ViewHotelsClientSideController {
         priceBox.getChildren().addAll(priceLabel, roomsLabel);
 
         card.getChildren().addAll(actionBox, headerBox, imageView, locationLabel, priceBox);
+
         return card;
+    }
+
+
+    private void handleViewReviews(Hotel hotel) {
+        try {
+            // Load the HotelReviews-view.fxml page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/review/HotelReviews-view.fxml"));
+            Parent root = loader.load();
+
+            // Pass the selected hotel to the HotelReviewsController (if needed)
+            HotelReviewsController controller = loader.getController();
+            controller.setHotel(hotel);  // Assuming you have a setter in your controller for the hotel
+
+            // Open the HotelReviews view in a new window
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Reviews for " + hotel.getName());
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Could not open the reviews page: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private Button createIconButton(String iconPath) {

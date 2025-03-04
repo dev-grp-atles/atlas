@@ -63,6 +63,14 @@ public class AtlasApplication extends Application {
         primaryStage.setScene(scene);
     }
 
+    public void loadReviews() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/atlas/views/review/HotelReviews-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/tn/esprit/atlas/css/hotel-reviews.css").toExternalForm());
+        primaryStage.setScene(scene);
+    }
+
 
 
     public static void main(String[] args) {
