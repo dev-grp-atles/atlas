@@ -64,3 +64,84 @@
 .tab-title{
     -fx-font-size: 28px;
 }
+.date-picker {
+    -fx-background-color: #fafafa;
+    -fx-background-radius: 5px;
+    -fx-border-color: none;
+    -fx-padding: 5px;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #f2f3f5;
+    -fx-background-radius: 5px;
+    -fx-border-color: none;
+    -fx-text-fill: #333333;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #333333;
+}
+
+.date-picker-popup {
+    -fx-background-color: white;
+    -fx-border-radius: 5px;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #0162AB;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: rgba(1, 98, 171, 0.35);
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #0162AB;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .week-number-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+}
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}

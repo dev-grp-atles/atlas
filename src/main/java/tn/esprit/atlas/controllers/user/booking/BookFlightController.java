@@ -62,8 +62,8 @@ public class BookFlightController implements Initializable {
 
             // Add airline logo
             ImageView logoView = new ImageView();
-            logoView.setFitHeight(50);
-            logoView.setFitWidth(50);
+            logoView.setFitHeight(50); // Set a fixed height for the logo
+            logoView.setPreserveRatio(true); // Maintain aspect ratio
 
             // Load the logo (ensure it's a valid URL or file path)
             String logo = airline.getLogo();
@@ -84,6 +84,7 @@ public class BookFlightController implements Initializable {
                 logoView.setImage(new Image("file:src/main/resources/tn/esprit/atlas/assets/default-logo.png"));
             }
 
+            // Add the logo to the airline box
             airlineBox.getChildren().add(logoView);
 
             // Add airline name

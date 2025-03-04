@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="overviewController" prefHeight="505.0" prefWidth="979.0" spacing="10.0" styleClass="main" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="overviewController" prefHeight="564.0" prefWidth="979.0" spacing="10.0" styleClass="main" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.user.OverviewController">
     <children>
         <HBox alignment="CENTER" prefHeight="70.0" prefWidth="638.0" spacing="10.0">
             <children>
@@ -112,22 +113,59 @@
                 </VBox>
             </children>
         </HBox>
-        <HBox prefHeight="172.0" prefWidth="638.0" styleClass="widget" VBox.vgrow="ALWAYS">
+        <HBox prefHeight="231.0" prefWidth="958.0" spacing="10.0" VBox.vgrow="ALWAYS">
             <children>
-                <VBox>
+                <HBox prefHeight="223.0" prefWidth="345.0" styleClass="widget">
                     <children>
-                        <Label styleClass="widget-title" text="Trending Destinations" />
-                        <Label prefHeight="28.0" prefWidth="407.0" styleClass="widget-subtitle" text="Explore the World’s Hottest Spots" wrapText="true">
-                            <font>
-                                <Font size="19.0" />
-                            </font>
-                        </Label>
+                        <VBox prefHeight="202.0" prefWidth="330.0">
+                            <children>
+                                <Label styleClass="widget-title" text="Trending Destinations" />
+                                <Label prefHeight="28.0" prefWidth="407.0" styleClass="widget-subtitle" text="Explore the World’s Hottest Spots" wrapText="true">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
                     </children>
-                </VBox>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="160.0" prefWidth="497.0" styleClass="widget" HBox.hgrow="ALWAYS">
+                    <children>
+                        <VBox prefHeight="202.0" prefWidth="584.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="widget-title" text="Weather" />
+                                <Label prefHeight="28.0" prefWidth="407.0" styleClass="widget-subtitle" text="Find out the weather of your destination" wrapText="true">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="454.0" spacing="10.0">
+                                    <children>
+                                        <TextField fx:id="weather_input" style="-fx-padding: 10; -fx-border-color: none; -fx-background-color: #fafafa; -fx-background-radius: 5;" HBox.hgrow="ALWAYS" />
+                                        <DatePicker fx:id="weather_date" prefHeight="39.0" prefWidth="128.0" promptText="Select Date" />
+                                        <Button fx:id="weatherSearchButton" mnemonicParsing="false" onAction="#handleWeatherSearch" prefHeight="41.0" prefWidth="78.0" text="Search" textFill="WHITE" />
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </HBox>
+                                <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fx:id="weather_image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                        <Label fx:id="weather_display" prefHeight="172.0" prefWidth="382.0" styleClass="widget-subtitle" text="" wrapText="true" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
             </children>
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
         </HBox>
     </children>
     <padding>

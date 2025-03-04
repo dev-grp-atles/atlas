@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tn.esprit.atlas.views.user.TripplannerView"
-            prefHeight="400.0" prefWidth="600.0">
+<VBox spacing="10" styleClass="main" stylesheets="@../../css/home.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.atlas.controllers.TripPlannerController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
 
-</AnchorPane>
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Trip Planner">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
+
+    <TextField fx:id="destinationField" prefHeight="52.0" prefWidth="800.0" promptText="Enter destination" styleClass="input" stylesheets="@../../css/home.css" />
+
+    <Button onAction="#generateTripPlan" style="-fx-background-color: #0162AB; -fx-text-fill: white;" text="Generate Trip Plan" />
+
+    <FlowPane fx:id="tripPlanContainer" hgap="10" prefWrapLength="800" vgap="10" />
+</VBox>

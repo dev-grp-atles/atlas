@@ -10,6 +10,7 @@ import tn.esprit.atlas.services.FlightReservationService;
 import tn.esprit.atlas.utils.UserSession;
 
 import java.time.LocalDateTime;
+import java.util.regex.Pattern;
 
 public class FlightReservationFormController {
 
@@ -31,16 +32,18 @@ public class FlightReservationFormController {
 
     private FlightReservationService reservationService = new FlightReservationService();
 
+    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("\\d+");
+    private static final Pattern PHONE_PATTERN = Pattern.compile("\\d{8,15}"); // Phone number must be 8-15 digits
+
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    // Set the flight ID for which the reservation is being made
     public void setVolId(int volId) {
         this.volId = volId;
     }
 
-    // Set the StackPane to load views
     public void setBookingContent(StackPane bookingContent) {
         this.bookingContent = bookingContent;
     }
@@ -48,11 +51,41 @@ public class FlightReservationFormController {
     @FXML
     private void handleReservationSubmit() {
         // Collect data from the form
-        String passengerName = passengerNameField.getText();
-        String passengerEmail = passengerEmailField.getText();
-        String passengerPhone = passengerPhoneField.getText();
-        int numberOfPassengers = Integer.parseInt(numberOfPassengersField.getText());
-        String specialRequests = specialRequestsField.getText();
+        String passengerName = passengerNameField.getText().trim();
+        String passengerEmail = passengerEmailField.getText().trim();
+        String passengerPhone = passengerPhoneField.getText().trim();
+        String numberOfPassengersText = numberOfPassengersField.getText().trim();
+        String specialRequests = specialRequestsField.getText().trim();
+
+        // Validate required fields
+        if (passengerName.isEmpty() || passengerEmail.isEmpty() || passengerPhone.isEmpty() || numberOfPassengersText.isEmpty()) {
+            showAlert("Input Error", "All fields except special requests must be filled in.");
+            return;
+        }
+
+        // Validate email format
+        if (!EMAIL_PATTERN.matcher(passengerEmail).matches()) {
+            showAlert("Input Error", "Please enter a valid email address.");
+            return;
+        }
+
+        // Validate phone number format
+        if (!PHONE_PATTERN.matcher(passengerPhone).matches()) {
+            showAlert("Input Error", "Please enter a valid phone number (8-15 digits).");
+            return;
+        }
+
+        // Validate number of passengers input
+        if (!NUMBER_PATTERN.matcher(numberOfPassengersText).matches()) {
+            showAlert("Input Error", "Please enter a valid positive number of passengers.");
+            return;
+        }
+
+        int numberOfPassengers = Integer.parseInt(numberOfPassengersText);
+        if (numberOfPassengers <= 0) {
+            showAlert("Input Error", "Number of passengers must be greater than zero.");
+            return;
+        }
 
         // Create a new FlightReservation object
         FlightReservation reservation = new FlightReservation();
@@ -63,7 +96,7 @@ public class FlightReservationFormController {
         reservation.setPassengerPhone(passengerPhone);
         reservation.setReservationDate(LocalDateTime.now());
         reservation.setNumberOfPassengers(numberOfPassengers);
-        reservation.setTotalPrice(0.0); // You can calculate the total price based on the flight and number of passengers
+        reservation.setTotalPrice(0.0); // Calculate price based on the flight and passengers
         reservation.setPaymentStatus("Pending");
         reservation.setReservationStatus("Pending");
         reservation.setSpecialRequests(specialRequests);
@@ -72,18 +105,21 @@ public class FlightReservationFormController {
         reservationService.addFlightReservation(reservation);
 
         // Show a success message
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Reservation Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText("Your flight reservation has been successfully submitted!");
-        alert.showAndWait();
+        showAlert("Reservation Confirmation", "Your flight reservation has been successfully submitted!");
 
-        // Navigate back to the previous view
-        // bookingContent.getChildren().clear();
+        // Clear the fields
         passengerNameField.clear();
         passengerEmailField.clear();
         passengerPhoneField.clear();
         numberOfPassengersField.clear();
         specialRequestsField.clear();
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

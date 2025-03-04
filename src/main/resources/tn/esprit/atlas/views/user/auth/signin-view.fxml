@@ -99,7 +99,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </VBox>
-                  <VBox prefHeight="74.0" prefWidth="354.0">
+                  <VBox prefHeight="74.0" prefWidth="354.0" spacing="10.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#handleSignIn" prefHeight="58.0" prefWidth="370.0" style="-fx-background-radius: 10; -fx-background-color: #0162AB;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
                            <font>
@@ -109,9 +109,18 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <!-- Add the Google Sign-In Button -->
+                        <Button mnemonicParsing="false" onAction="#handleGoogleSignIn" prefHeight="58.0" prefWidth="370.0" style="-fx-background-radius: 10; -fx-background-color: #DB4437;" text="Sign in with Google" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                         <HBox alignment="TOP_RIGHT">
                            <children>
-                              <Label fx:id="forgotPasswordLabel" text="Forgot password?" textFill="#0162ab" onMouseClicked="#handleForgotPassword" />
+                              <Label fx:id="forgotPasswordLabel" onMouseClicked="#handleForgotPassword" text="Forgot password?" textFill="#0162ab" />
                            </children>
                            <padding>
                               <Insets right="10.0" top="5.0" />

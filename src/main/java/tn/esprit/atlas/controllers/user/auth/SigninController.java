@@ -1,5 +1,8 @@
 package tn.esprit.atlas.controllers.user.auth;
 
+import com.google.api.client.auth.oauth2.Credential;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -108,6 +111,58 @@ public class SigninController {
         Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/atlas/views/user/auth/forgotpassword-view.fxml"));
         Stage stage = (Stage) forgotPasswordLabel.getScene().getWindow();
         stage.getScene().setRoot(root);
+    }
+
+    // Handle Google Sign-In
+    @FXML
+    private void handleGoogleSignIn(ActionEvent event) {
+        try {
+            Credential credential = GoogleAuthService.getCredentials();
+            if (credential != null) {
+                System.out.println("Google Sign-In successful! Access Token: " + credential.getAccessToken());
+                showAlert("Success", "Google Sign-In successful!");
+
+                // Fetch user info from Google
+                String userInfoJson = GoogleAuthService.fetchUserInfo(credential);
+                System.out.println("User Info: " + userInfoJson);
+
+                // Parse user info and create a User object
+                User user = createUserFromGoogleResponse(userInfoJson);
+
+                // Set the user session
+                UserSession.setUser(user);
+
+                // Redirect to home-view.fxml
+                loadScene("/tn/esprit/atlas/views/home-view.fxml");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to sign in with Google.");
+        }
+    }
+
+    /**
+     * Create a User object from the Google user info JSON response.
+     *
+     * @param userInfoJson The JSON response from Google.
+     * @return A User object.
+     */
+    private User createUserFromGoogleResponse(String userInfoJson) {
+        JsonObject jsonObject = JsonParser.parseString(userInfoJson).getAsJsonObject();
+
+        // Extract fields from the JSON response
+        String email = jsonObject.get("email").getAsString();
+        String name = jsonObject.get("name").getAsString();
+        String pictureUrl = jsonObject.get("picture").getAsString(); // Optional: Profile picture URL
+
+        // Create and return a User object
+        User user = new User();
+        user.setEmail(email);
+        user.setName(name);
+        user.setProfileImage(pictureUrl); // Optional: Set profile picture URL
+        // Set other fields as needed (e.g., role, etc.)
+
+        return user;
     }
 
     private void showAlert(String title, String message) {

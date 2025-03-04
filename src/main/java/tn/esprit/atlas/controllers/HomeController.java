@@ -20,17 +20,21 @@ public class HomeController {
     @FXML
     private Button dashboard_button;
     @FXML
-    private StackPane contentPane; // Add this for dynamic content loading
+    private StackPane contentPane;
     @FXML
-    private HBox overviewButton; // Add this for the overview button
+    private HBox overviewButton;
     @FXML
-    private HBox tripPlannerButton; // Add this for the trip planner button
+    private HBox tripPlannerButton;
     @FXML
-    private HBox bookingButton; // Add this for the booking button
+    private HBox bookingButton;
     @FXML
-    private HBox communityButton; // Add this for the community button
+    private HBox communityButton;
     @FXML
-    private HBox aiGuideButton; // Add this for the AI guide button
+    private HBox aiGuideButton;
+    @FXML
+    private HBox distanceCalculatorButton;
+    @FXML
+    private HBox currencyConvertorButton;
 
     private User user = UserSession.getUser();
 
@@ -58,7 +62,7 @@ public class HomeController {
 
     @FXML
     private void handleGoToTripPlanner() {
-        loadView("/tn/esprit/atlas/views/user/trip-planner-view.fxml");
+        loadView("/tn/esprit/atlas/views/user/tripplanner-view.fxml");
         setActiveButton(tripPlannerButton);
     }
 
@@ -76,8 +80,20 @@ public class HomeController {
 
     @FXML
     private void handleGoToAIGuide() {
-        loadView("/tn/esprit/atlas/views/user/ai-guide-view.fxml");
+        loadView("/tn/esprit/atlas/views/user/aiguide-view.fxml");
         setActiveButton(aiGuideButton);
+    }
+
+    @FXML
+    private void handleGoToDistanceCalculator() {
+        loadView("/tn/esprit/atlas/views/user/distancecalculator-view.fxml");
+        setActiveButton(distanceCalculatorButton);
+    }
+
+    @FXML
+    private void handleGoToCurrencyconvertor() {
+        loadView("/tn/esprit/atlas/views/user/currency-convertor-view.fxml");
+        setActiveButton(currencyConvertorButton);
     }
 
     private void loadView(String fxmlPath) {
@@ -97,6 +113,7 @@ public class HomeController {
         bookingButton.getStyleClass().remove("sidenav-button-active");
         communityButton.getStyleClass().remove("sidenav-button-active");
         aiGuideButton.getStyleClass().remove("sidenav-button-active");
+        distanceCalculatorButton.getStyleClass().remove("sidenav-button-active");
 
         // Add the active class to the clicked button
         activeButton.getStyleClass().add("sidenav-button-active");

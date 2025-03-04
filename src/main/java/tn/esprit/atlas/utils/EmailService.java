@@ -47,4 +47,52 @@ public class EmailService {
             System.err.println("❌ Failed to send email: " + e.getMessage());
         }
     }
+
+    public static void sendEmailWithAttachment(String toEmail, String subject, String body, File attachment) {
+        // Set up mail server properties
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", SMTP_HOST);
+        props.put("mail.smtp.port", SMTP_PORT);
+
+        // Create a session with authentication
+        Session session = Session.getInstance(props, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(EMAIL_USERNAME, EMAIL_PASSWORD);
+            }
+        });
+
+        try {
+            // Create a MimeMessage object
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(EMAIL_USERNAME));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+            message.setSubject(subject);
+
+            // Create the email body
+            MimeBodyPart textPart = new MimeBodyPart();
+            textPart.setText(body);
+
+            // Attach the PDF file
+            MimeBodyPart attachmentPart = new MimeBodyPart();
+            attachmentPart.attachFile(attachment);
+
+            // Combine the text and attachment parts
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(textPart);
+            multipart.addBodyPart(attachmentPart);
+
+            // Set the content of the message
+            message.setContent(multipart);
+
+            // Send the email
+            Transport.send(message);
+            System.out.println("✅ Email sent successfully to: " + toEmail);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("❌ Failed to send email: " + e.getMessage());
+        }
+    }
 }

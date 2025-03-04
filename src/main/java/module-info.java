@@ -1,12 +1,26 @@
 module tn.esprit.atlas.main {
-    requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
     requires mysql.connector.j;
     requires jbcrypt;
     requires com.google.protobuf;
     requires java.mail; // For JavaMail API
     requires org.apache.pdfbox; // Add PDFBox module
+    requires okhttp3; // Add this for OkHttp
+    requires org.json;
+    requires java.desktop;
+
+    // Add Google API client dependencies
+    requires com.google.api.client.extensions.java6.auth;
+    requires com.google.api.client.auth;
+    requires com.google.api.client.extensions.jetty.auth;
+    requires google.api.client;
+    requires com.google.api.client;
+    requires com.google.api.client.json.jackson2;
+    requires jdk.httpserver;
+    requires com.google.gson;
+    requires javafx.web;
+    requires jdk.jsobject;
+    requires java.net.http;
 
     // Export main package
     exports tn.esprit.atlas.main;

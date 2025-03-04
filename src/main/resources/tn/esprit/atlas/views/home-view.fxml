@@ -158,6 +158,30 @@
                         <Insets left="10.0" />
                      </padding>
                   </HBox>
+                  <HBox fx:id="distanceCalculatorButton" alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="185.0" spacing="10.0" styleClass="sidenav-button" onMouseClicked="#handleGoToDistanceCalculator">
+                     <children>
+                        <Label text="Distance Calculator">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="185.0" spacing="10.0" styleClass="sidenav-button" onMouseClicked="#handleGoToCurrencyconvertor">
+                     <children>
+                        <Label text="Currency Convertor">
+                           <font>
+                              <Font name="Currency Convertor" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
                </children>
             </VBox>
          </children></Pane>

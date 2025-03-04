@@ -41,37 +41,25 @@ public class AddFlightController {
 
     @FXML
     private void initialize() {
-        // Populate the airline ComboBox
         List<AirLine> airlines = airLineService.getall();
         addflight_airlineComboBox.getItems().addAll(airlines);
 
-        // Set a cell factory to display only the airline name in the dropdown list
         addflight_airlineComboBox.setCellFactory(param -> new ListCell<AirLine>() {
             @Override
             protected void updateItem(AirLine airline, boolean empty) {
                 super.updateItem(airline, empty);
-                if (empty || airline == null) {
-                    setText(null);
-                } else {
-                    setText(airline.getNom());
-                }
+                setText(empty || airline == null ? null : airline.getNom());
             }
         });
 
-        // Set a button cell to display only the airline name in the selected item area
         addflight_airlineComboBox.setButtonCell(new ListCell<AirLine>() {
             @Override
             protected void updateItem(AirLine airline, boolean empty) {
                 super.updateItem(airline, empty);
-                if (empty || airline == null) {
-                    setText(null);
-                } else {
-                    setText(airline.getNom());
-                }
+                setText(empty || airline == null ? null : airline.getNom());
             }
         });
 
-        // Ensure available seats and price fields only accept numbers
         addflight_availableSeatsField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 addflight_availableSeatsField.setText(newValue.replaceAll("[^\\d]", ""));
@@ -95,15 +83,32 @@ public class AddFlightController {
         String priceText = addflight_priceField.getText().trim();
         AirLine selectedAirline = addflight_airlineComboBox.getValue();
 
-        // Validate required fields
         if (departure.isEmpty() || destination.isEmpty() || departureDate == null || returnDate == null || availableSeatsText.isEmpty() || priceText.isEmpty() || selectedAirline == null) {
             showAlert("Error", "Please fill all fields.");
             return;
         }
 
-        // Parse numeric fields
+        if (departureDate.isBefore(LocalDate.now())) {
+            showAlert("Error", "Departure date cannot be in the past.");
+            return;
+        }
+
+        if (returnDate.isBefore(departureDate)) {
+            showAlert("Error", "Return date must be after the departure date.");
+            return;
+        }
+
         int availableSeats = Integer.parseInt(availableSeatsText);
+        if (availableSeats <= 0) {
+            showAlert("Error", "Number of available seats must be greater than zero.");
+            return;
+        }
+
         double price = Double.parseDouble(priceText);
+        if (price <= 0) {
+            showAlert("Error", "Price must be greater than zero.");
+            return;
+        }
 
         Flight flight = new Flight(departure, destination, departureDate, returnDate, availableSeats, price, selectedAirline.getAirline_id());
         flightService.addFlight(flight);
@@ -114,7 +119,7 @@ public class AddFlightController {
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
