@@ -189,19 +189,20 @@ public class ViewHotelsClientSideController {
         HBox actionBox = new HBox(10);
         actionBox.getStyleClass().add("action-icons");
 
-        // Favorite Button
-        Button favoriteButton = createIconButton("/tn/esprit/atlas/assets/icons/save.png");
+        // Favorite Button - standard size
+        Button favoriteButton = createIconButton("/tn/esprit/atlas/assets/icons/save.png", 22, 28);
         favoriteButton.setOnAction(_ -> handleFavoriteHotel(hotel));
 
-        // Add Review Button
-        Button addReviewButton = createIconButton("/tn/esprit/atlas/assets/icons/plusIcon.png");
+        // Add Review Button - standard size
+        Button addReviewButton = createIconButton("/tn/esprit/atlas/assets/icons/plusIcon.png", 22, 28);
         addReviewButton.setOnAction(_ -> handleAddReview(hotel));
 
-        // View Reviews Button (New Icon)
-        Button viewReviewsButton = createIconButton("/tn/esprit/atlas/assets/icons/star-icon.png"); // Use your review icon
-        viewReviewsButton.setOnAction(_ -> handleViewReviews(hotel));  // This will navigate to the review page
+        // Star Icon Button - larger width, smaller height
+        Button viewReviewsButton = createIconButton("/tn/esprit/atlas/assets/icons/star-icon.png", 28, 28);
+        viewReviewsButton.setOnAction(_ -> handleViewReviews(hotel));
 
-        actionBox.getChildren().addAll(favoriteButton, addReviewButton, viewReviewsButton);  // Add viewReviewsButton to the actionBox
+        actionBox.getChildren().addAll(favoriteButton, addReviewButton, viewReviewsButton);
+
 
         // Header Section
         HBox headerBox = new HBox(15);
@@ -279,14 +280,16 @@ public class ViewHotelsClientSideController {
         }
     }
 
-    private Button createIconButton(String iconPath) {
+    private Button createIconButton(String iconPath, double width, double height) {
         Button button = new Button();
         try {
             ImageView icon = new ImageView(new Image(
                     Objects.requireNonNull(getClass().getResourceAsStream(iconPath))
             ));
-            icon.setFitWidth(22); // Slightly wider to match the height
-            icon.setFitHeight(28); // Increased height for the icon
+            // Set custom dimensions based on parameters
+            icon.setFitWidth(width);
+            icon.setFitHeight(height);
+            icon.setPreserveRatio(true); // Maintain aspect ratio
             button.setGraphic(icon);
         } catch (Exception e) {
             System.err.println("Error loading icon: " + iconPath);

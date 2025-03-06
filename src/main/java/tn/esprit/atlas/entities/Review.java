@@ -6,21 +6,21 @@ public class Review {
     private String comment;
     private float rating;
     private int hotelId;
-    private User user; // Reference to the User entity
+    private int userId; // Add this field to store the user ID
+    private User user; // Reference to the User entity (optional)
 
     // Default constructor
     public Review() {
     }
 
     // Parameterized constructor
-    public Review(int id, String comment, float rating, User user, int hotelId) {
+    public Review(int id, String comment, float rating, int userId, int hotelId) {
         this.id = id;
         this.comment = comment;
         this.rating = rating;
-        this.user = user;  // Set the user object directly
+        this.userId = userId; // Set the user ID directly
         this.hotelId = hotelId;
     }
-
 
     // Getters and Setters
     public int getId() {
@@ -51,15 +51,9 @@ public class Review {
         return rating;
     }
 
-
     public void setRating(float rating) {
         this.rating = rating;
     }
-
-    public User getUser() { return user; } // Getter for User
-    public void setUser(User user) { this.user = user; } // Setter for User
-
-
 
     public int getHotelId() {
         return hotelId;
@@ -69,6 +63,24 @@ public class Review {
         this.hotelId = hotelId;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+        if (user != null) {
+            this.userId = user.getId(); // Sync the user ID with the User object
+        }
+    }
 
     @Override
     public String toString() {
@@ -78,6 +90,8 @@ public class Review {
                 ", comment='" + comment + '\'' +
                 ", rating=" + rating +
                 ", hotelId=" + hotelId +
+                ", userId=" + userId +
+                ", user=" + (user != null ? user.getId() : "null") + // Include user ID in toString for debugging
                 '}';
     }
 }

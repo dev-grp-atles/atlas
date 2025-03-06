@@ -2,6 +2,7 @@ package tn.esprit.atlas.controllers.hotel;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -64,6 +65,8 @@ public class HotelReviewsController {
         private final Label reviewRating = new Label();
         private final Button editButton = createIconButton("/tn/esprit/atlas/assets/icons/editIcon.png");
         private final Button deleteButton = createIconButton("/tn/esprit/atlas/assets/icons/deleteIcon.png");
+        private final ImageView profileImage = new ImageView();
+        private final ImageView reviewStars = new ImageView(); // Added stars image
         private final Review review;
 
         public ReviewItem(Review review) {
@@ -73,10 +76,25 @@ public class HotelReviewsController {
             reviewComment.setText(review.getComment());
             reviewRating.setText("Rating: " + review.getRating() + " stars");
 
+            // Set a default profile image
+            Image defaultProfileImage = new Image(getClass().getResourceAsStream("/tn/esprit/atlas/assets/icons/defaultProfile.png"));
+            profileImage.setImage(defaultProfileImage);
+            profileImage.setFitWidth(50);
+            profileImage.setFitHeight(50);
+            profileImage.setPreserveRatio(true);
+
+            // Set the review stars image
+            Image starsImage = new Image(getClass().getResourceAsStream("/tn/esprit/atlas/assets/icons/reviewStars.png"));
+            reviewStars.setImage(starsImage);
+            reviewStars.setFitWidth(100); // Adjust width as needed
+            reviewStars.setFitHeight(20); // Adjust height as needed
+            reviewStars.setPreserveRatio(true);
+
             // Style classes
             reviewerName.getStyleClass().add("reviewer-name");
             reviewComment.getStyleClass().add("review-comment");
             reviewRating.getStyleClass().add("review-rating");
+            reviewStars.getStyleClass().add("stars-image"); // Add CSS class for stars
 
             // Button actions
             editButton.setOnAction(event -> editReview());
@@ -87,11 +105,19 @@ public class HotelReviewsController {
             HBox.setHgrow(buttonContainer, Priority.ALWAYS);
             buttonContainer.setStyle("-fx-alignment: top-right;");
 
+            // Create a container for the profile image and reviewer name
+            HBox profileContainer = new HBox(10, profileImage, reviewerName);
+            profileContainer.setAlignment(Pos.CENTER_LEFT);
+
+            // Create a container for the stars image
+            HBox starsContainer = new HBox(reviewStars);
+            starsContainer.setAlignment(Pos.TOP_LEFT);
+
             // Layout
             this.setSpacing(10);
             this.setPadding(new Insets(15));
             this.getStyleClass().add("review-item");
-            this.getChildren().addAll(buttonContainer, reviewerName, reviewComment, reviewRating);
+            this.getChildren().addAll(buttonContainer, starsContainer, profileContainer, reviewComment, reviewRating);
         }
 
         private Button createIconButton(String iconPath) {

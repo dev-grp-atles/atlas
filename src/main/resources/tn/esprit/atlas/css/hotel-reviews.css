@@ -28,9 +28,9 @@
     -fx-background-radius: 10px; /* Rounded corners */
     -fx-padding: 25px; /* Increase padding for a spacious look */
     -fx-spacing: 15px; /* Increase spacing between elements inside the card */
-    -fx-border-color: #e0e0e0; /* Light gray border */
-    -fx-border-radius: 10px; /* Rounded corners */
-    -fx-border-width: 0.5px; /* Make the border thinner */
+
+
+
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 10, 0, 0); /* Subtle shadow for depth */
     -fx-min-width: 600px; /* Set a minimum width for the card */
     -fx-max-width: 800px; /* Set a maximum width for the card */
@@ -73,4 +73,57 @@
     -fx-spacing: 20px; /* Add space between cards */
     -fx-padding: 20px; /* Add padding around the container */
     -fx-alignment: center; /* Center the cards horizontally */
+}
+
+
+/* Profile Image Styles */
+.profile-image {
+    -fx-border-radius: 20px; /* Rounded corners */
+    -fx-border-color: #e0e0e0; /* Light gray border */
+    -fx-border-width: 1px; /* Border width */
+}
+
+
+/* Updated Review Item Styles */
+.review-item {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-padding: 25px;
+    -fx-spacing: 15px;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 0);
+    -fx-min-width: 600px;
+    -fx-max-width: 800px;
+}
+
+.review-item:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 20, 0, 0, 0);
+}
+
+/* Updated Reviewer Name Style */
+.reviewer-name {
+    -fx-font-size: 16px;
+    -fx-text-fill: #1e3a8a;
+    -fx-font-weight: bold;
+    -fx-alignment: center-right;
+}
+
+/* New Reviewer Info Container */
+.reviewer-info-container {
+    -fx-alignment: center-right;
+    -fx-spacing: 10px;
+}
+
+/* Updated Comment Style */
+.review-comment {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666666;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 4px;
+}
+
+
+/* Stars Image Style */
+.stars-image {
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
 }
